@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Presentación</title>
+  <meta name="description" content="Nos propusimos trasncribir al lenguaje R y Python los apéndices del libro Pobreza y Desigualdad en América Latina de Gasparini, Cicowiez y Sosa Escudero que originalmente fueron escritos para Stata." />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Presentación" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="/portada_libro_cover.png" />
+  <meta property="og:description" content="Nos propusimos trasncribir al lenguaje R y Python los apéndices del libro Pobreza y Desigualdad en América Latina de Gasparini, Cicowiez y Sosa Escudero que originalmente fueron escritos para Stata." />
+  <meta name="github-repo" content="crisbonavida/PyD_codes" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Presentación" />
+  
+  <meta name="twitter:description" content="Nos propusimos trasncribir al lenguaje R y Python los apéndices del libro Pobreza y Desigualdad en América Latina de Gasparini, Cicowiez y Sosa Escudero que originalmente fueron escritos para Stata." />
+  <meta name="twitter:image" content="/portada_libro_cover.png" />
+
+
+
+<meta name="date" content="2022-02-12" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Bienvenidos</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#sobre-este-proyecto"><i class="fa fa-check"></i>Sobre este Proyecto:</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#el-libro"><i class="fa fa-check"></i>El Libro</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html"><i class="fa fa-check"></i><b>2</b> “Apéndices del Libro Pobreza y Desigualdad en R”</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#capítulo-3"><i class="fa fa-check"></i><b>2.1</b> - Capítulo 3</a></li>
+<li class="chapter" data-level="2.2" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#set-inicial"><i class="fa fa-check"></i><b>2.2</b> Set Inicial</a></li>
+<li class="chapter" data-level="2.3" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cociente-de-cuantiles"><i class="fa fa-check"></i><b>2.3</b> Cociente de cuantiles</a></li>
+<li class="chapter" data-level="2.4" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#replicar-programa-ratq51"><i class="fa fa-check"></i><b>2.4</b> Replicar programa ratq51</a></li>
+<li class="chapter" data-level="2.5" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#replicar-programa-gcuan"><i class="fa fa-check"></i><b>2.5</b> Replicar programa gcuan</a></li>
+<li class="chapter" data-level="2.6" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#tamaño-de-los-hogares"><i class="fa fa-check"></i><b>2.6</b> Tamaño de los hogares</a></li>
+<li class="chapter" data-level="2.7" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#la-distribución-intrahogar"><i class="fa fa-check"></i><b>2.7</b> La distribución intrahogar</a></li>
+<li class="chapter" data-level="2.8" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#empleo-de-ponderadores"><i class="fa fa-check"></i><b>2.8</b> Empleo de ponderadores</a></li>
+<li class="chapter" data-level="2.9" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#diseño-muestral"><i class="fa fa-check"></i><b>2.9</b> Diseño muestraL</a></li>
+<li class="chapter" data-level="2.10" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#fuentes-de-ingreso"><i class="fa fa-check"></i><b>2.10</b> Fuentes de ingreso</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r-1.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r-1.html"><i class="fa fa-check"></i><b>3</b> “Apéndices del Libro Pobreza y Desigualdad en R”</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r-1.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r-1.html#capítulo-4"><i class="fa fa-check"></i><b>3.1</b> - Capítulo 4</a></li>
+<li class="chapter" data-level="3.2" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r-1.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r-1.html#set-inicial-1"><i class="fa fa-check"></i><b>3.2</b> Set Inicial</a></li>
+<li class="chapter" data-level="3.3" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r-1.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r-1.html#indicador-fgt"><i class="fa fa-check"></i><b>3.3</b> Indicador FGT</a></li>
+<li class="chapter" data-level="3.4" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r-1.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r-1.html#computar-fgt"><i class="fa fa-check"></i><b>3.4</b> Computar FGT</a></li>
+<li class="chapter" data-level="3.5" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r-1.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r-1.html#pobreza-relativa"><i class="fa fa-check"></i><b>3.5</b> Pobreza relativa</a></li>
+<li class="chapter" data-level="3.6" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r-1.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r-1.html#descompoisición-regional-de-la-pobreza"><i class="fa fa-check"></i><b>3.6</b> Descompoisición regional de la pobreza</a></li>
+<li class="chapter" data-level="3.7" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r-1.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r-1.html#pobreza-según-consumo-e-ingreso"><i class="fa fa-check"></i><b>3.7</b> Pobreza según consumo e ingreso</a></li>
+<li class="chapter" data-level="3.8" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r-1.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r-1.html#pobreza-por-edad"><i class="fa fa-check"></i><b>3.8</b> Pobreza por edad</a></li>
+<li class="chapter" data-level="3.9" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r-1.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r-1.html#significatividad-estadistica"><i class="fa fa-check"></i><b>3.9</b> Significatividad estadistica</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r-2.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r-2.html"><i class="fa fa-check"></i><b>4</b> “Apéndices del Libro Pobreza y Desigualdad en R”</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r-2.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r-2.html#capítulo-5"><i class="fa fa-check"></i><b>4.1</b> - Capítulo 5</a></li>
+<li class="chapter" data-level="4.2" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r-2.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r-2.html#set-inicial-2"><i class="fa fa-check"></i><b>4.2</b> Set Inicial</a></li>
+<li class="chapter" data-level="4.3" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r-2.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r-2.html#pobreza-multidimensional"><i class="fa fa-check"></i><b>4.3</b> Pobreza Multidimensional</a></li>
+<li class="chapter" data-level="4.4" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r-2.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r-2.html#indice-bourguignon-y-chakravarty-bc---pobreza-multidimensional"><i class="fa fa-check"></i><b>4.4</b> Indice Bourguignon y Chakravarty (BC) - Pobreza Multidimensional</a></li>
+<li class="chapter" data-level="4.5" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r-2.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r-2.html#indice-alkire-y-foster-af---pobreza-multidimensional"><i class="fa fa-check"></i><b>4.5</b> Indice Alkire y Foster (AF) - Pobreza Multidimensional</a></li>
+<li class="chapter" data-level="4.6" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r-2.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r-2.html#perfiles-de-pobreza"><i class="fa fa-check"></i><b>4.6</b> Perfiles de Pobreza</a></li>
+<li class="chapter" data-level="4.7" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r-2.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r-2.html#perfiles-de-pobreza-condicionados"><i class="fa fa-check"></i><b>4.7</b> Perfiles de Pobreza Condicionados</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Presentación</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Presentación</h1>
+<p class="date"><em>2022-02-12</em></p>
+</div>
+<div id="bienvenidos" class="section level1" number="1">
+<h1><span class="header-section-number">Chapter 1</span> Bienvenidos</h1>
+<div id="sobre-este-proyecto" class="section level2 unnumbered">
+<h2>Sobre este Proyecto:</h2>
+<p>Nos propusimos trasncribir al lenguaje R y Python los apéndices del libro “Pobreza y Desigualdad en América Latina” de Gasparini, Cicowiez y Sosa Escudero que originalmente fueron escritos para Stata y que permitían replicar los datos e información presentados por los autores en el texto. Cada capítulo consta de un apéndice con códigos que permiten llevar a la práctica los conceptos desarrollados. Aquí los traducimos a nuevos lenguajes y los presentamos en un formato amigable para permitir que un público más amplio y de diversas disciplinas pueda aprovecharlos.</p>
+<p>El objetivo de este mini-proyecto no es otro que poner a disposición de un público más amplio estas herramientas útiles y mantener actualizado un material único que permite adentrarse y trabajar sobre la temática de pobreza y desigualdad. Es por eso que este material es de carácter complementario a las explicaciones y detalles conceptuales que se presentan en el libro de texto y los apéndices.</p>
+</div>
+<div id="el-libro" class="section level2 unnumbered">
+<h2>El Libro</h2>
+<p>Si esta es la primera vez que te encontrás con este libro, antes de empezar con los códigos, dejanos presentartelo.</p>
+<p>El propósito del libro es ayudar al lector interesado en América Latina a que recorra el arduo camino entre los datos y el reporte de resultados rigurosos que puedan contribuir al debate sobre la pobreza y la desigualdad en America Latina. El volumen poner al alcance del lector un conjunto de instrumentos que lo motiven hacia la investigación empírica, y que le permitan producir resultados de la manera más rigurosa posible, para así contribuir a los objetivos últimos de explicar y cambiar la realidad social de la región. Las discusiones conceptuales y analíticas son ilustradas con ejemplos concretos construidos con datos de los países de la región.</p>
+<p><img src="portada_libro.png" width="80%" style="display: block; margin: auto;" /></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

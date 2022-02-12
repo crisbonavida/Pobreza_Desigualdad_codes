@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 “Apéndices del Libro Pobreza y Desigualdad en R” | Presentación</title>
+  <meta name="description" content="Nos propusimos trasncribir al lenguaje R y Python los apéndices del libro Pobreza y Desigualdad en América Latina de Gasparini, Cicowiez y Sosa Escudero que originalmente fueron escritos para Stata." />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 “Apéndices del Libro Pobreza y Desigualdad en R” | Presentación" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="/portada_libro_cover.png" />
+  <meta property="og:description" content="Nos propusimos trasncribir al lenguaje R y Python los apéndices del libro Pobreza y Desigualdad en América Latina de Gasparini, Cicowiez y Sosa Escudero que originalmente fueron escritos para Stata." />
+  <meta name="github-repo" content="crisbonavida/PyD_codes" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 “Apéndices del Libro Pobreza y Desigualdad en R” | Presentación" />
+  
+  <meta name="twitter:description" content="Nos propusimos trasncribir al lenguaje R y Python los apéndices del libro Pobreza y Desigualdad en América Latina de Gasparini, Cicowiez y Sosa Escudero que originalmente fueron escritos para Stata." />
+  <meta name="twitter:image" content="/portada_libro_cover.png" />
+
+
+
+<meta name="date" content="2022-02-12" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="apéndices-del-libro-pobreza-y-desigualdad-en-r-1.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Bienvenidos</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#sobre-este-proyecto"><i class="fa fa-check"></i>Sobre este Proyecto:</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#el-libro"><i class="fa fa-check"></i>El Libro</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html"><i class="fa fa-check"></i><b>2</b> “Apéndices del Libro Pobreza y Desigualdad en R”</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#capítulo-3"><i class="fa fa-check"></i><b>2.1</b> - Capítulo 3</a></li>
+<li class="chapter" data-level="2.2" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#set-inicial"><i class="fa fa-check"></i><b>2.2</b> Set Inicial</a></li>
+<li class="chapter" data-level="2.3" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cociente-de-cuantiles"><i class="fa fa-check"></i><b>2.3</b> Cociente de cuantiles</a></li>
+<li class="chapter" data-level="2.4" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#replicar-programa-ratq51"><i class="fa fa-check"></i><b>2.4</b> Replicar programa ratq51</a></li>
+<li class="chapter" data-level="2.5" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#replicar-programa-gcuan"><i class="fa fa-check"></i><b>2.5</b> Replicar programa gcuan</a></li>
+<li class="chapter" data-level="2.6" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#tamaño-de-los-hogares"><i class="fa fa-check"></i><b>2.6</b> Tamaño de los hogares</a></li>
+<li class="chapter" data-level="2.7" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#la-distribución-intrahogar"><i class="fa fa-check"></i><b>2.7</b> La distribución intrahogar</a></li>
+<li class="chapter" data-level="2.8" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#empleo-de-ponderadores"><i class="fa fa-check"></i><b>2.8</b> Empleo de ponderadores</a></li>
+<li class="chapter" data-level="2.9" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#diseño-muestral"><i class="fa fa-check"></i><b>2.9</b> Diseño muestraL</a></li>
+<li class="chapter" data-level="2.10" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#fuentes-de-ingreso"><i class="fa fa-check"></i><b>2.10</b> Fuentes de ingreso</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r-1.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r-1.html"><i class="fa fa-check"></i><b>3</b> “Apéndices del Libro Pobreza y Desigualdad en R”</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r-1.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r-1.html#capítulo-4"><i class="fa fa-check"></i><b>3.1</b> - Capítulo 4</a></li>
+<li class="chapter" data-level="3.2" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r-1.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r-1.html#set-inicial-1"><i class="fa fa-check"></i><b>3.2</b> Set Inicial</a></li>
+<li class="chapter" data-level="3.3" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r-1.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r-1.html#indicador-fgt"><i class="fa fa-check"></i><b>3.3</b> Indicador FGT</a></li>
+<li class="chapter" data-level="3.4" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r-1.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r-1.html#computar-fgt"><i class="fa fa-check"></i><b>3.4</b> Computar FGT</a></li>
+<li class="chapter" data-level="3.5" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r-1.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r-1.html#pobreza-relativa"><i class="fa fa-check"></i><b>3.5</b> Pobreza relativa</a></li>
+<li class="chapter" data-level="3.6" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r-1.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r-1.html#descompoisición-regional-de-la-pobreza"><i class="fa fa-check"></i><b>3.6</b> Descompoisición regional de la pobreza</a></li>
+<li class="chapter" data-level="3.7" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r-1.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r-1.html#pobreza-según-consumo-e-ingreso"><i class="fa fa-check"></i><b>3.7</b> Pobreza según consumo e ingreso</a></li>
+<li class="chapter" data-level="3.8" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r-1.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r-1.html#pobreza-por-edad"><i class="fa fa-check"></i><b>3.8</b> Pobreza por edad</a></li>
+<li class="chapter" data-level="3.9" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r-1.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r-1.html#significatividad-estadistica"><i class="fa fa-check"></i><b>3.9</b> Significatividad estadistica</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r-2.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r-2.html"><i class="fa fa-check"></i><b>4</b> “Apéndices del Libro Pobreza y Desigualdad en R”</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r-2.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r-2.html#capítulo-5"><i class="fa fa-check"></i><b>4.1</b> - Capítulo 5</a></li>
+<li class="chapter" data-level="4.2" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r-2.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r-2.html#set-inicial-2"><i class="fa fa-check"></i><b>4.2</b> Set Inicial</a></li>
+<li class="chapter" data-level="4.3" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r-2.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r-2.html#pobreza-multidimensional"><i class="fa fa-check"></i><b>4.3</b> Pobreza Multidimensional</a></li>
+<li class="chapter" data-level="4.4" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r-2.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r-2.html#indice-bourguignon-y-chakravarty-bc---pobreza-multidimensional"><i class="fa fa-check"></i><b>4.4</b> Indice Bourguignon y Chakravarty (BC) - Pobreza Multidimensional</a></li>
+<li class="chapter" data-level="4.5" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r-2.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r-2.html#indice-alkire-y-foster-af---pobreza-multidimensional"><i class="fa fa-check"></i><b>4.5</b> Indice Alkire y Foster (AF) - Pobreza Multidimensional</a></li>
+<li class="chapter" data-level="4.6" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r-2.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r-2.html#perfiles-de-pobreza"><i class="fa fa-check"></i><b>4.6</b> Perfiles de Pobreza</a></li>
+<li class="chapter" data-level="4.7" data-path="apéndices-del-libro-pobreza-y-desigualdad-en-r-2.html"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r-2.html#perfiles-de-pobreza-condicionados"><i class="fa fa-check"></i><b>4.7</b> Perfiles de Pobreza Condicionados</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Presentación</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="apéndices-del-libro-pobreza-y-desigualdad-en-r" class="section level1" number="2">
+<h1><span class="header-section-number">Chapter 2</span> “Apéndices del Libro Pobreza y Desigualdad en R”</h1>
+<div id="capítulo-3" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> - Capítulo 3</h2>
+<p>
+ 
+</p>
+<div id="escrito-por-cristian-bonavida" class="section level4 unnumbered">
+<h4>Escrito por: Cristian Bonavida</h4>
+</div>
+<div id="last-update-0272021" class="section level4 unnumbered">
+<h4>Last Update: 02/7/2021</h4>
+<p>
+ 
+</p>
+<p><em>Códigos escritos en base a los apéndices del libro “Pobreza y Desigualdad en América Latina” de Gasparini, Cicowiez y Sosa Escudero. El objeto de este material es reproducir la rutina de códigos para STATA presentada en el libro al lenguaje R. Este material es solo de caracter complementario a las explicaciones y detalles conceptuales que se presentan en el libro de texto y los apéndices</em></p>
+<p>
+ 
+</p>
+</div>
+</div>
+<div id="set-inicial" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Set Inicial</h2>
+<p>Cargo las librerias, limpio environment, defino el path y atajo para función paste</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-2"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># Data wrangling</span></span>
+<span id="cb1-3"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidygraph)</span>
+<span id="cb1-4"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-5"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-6"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(foreign)</span>
+<span id="cb1-7"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(TAM)</span>
+<span id="cb1-8"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>())    <span class="co">#empiezo limpiando todo </span></span>
+<span id="cb1-10"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;%+%&quot;</span> <span class="ot">&lt;-</span> <span class="cf">function</span>(x,y) <span class="fu">paste</span>(x,y,<span class="at">sep =</span> <span class="st">&quot;&quot;</span>)      <span class="co"># defino un shorcut parar concat de texto</span></span>
+<span id="cb1-12"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb1-12" aria-hidden="true" tabindex="-1"></a>data_dir <span class="ot">&lt;-</span> <span class="st">&quot;C:/Users/HP/Desktop/CEDLAS - UNLP/Apendices en R/Material libro/encuestas-cedlas/Encuestas/&quot;</span>  <span class="co">#seteo directorio </span></span></code></pre></div>
+<p>
+ 
+</p>
+</div>
+<div id="cociente-de-cuantiles" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Cociente de cuantiles</h2>
+<p>###- (pág. 151-152)</p>
+<p>El siguiente bloque de código puede utilizarse para computar el cociente de quintiles extremos presentado en el cuadro 3.2 del texto del libro. Para iniciar importo la base desde el formato STATA utilizando de la librería <code>foreing</code> el comando <code>read.dta</code>. y hago una limpieza de la base. Luego ordeno las observaciones según la variable “ipcf,” filtro ingresos nulos y por último computo el porcentaje acumulado por población.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#cargo base</span></span>
+<span id="cb2-2"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb2-2" aria-hidden="true" tabindex="-1"></a>mex06 <span class="ot">&lt;-</span> <span class="fu">read.dta</span>(data_dir <span class="sc">%+%</span> <span class="st">&quot;Mex/2006/bases/mex06_cedlas.dta&quot;</span>)  </span>
+<span id="cb2-3"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#elimino observaciones incoherentes o con ingreso missing</span></span>
+<span id="cb2-5"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb2-5" aria-hidden="true" tabindex="-1"></a>mex06 <span class="ot">&lt;-</span> mex06 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(cohh<span class="sc">==</span><span class="dv">1</span>, <span class="sc">!</span><span class="fu">is.na</span>(ipcf)) </span>
+<span id="cb2-6"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#ordenar por ipcf, filtrar ingresos nulos y computar % de población</span></span>
+<span id="cb2-8"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb2-8" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span>  mex06  <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(ipcf) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(ipcf<span class="sc">&gt;</span><span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-9"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb2-9" aria-hidden="true" tabindex="-1"></a>       <span class="fu">mutate</span>(<span class="at">shrpop=</span><span class="fu">cumsum</span>(pondera)<span class="sc">/</span><span class="fu">sum</span>(pondera))</span></code></pre></div>
+<p>A partir de allí genero la variable quintil en el dataframe, que vale 1 para el 20% más pobre de la población, 2 para el
+20% siguiente, y así sucesivamente. El comando <code>ifelse</code> permite evaluar el porcentaje acumulado de población en cada observación y le otorga el valor del quintil correspondiente en caso afirmativo, o deja la variable inalterada en caso negativo.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb3-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>quintil <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb3-2"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb3-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>quintil <span class="ot">=</span> <span class="fu">ifelse</span>(df<span class="sc">$</span>shrpop<span class="sc">&lt;=</span><span class="fl">0.2</span>, <span class="dv">1</span>, df<span class="sc">$</span>quintil)</span>
+<span id="cb3-3"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb3-3" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>quintil <span class="ot">=</span> <span class="fu">ifelse</span>(df<span class="sc">$</span>shrpop<span class="sc">&gt;</span> <span class="fl">0.2</span> <span class="sc">&amp;</span> df<span class="sc">$</span>shrpop<span class="sc">&lt;=</span> <span class="fl">0.4</span>, <span class="dv">2</span>, df<span class="sc">$</span>quintil)</span>
+<span id="cb3-4"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb3-4" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>quintil <span class="ot">=</span> <span class="fu">ifelse</span>(df<span class="sc">$</span>shrpop<span class="sc">&gt;</span> <span class="fl">0.4</span> <span class="sc">&amp;</span> df<span class="sc">$</span>shrpop<span class="sc">&lt;=</span> <span class="fl">0.6</span>, <span class="dv">3</span>, df<span class="sc">$</span>quintil)</span>
+<span id="cb3-5"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb3-5" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>quintil <span class="ot">=</span> <span class="fu">ifelse</span>(df<span class="sc">$</span>shrpop<span class="sc">&gt;</span> <span class="fl">0.6</span> <span class="sc">&amp;</span> df<span class="sc">$</span>shrpop<span class="sc">&lt;=</span> <span class="fl">0.8</span>, <span class="dv">4</span>, df<span class="sc">$</span>quintil)</span>
+<span id="cb3-6"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb3-6" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>quintil <span class="ot">=</span> <span class="fu">ifelse</span>(df<span class="sc">$</span>shrpop<span class="sc">&gt;</span> <span class="fl">0.8</span> <span class="sc">&amp;</span> df<span class="sc">$</span>shrpop<span class="sc">&lt;=</span> <span class="dv">1</span>,   <span class="dv">5</span>, df<span class="sc">$</span>quintil)</span></code></pre></div>
+<p>Para terminar computamos el ingreso promedio ponderado para las observaciones del quintil 1 y 5. Aquí la expresión <em><code>[df$quintil==1]</code></em> actúa como filtro. De esta manera el comando le pide a R considerar los valores de la variable ipcf y pondera que corresponden a observaciones que cumplen la condición, en este caso de pertenecer al quintil 1. Por último calculamos el ratio de estos dos valores e imprimimos el resultado. Para mayor claridad siempre se recomienda redondear los valores a imprimir, utilizando el comando <code>round</code>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb4-1" aria-hidden="true" tabindex="-1"></a>ipcf_q1 <span class="ot">=</span> <span class="fu">weighted.mean</span>(df<span class="sc">$</span>ipcf[df<span class="sc">$</span>quintil<span class="sc">==</span><span class="dv">1</span>], df<span class="sc">$</span>pondera[df<span class="sc">$</span>quintil<span class="sc">==</span><span class="dv">1</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-2"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb4-2" aria-hidden="true" tabindex="-1"></a>ipcf_q5 <span class="ot">=</span> <span class="fu">weighted.mean</span>(df<span class="sc">$</span>ipcf[df<span class="sc">$</span>quintil<span class="sc">==</span><span class="dv">5</span>], df<span class="sc">$</span>pondera[df<span class="sc">$</span>quintil<span class="sc">==</span><span class="dv">5</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-3"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb4-3" aria-hidden="true" tabindex="-1"></a>ratq51 <span class="ot">=</span> ipcf_q5<span class="sc">/</span>ipcf_q1</span>
+<span id="cb4-4"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">&quot;ratq51 = &quot;</span>, ratq51)</span></code></pre></div>
+<pre><code>## [1] &quot;ratq51 =  13.4341399453849&quot;</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">&quot;ratq51 = &quot;</span>, <span class="fu">round</span>(ratq51, <span class="at">digits =</span> <span class="dv">2</span>))</span></code></pre></div>
+<pre><code>## [1] &quot;ratq51 =  13.43&quot;</code></pre>
+<p>
+ 
+</p>
+</div>
+<div id="replicar-programa-ratq51" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Replicar programa ratq51</h2>
+<p>###- (pág. 153-154)</p>
+<p>En la siguientes líneas de código proponemos escribir una función que permite computar el cociente de quintiles extremos muy fácilmente; simplemente se lo invoca indicando la base de datos, la variable de la que se quieren computar quintiles, y opcionalmente la variable de ponderación y la condición <code>if</code>. Una función en R es similar a lo que en STATA llamaríamos un programa, es decir un conjunto de instrucciones que se guardan en la memoria y que pueden ser fácilmente replicables en distintas bases de datos y para distintas variables.</p>
+<p>La función puede resultar un poco extensa por lo que aquí enumeraremos las lineas para mayor claridad.
+Para iniciar la función, en la primer línea debemos especificar sus argumentos, que en este caso son: un dataframe (objeto “df”), una variable (objeto “varname”) y opcionalmente una variable de ponderación y una condición (objetos “var_pondera” y “condicion”). Para llamar a esta función entonces siempre tendremos que, como mínimo, especificar los dos objetos iniciales.</p>
+<p>La siguiente línea se asegura que la base de datos “df” que hemos especificado siempre sea almacenado como un objeto del tipo <em>data frame</em> en un objeto llamado “aux” que creamos en el entorno de la función. La noción de entorno es importante para comprender el resto del código. A los fines de nuestro código diremos que un entorno es un espacio determinando en el que se almacenan distintas clases de objetos que R acepta y, en el cual estos tienen un significado, un valor o simplemente existen como objetos. En R pueden “coexistir” environmets distintos, a los cuales se le asigna un nivel o prioridad<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. Volviendo a nuestro código, cuando a R le especificamos, por ejemplo, el objeto “varname,” R buscará si este está definido en el <em>entorno o environment</em> general del programa como prioridad, y no en el entorno o espacio de la función, que más acotado que el anterior. Por lo tanto aquí necesitamos evitar este comportamiento y lograr que R no busque evaluar al objeto por fuera del ambito de la función. El comando <code>substitute</code> le indica a R que considere al objeto con su nombre literal. Así cuando “varname” sea definida, por ejemplo, como la variable “ipcf,” R no buscará a qué es equivalente el objeto “ipcf” en su memoria sino que tomará el nombre dado. Luego la función <code>eval</code> le indica a R que ese nombre debe evaluarlo, es decir buscarlo o identificarlo, dentro del dataframe “aux” que hemos definido en nuestra función. De esta forma nos aseguramos de que R considera correctamente las variables dentro de la base de datos que estamos especificando, y por lo tanto que nuestros argumentos sean válidos dentro del ámbito de la función. Es decir que no entren en conflicto con otros objetos similares o definidos previamente en el environment mas amplio del programa.</p>
+<p>Utilizando estas dos funciones, en la línea 9 almacenamos todos los valores de ipcf a partir de los cuales luego ordenamos la base en la siguiente línea. Como la condición es un argumento opcional debemos evaluar si esta fue indicada, en términos de R si no es un objeto nulo (línea 15). Si no lo es, luego en la línea 17 verificamos que esté correctamente especificada, escribiendo una sentencia que será VERDADERA cuando al evaluar de forma silenciosa la condición, de como resultado un error <em>(“try-error”)</em>. En ese caso entonces se imprime un mensaje que ayuda a identificar donde se encuentra el problema. En caso de que el resultado no sea del tipo error, filtramos el objeto “aux” de acuerdo a la especificación dada. Para ellos nos valemos de la función <code>parse</code> que convierte la condición que era del tipo <em>“string”</em> al tipo <em>“expression”</em>, lo que la vuelve compatible de ser evaluada como sentencia, nuevamente con la función <code>eval</code> dentro de <code>filter</code>.</p>
+<p>De forma similar procedemos con el ponderador en la línea 28. Si no fue especificado (objeto nulo), entonces vale 1 para todas las observaciones, a partir de crear una variable que llamamos “w” que pasará a ser nuestra variable ponderador, pero que será inocua a los fines del cálculo. En el objeto “var_pondera_store” almacenamos esta secuencia de valores 1. En cambio, si el ponderador fue especificado entonces ese objeto almacena los valores correspondientes a la variable señalada, sin entrar en conflicto con un posible objeto del mismo nombre definido fuero del espacio de la función.</p>
+<p>En la línea 43 actualizamos el objeto que almacena los valores de ipcf (en caso de que se hayan filtrado valores de acuerdo a la condición), y en la siguiente ordenamos el dataframe “aux,” para calcular como antes el porcentaje acumulado de población. Por último definimos inicialmente a la variable “quintil” como valores 0. En la línea 50 replicamos la asignación del quintil que se realizó antes con el comando <code>ifelse</code> pero ahora de forma iterativa, cambiando en cada iteración los valores del quintil y de población acumulada.</p>
+<p>Por último al igual que antes calculamos el ratio entre quintiles extremos filtrando las observaciones del primer y quinto quintil. La única diferencia es que aquí nuevamente debemos asegurarnos de que los valores promedios y los ponderadores se evalúen para estas observaciones y sólo en el contexto o espacio de la función. Para finalizar imprimimos los resultados.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r numberLines"><code class="sourceCode r"><span id="cb8-1"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-1"></a>ratq51 <span class="ot">&lt;-</span> <span class="cf">function</span>(df, varname, <span class="at">var_pondera=</span><span class="cn">NULL</span>, <span class="at">condicion=</span><span class="cn">NULL</span>) {</span>
+<span id="cb8-2"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-2"></a>    </span>
+<span id="cb8-3"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-3"></a>    </span>
+<span id="cb8-4"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-4"></a>    aux <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(df) </span>
+<span id="cb8-5"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-5"></a>    </span>
+<span id="cb8-6"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-6"></a>    </span>
+<span id="cb8-7"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-7"></a>    <span class="co">#substitute() toma literal el nombre sin asignarle ningun valor posible y </span></span>
+<span id="cb8-8"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-8"></a>    <span class="co">#eval() evalua ese nombre en el contexto del data frame que es el 1er arguento definido</span></span>
+<span id="cb8-9"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-9"></a>    varname_store <span class="ot">&lt;-</span> <span class="fu">eval</span>(<span class="fu">substitute</span>(varname), aux) </span>
+<span id="cb8-10"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-10"></a>    aux <span class="ot">&lt;-</span> aux <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(varname_store)</span>
+<span id="cb8-11"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-11"></a>    </span>
+<span id="cb8-12"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-12"></a>    </span>
+<span id="cb8-13"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-13"></a>    </span>
+<span id="cb8-14"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-14"></a>    <span class="co">#la condición es un argumento opcional</span></span>
+<span id="cb8-15"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-15"></a>    <span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.null</span>(<span class="fu">substitute</span>(condicion))) {</span>
+<span id="cb8-16"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-16"></a>      </span>
+<span id="cb8-17"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-17"></a>       <span class="cf">if</span>(<span class="fu">is</span>(<span class="fu">try</span>(<span class="fu">eval</span>(<span class="fu">substitute</span>(condicion)), <span class="at">silent =</span> <span class="cn">TRUE</span> ), <span class="st">&quot;try-error&quot;</span>))</span>
+<span id="cb8-18"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-18"></a>        </span>
+<span id="cb8-19"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-19"></a>          <span class="fu">stop</span>(<span class="st">&quot;ERROR: la condicion debe especificarse como character (entre comillas)&quot;</span>)</span>
+<span id="cb8-20"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-20"></a>      </span>
+<span id="cb8-21"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-21"></a>          aux <span class="ot">&lt;-</span> aux <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">eval</span>(<span class="fu">parse</span>(<span class="at">text=</span>condicion)))   <span class="co">#convierte la condicion de tipo string al tipo </span></span>
+<span id="cb8-22"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-22"></a>                                                            <span class="co">#expression y luego la evalua dentro del filter</span></span>
+<span id="cb8-23"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-23"></a>    }</span>
+<span id="cb8-24"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-24"></a>    </span>
+<span id="cb8-25"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-25"></a>    </span>
+<span id="cb8-26"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-26"></a>    </span>
+<span id="cb8-27"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-27"></a>    <span class="co">#set pondera= 1 si no está especificado</span></span>
+<span id="cb8-28"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-28"></a>    <span class="cf">if</span>(<span class="fu">is.null</span>(<span class="fu">substitute</span>(var_pondera))) {                           </span>
+<span id="cb8-29"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-29"></a>      </span>
+<span id="cb8-30"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-30"></a>      aux <span class="ot">&lt;-</span> aux <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">w=</span><span class="dv">1</span>)</span>
+<span id="cb8-31"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-31"></a>      var_pondera<span class="ot">=</span><span class="fu">substitute</span>(w)</span>
+<span id="cb8-32"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-32"></a>      var_pondera_store <span class="ot">&lt;-</span> <span class="fu">eval</span>(<span class="fu">substitute</span>(var_pondera), aux)</span>
+<span id="cb8-33"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-33"></a>      </span>
+<span id="cb8-34"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-34"></a>      } <span class="cf">else</span> {</span>
+<span id="cb8-35"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-35"></a>      </span>
+<span id="cb8-36"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-36"></a>      var_pondera_store <span class="ot">&lt;-</span> <span class="fu">eval</span>(<span class="fu">substitute</span>(var_pondera), aux)</span>
+<span id="cb8-37"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-37"></a>      </span>
+<span id="cb8-38"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-38"></a>    }</span>
+<span id="cb8-39"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-39"></a>    </span>
+<span id="cb8-40"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-40"></a>    </span>
+<span id="cb8-41"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-41"></a>    </span>
+<span id="cb8-42"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-42"></a>    <span class="co">#ordeno y genero quintiles</span></span>
+<span id="cb8-43"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-43"></a>    varname_store <span class="ot">&lt;-</span> <span class="fu">eval</span>(<span class="fu">substitute</span>(varname), aux)</span>
+<span id="cb8-44"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-44"></a>    aux <span class="ot">&lt;-</span> aux <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(varname_store) <span class="sc">%&gt;%</span></span>
+<span id="cb8-45"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-45"></a>                   <span class="fu">mutate</span>(<span class="at">shrpop=</span><span class="fu">cumsum</span>(var_pondera_store)<span class="sc">/</span><span class="fu">sum</span>(var_pondera_store)) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-46"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-46"></a>                   <span class="fu">mutate</span>(<span class="at">quintil=</span><span class="dv">0</span>)</span>
+<span id="cb8-47"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-47"></a>    </span>
+<span id="cb8-48"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-48"></a>    <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
+<span id="cb8-49"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-49"></a>      </span>
+<span id="cb8-50"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-50"></a>     aux <span class="ot">&lt;-</span> aux <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">quintil=</span><span class="fu">ifelse</span>((shrpop<span class="sc">&gt;</span>(i<span class="dv">-1</span>)<span class="sc">*</span><span class="fl">0.2</span> <span class="sc">&amp;</span> shrpop<span class="sc">&lt;=</span>i<span class="sc">*</span><span class="fl">0.2</span>), i, quintil)) </span>
+<span id="cb8-51"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-51"></a>      </span>
+<span id="cb8-52"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-52"></a>    }  </span>
+<span id="cb8-53"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-53"></a>    </span>
+<span id="cb8-54"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-54"></a>    </span>
+<span id="cb8-55"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-55"></a>    </span>
+<span id="cb8-56"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-56"></a>    <span class="co">#ingreso promedio quintil 1 </span></span>
+<span id="cb8-57"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-57"></a>    aux_1 <span class="ot">&lt;-</span> aux <span class="sc">%&gt;%</span> <span class="fu">filter</span>(quintil<span class="sc">==</span><span class="dv">1</span>) </span>
+<span id="cb8-58"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-58"></a>    media_q1 <span class="ot">=</span> <span class="fu">weighted.mean</span>(<span class="fu">eval</span>(<span class="fu">substitute</span>(varname),aux_1), <span class="fu">eval</span>(<span class="fu">substitute</span>(var_pondera), aux_1), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-59"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-59"></a>    media_q1 <span class="ot">=</span> <span class="fu">round</span>(media_q1, <span class="at">digits =</span> <span class="dv">2</span>)</span>
+<span id="cb8-60"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-60"></a>    <span class="co">#ingreso promedio quintil 5 </span></span>
+<span id="cb8-61"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-61"></a>    aux_5 <span class="ot">&lt;-</span> aux <span class="sc">%&gt;%</span> <span class="fu">filter</span>(quintil<span class="sc">==</span><span class="dv">5</span>) </span>
+<span id="cb8-62"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-62"></a>    media_q5 <span class="ot">=</span> <span class="fu">weighted.mean</span>(<span class="fu">eval</span>(<span class="fu">substitute</span>(varname),aux_5), <span class="fu">eval</span>(<span class="fu">substitute</span>(var_pondera), aux_5), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-63"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-63"></a>    media_q5 <span class="ot">=</span> <span class="fu">round</span>(media_q5, <span class="at">digits =</span> <span class="dv">2</span>)</span>
+<span id="cb8-64"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-64"></a>    <span class="co">#ratio</span></span>
+<span id="cb8-65"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-65"></a>    ratq_51 <span class="ot">=</span> media_q5<span class="sc">/</span>media_q1</span>
+<span id="cb8-66"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-66"></a>    </span>
+<span id="cb8-67"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-67"></a>    </span>
+<span id="cb8-68"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-68"></a>    <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;media quintil 5&quot;</span>, <span class="fu">substitute</span>(varname), <span class="st">&quot;= &quot;</span>, media_q5))</span>
+<span id="cb8-69"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-69"></a>    <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;media quintil 1&quot;</span>, <span class="fu">substitute</span>(varname), <span class="st">&quot;= &quot;</span>, media_q1))</span>
+<span id="cb8-70"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-70"></a>    <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;ratio = &quot;</span>, <span class="fu">round</span>(ratq_51, <span class="at">digits =</span> <span class="dv">2</span>)))</span>
+<span id="cb8-71"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-71"></a>    </span>
+<span id="cb8-72"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-72"></a>  </span>
+<span id="cb8-73"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb8-73"></a>}</span></code></pre></div>
+<p>Al correr el código, R almacenará en la memoria esta función, a la cual podremos llamar simplemente indicando los argumentos relevantes. En las líneas siguientes se detallan algunos ejemplos de cómo replicar el programa bajo distintas especificaciones.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#No especifica condicion</span></span>
+<span id="cb9-2"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ratq51</span>(mex06, ipcf, pondera)  </span></code></pre></div>
+<pre><code>## [1] &quot;media quintil 5 ipcf =  6655.49&quot;
+## [1] &quot;media quintil 1 ipcf =  448.38&quot;
+## [1] &quot;ratio =  14.84&quot;</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Especifica condicion</span></span>
+<span id="cb11-2"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ratq51</span>(mex06, ipcf, pondera, <span class="st">&quot;ipcf&gt;0&quot;</span>) </span></code></pre></div>
+<pre><code>## [1] &quot;media quintil 5 ipcf =  6707.64&quot;
+## [1] &quot;media quintil 1 ipcf =  499.3&quot;
+## [1] &quot;ratio =  13.43&quot;</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Especifica condición doble</span></span>
+<span id="cb13-2"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ratq51</span>(mex06, ipcf, pondera, <span class="st">&quot;region==4 | region==2&quot;</span>)  </span></code></pre></div>
+<pre><code>## [1] &quot;media quintil 5 ipcf =  6420.24&quot;
+## [1] &quot;media quintil 1 ipcf =  499.01&quot;
+## [1] &quot;ratio =  12.87&quot;</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Especifica incorrectamente la condición</span></span>
+<span id="cb15-2"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ratq51</span>(<span class="at">df=</span>mex06, ipcf, pondera, region<span class="sc">==</span><span class="dv">4</span> <span class="sc">&amp;</span> urbano<span class="sc">==</span><span class="dv">1</span>) </span></code></pre></div>
+<pre><code>## Error in ratq51(df = mex06, ipcf, pondera, region == 4 &amp; urbano == 1): ERROR: la condicion debe especificarse como character (entre comillas)</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#No especifica pondera</span></span>
+<span id="cb17-2"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ratq51</span>(<span class="at">df=</span>mex06, <span class="at">varname=</span>ipcf, <span class="at">condicion=</span><span class="st">&quot;region==4 &amp; urbano==1&quot;</span>)  </span></code></pre></div>
+<pre><code>## [1] &quot;media quintil 5 ipcf =  6384.76&quot;
+## [1] &quot;media quintil 1 ipcf =  594.14&quot;
+## [1] &quot;ratio =  10.75&quot;</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Identifica los argumentos por explicitamente por nombre </span></span>
+<span id="cb19-2"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ratq51</span>(<span class="at">df=</span>mex06, <span class="at">varname=</span>ipcf, <span class="at">var_pondera=</span>pondera, <span class="at">condicion=</span><span class="st">&quot;region==4 &amp; urbano==1&quot;</span>) </span></code></pre></div>
+<pre><code>## [1] &quot;media quintil 5 ipcf =  6640.93&quot;
+## [1] &quot;media quintil 1 ipcf =  586.57&quot;
+## [1] &quot;ratio =  11.32&quot;</code></pre>
+<p>
+ 
+</p>
+</div>
+<div id="replicar-programa-gcuan" class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span> Replicar programa gcuan</h2>
+<p>###- (pág. 154-155)</p>
+<p>El bloque de código a continuación permite identificar cuantiles de cualquier variable. En términos del programa “ratq51,” nos permite generar variables similares a quintil pero que pueden identificar quintiles, deciles, percentiles, etc.</p>
+<p>Por esta razón, esta función tendrá más argumentos, aquí además de los anteriores debemos detallar la cantidad de cuantiles a generar (objeto “num”) y la variable que los almacena (“newvar”). Luego el código y la secuencia son idénticos a la de la función anterior, salvo porque aquí definimos de una manera alternativa y más directa a los valores del poderador, pero en esencia replica lo visto antes hasta la línea 43. A partir de aquí el objeto “num” indica cuantos cuantiles deben generarse, hace iterar al bucle “num” cantidad de veces, y define los intervalos de población acumulada de forma equivalente. Por ejemplo, si queremos generar deciles (num=10), necesitamos 10 cuantiles y cada cuantil se asigna de a intervalos de población acumulada iguales a 0.10 (1/10).</p>
+<p>Posteriormente en la línea 54 generamos el reporte que imprimiremos como resultado. Este calcula la media ponderada, el desvió standard ponderado y la cantidad de observaciones en base la variable especificada en “varname” y “var_pondera.” Los objetos “my_var” y “my_var2” son variables auxiliares que generamos en el data frame solo con el objeto de faciliarnos el cálculo directo. Para terminar cambiamos el nombre de la variable que hasta ahora generamos como “quintil” por el nombre indicado en el argumento. El comando <code>names(aux)</code> trae todos los nombres de este dataframe y con la expresión <em><code>[names(aux) == "quintil"]</code></em> elegimos de esos nombres, solo el que coincide con la palabra “quintil.” A esta columna específica le asignamos el nombre dado como argumento, tomando la expresión literal con <code>substitute</code> pasada al formato string mediante la función <code>paste</code>. En resumen la línea 63 sería el equivalente de escribir en la consola <em><code>aux$quintil &lt;- "nombre_asignado"</code></em>, con la dificultad de que debemos hacerlo dentro del espacio de la función, respetando los argumentos dados. La línea 64 por su parte elimina del output final la variable shrpop.</p>
+<p>Para finalizar especificamos que esta función no solo debe imprimirnos los resultados sino que además debe devolver una base de datos nueva. El comando <code>return(aux)</code> le dice a R que el resultado será el objeto “aux” en sí mismo, es decir obtendremos la base original con una nueva columna llamada “newvar” que es la que esta función genera.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource r numberLines"><code class="sourceCode r"><span id="cb21-1"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-1"></a>gcuan <span class="ot">&lt;-</span> <span class="cf">function</span>(df, varname, <span class="at">var_pondera=</span><span class="cn">NULL</span>, <span class="at">condicion=</span><span class="cn">NULL</span>, num, newvar) {</span>
+<span id="cb21-2"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-2"></a>  </span>
+<span id="cb21-3"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-3"></a>  </span>
+<span id="cb21-4"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-4"></a>  aux <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(df) </span>
+<span id="cb21-5"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-5"></a>  </span>
+<span id="cb21-6"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-6"></a>  </span>
+<span id="cb21-7"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-7"></a>  varname_store <span class="ot">&lt;-</span> <span class="fu">eval</span>(<span class="fu">substitute</span>(varname), aux) </span>
+<span id="cb21-8"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-8"></a>  aux <span class="ot">&lt;-</span> aux <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(varname_store)</span>
+<span id="cb21-9"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-9"></a>  </span>
+<span id="cb21-10"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-10"></a>  </span>
+<span id="cb21-11"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-11"></a>  <span class="co">#la condición es un argumento opcional</span></span>
+<span id="cb21-12"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-12"></a>  <span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.null</span>(<span class="fu">substitute</span>(condicion))) {</span>
+<span id="cb21-13"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-13"></a>      </span>
+<span id="cb21-14"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-14"></a>     <span class="cf">if</span>(<span class="fu">is</span>(<span class="fu">try</span>(<span class="fu">eval</span>(<span class="fu">substitute</span>(condicion)), <span class="at">silent =</span> <span class="cn">TRUE</span> ), <span class="st">&quot;try-error&quot;</span>))</span>
+<span id="cb21-15"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-15"></a>        </span>
+<span id="cb21-16"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-16"></a>        <span class="fu">stop</span>(<span class="st">&quot;ERROR: la condicion debe especificarse como character (entre comillas)&quot;</span>)</span>
+<span id="cb21-17"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-17"></a>      </span>
+<span id="cb21-18"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-18"></a>        aux <span class="ot">&lt;-</span> aux <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">eval</span>(<span class="fu">parse</span>(<span class="at">text=</span>condicion)))     </span>
+<span id="cb21-19"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-19"></a>                                                              </span>
+<span id="cb21-20"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-20"></a>   }</span>
+<span id="cb21-21"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-21"></a>  </span>
+<span id="cb21-22"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-22"></a>  </span>
+<span id="cb21-23"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-23"></a>  </span>
+<span id="cb21-24"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-24"></a>  <span class="co">#set pondera= 1 si no está especificado</span></span>
+<span id="cb21-25"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-25"></a>  <span class="cf">if</span>(<span class="fu">is.null</span>(<span class="fu">substitute</span>(var_pondera))) {                           </span>
+<span id="cb21-26"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-26"></a>    </span>
+<span id="cb21-27"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-27"></a>    var_pondera_store <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>, <span class="fu">nrow</span>(aux)))</span>
+<span id="cb21-28"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-28"></a>    </span>
+<span id="cb21-29"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-29"></a>    } <span class="cf">else</span> {</span>
+<span id="cb21-30"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-30"></a>    </span>
+<span id="cb21-31"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-31"></a>    var_pondera_store <span class="ot">&lt;-</span> <span class="fu">eval</span>(<span class="fu">substitute</span>(var_pondera), aux)</span>
+<span id="cb21-32"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-32"></a>    </span>
+<span id="cb21-33"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-33"></a>  }</span>
+<span id="cb21-34"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-34"></a>  </span>
+<span id="cb21-35"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-35"></a>  </span>
+<span id="cb21-36"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-36"></a>  </span>
+<span id="cb21-37"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-37"></a>  <span class="co">#ordeno y genero shrpop</span></span>
+<span id="cb21-38"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-38"></a>  varname_store <span class="ot">&lt;-</span> <span class="fu">eval</span>(<span class="fu">substitute</span>(varname), aux)</span>
+<span id="cb21-39"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-39"></a>  aux <span class="ot">&lt;-</span> aux <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(varname_store) <span class="sc">%&gt;%</span> </span>
+<span id="cb21-40"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-40"></a>    <span class="fu">mutate</span>(<span class="at">shrpop=</span><span class="fu">cumsum</span>(var_pondera_store)<span class="sc">/</span><span class="fu">sum</span>(var_pondera_store)) <span class="sc">%&gt;%</span></span>
+<span id="cb21-41"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-41"></a>    <span class="fu">mutate</span>(<span class="at">quintil=</span><span class="dv">0</span>)</span>
+<span id="cb21-42"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-42"></a>  </span>
+<span id="cb21-43"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-43"></a>  <span class="co">#genero cuantiles en base a lo indicado</span></span>
+<span id="cb21-44"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-44"></a>  shareq <span class="ot">=</span> <span class="dv">1</span><span class="sc">/</span>num</span>
+<span id="cb21-45"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-45"></a>  </span>
+<span id="cb21-46"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-46"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>num) {</span>
+<span id="cb21-47"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-47"></a>    </span>
+<span id="cb21-48"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-48"></a>    aux <span class="ot">&lt;-</span> aux <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">quintil=</span><span class="fu">ifelse</span>((shrpop<span class="sc">&gt;</span>(i<span class="dv">-1</span>)<span class="sc">*</span>shareq <span class="sc">&amp;</span> shrpop<span class="sc">&lt;=</span>i<span class="sc">*</span>shareq), i, quintil))</span>
+<span id="cb21-49"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-49"></a>    </span>
+<span id="cb21-50"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-50"></a>  }</span>
+<span id="cb21-51"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-51"></a>  </span>
+<span id="cb21-52"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-52"></a>  </span>
+<span id="cb21-53"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-53"></a>  <span class="co">#armo la información que se imprime en la consola</span></span>
+<span id="cb21-54"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-54"></a>  show <span class="ot">&lt;-</span> aux <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">my_var=</span>varname_store,</span>
+<span id="cb21-55"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-55"></a>                         <span class="at">my_var2=</span>var_pondera_store) <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(quintil) <span class="sc">%&gt;%</span></span>
+<span id="cb21-56"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-56"></a>                  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">weighted_mean</span>(my_var, my_var2),</span>
+<span id="cb21-57"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-57"></a>                             <span class="at">std =</span> <span class="fu">weighted_sd</span>(my_var, my_var2),</span>
+<span id="cb21-58"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-58"></a>                             <span class="at">obs =</span> <span class="fu">sum</span>(my_var2))</span>
+<span id="cb21-59"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-59"></a>  </span>
+<span id="cb21-60"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-60"></a>  </span>
+<span id="cb21-61"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-61"></a>  <span class="co">#renombro variable al nombre indicado como argumento y descarto shrpop</span></span>
+<span id="cb21-62"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-62"></a>  <span class="fu">names</span>(show)[<span class="fu">names</span>(show) <span class="sc">==</span> <span class="st">&quot;quintil&quot;</span>] <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="fu">substitute</span>(newvar))</span>
+<span id="cb21-63"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-63"></a>  <span class="fu">names</span>(aux)[<span class="fu">names</span>(aux) <span class="sc">==</span> <span class="st">&quot;quintil&quot;</span>] <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="fu">substitute</span>(newvar))</span>
+<span id="cb21-64"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-64"></a>  aux<span class="sc">$</span>shrpop <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb21-65"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-65"></a>  </span>
+<span id="cb21-66"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-66"></a>  </span>
+<span id="cb21-67"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-67"></a>  <span class="co">#outputs</span></span>
+<span id="cb21-68"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-68"></a>  <span class="fu">print.data.frame</span>(show)</span>
+<span id="cb21-69"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-69"></a>  <span class="fu">return</span>(aux)</span>
+<span id="cb21-70"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-70"></a>  </span>
+<span id="cb21-71"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-71"></a>  </span>
+<span id="cb21-72"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb21-72"></a>}</span></code></pre></div>
+<p>A diferencia entonces de la anterior, esta función devuelve no sólo un resultado impreso sino un objeto, por lo que ahora debemos especificar cómo lo nombramos. Si lo llamamos de la misma manera que el argumento que le pasamos a la función simplemente estamos pisando este objeto y añadiéndole una nueva variable. Otra alternativa es crear un nuevo dataframe con otro nombre.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Especifica todo correctamente y crea nuevo dataframe</span></span>
+<span id="cb22-2"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb22-2" aria-hidden="true" tabindex="-1"></a>mex06_bis <span class="ot">&lt;-</span> <span class="fu">gcuan</span>(<span class="at">df=</span>mex06, <span class="at">varname=</span>ipcf, <span class="at">var_pondera=</span>pondera, <span class="at">condicion=</span><span class="st">&quot;ipcf&gt;0&quot;</span>, <span class="at">num=</span><span class="dv">5</span>, <span class="at">newvar=</span>quintil)</span></code></pre></div>
+<pre><code>##   quintil      mean       std      obs
+## 1       1  499.2978  197.3755 20372798
+## 2       2 1011.4695  136.6778 20383133
+## 3       3 1539.5536  172.7480 20385227
+## 4       4 2382.6530  345.4059 20380795
+## 5       5 6707.6362 6532.2051 20381791</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#No especifica correctamente la condición</span></span>
+<span id="cb24-2"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb24-2" aria-hidden="true" tabindex="-1"></a>mex06_bis <span class="ot">&lt;-</span> <span class="fu">gcuan</span>(<span class="at">df=</span>mex06, <span class="at">varname=</span>ipcf, <span class="at">var_pondera=</span>pondera, <span class="at">condicion=</span>region<span class="sc">==</span><span class="dv">4</span>, <span class="at">num=</span><span class="dv">5</span>, <span class="at">newvar=</span>quintil)</span></code></pre></div>
+<pre><code>## Error in gcuan(df = mex06, varname = ipcf, var_pondera = pondera, condicion = region == : ERROR: la condicion debe especificarse como character (entre comillas)</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#No especifica condición</span></span>
+<span id="cb26-2"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb26-2" aria-hidden="true" tabindex="-1"></a>mex06_bis <span class="ot">&lt;-</span> <span class="fu">gcuan</span>(<span class="at">df=</span>mex06, <span class="at">varname=</span>ipcf, <span class="at">var_pondera=</span>pondera, <span class="at">num=</span><span class="dv">5</span>, <span class="at">newvar=</span>quintil)</span></code></pre></div>
+<pre><code>##   quintil      mean       std      obs
+## 1       1  448.3757  222.9768 20677642
+## 2       2  986.9415  137.2255 20677386
+## 3       3 1518.1792  172.0445 20676646
+## 4       4 2357.4796  343.4104 20678111
+## 5       5 6655.4937 6499.4356 20679061</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">#No especifica pondera</span></span>
+<span id="cb28-2"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb28-2" aria-hidden="true" tabindex="-1"></a>mex06_bis <span class="ot">&lt;-</span> <span class="fu">gcuan</span>(<span class="at">df=</span>mex06, <span class="at">varname=</span>ipcf, <span class="at">num=</span><span class="dv">5</span>, <span class="at">newvar=</span>quintil)</span></code></pre></div>
+<pre><code>##   quintil      mean       std   obs
+## 1       1  363.0791  202.9644 16400
+## 2       2  900.1146  135.1091 16401
+## 3       3 1424.6686  177.6839 16401
+## 4       4 2273.6985  346.6132 16401
+## 5       5 6401.7186 6319.9421 16401</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Especifica todo correctamente y reemplaza el dataframe dado</span></span>
+<span id="cb30-2"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb30-2" aria-hidden="true" tabindex="-1"></a>mex06 <span class="ot">&lt;-</span> <span class="fu">gcuan</span>(<span class="at">df=</span>mex06, <span class="at">varname=</span>ipcf, <span class="at">var_pondera=</span>pondera, <span class="at">condicion=</span><span class="st">&quot;ipcf&gt;0&quot;</span>, <span class="at">num=</span><span class="dv">5</span>, <span class="at">newvar=</span>quintil)</span></code></pre></div>
+<pre><code>##   quintil      mean       std      obs
+## 1       1  499.2978  197.3755 20372798
+## 2       2 1011.4695  136.6778 20383133
+## 3       3 1539.5536  172.7480 20385227
+## 4       4 2382.6530  345.4059 20380795
+## 5       5 6707.6362 6532.2051 20381791</code></pre>
+<p>
+ 
+</p>
+</div>
+<div id="tamaño-de-los-hogares" class="section level2" number="2.6">
+<h2><span class="header-section-number">2.6</span> Tamaño de los hogares</h2>
+<p>###- (pág. 156)</p>
+<p>El código siguiente puede utilizarse para computar las estadísticas sobre proporción de hogares unipersonales y multipersonales presentadas en el cuadro 3.4 del texto. Como ya es habitual, en la primera línea indicamos con qué base iremos a trabajar. Luego ordenamos los hogares de forma creciente en base a su identificador “id” y en forma decreciente respecto la variable “jefe.” Dado que esta vale 1 solo para el jefe de hogar y 0 para todo el resto, la primera observación por “id” corresponderá siempre a la cabeza del hogar. La función <code>duplicated</code> genera una variable que será <em>FALSE</em> para la primera observación dentro de cada id, indicando que esta no está duplicada por ser la primera, pero será <em>TRUE</em> para todas las que siguen ya que se identificó antes una observación con el mismo id. De esta manera hacemos un “tag” del jefe de hogar y mantenemos todos los demás miembros. En el caso de que nos interesa mantener en nuestra base el resto de las observaciones, estos pasos se simplifican a un simple filtrado por jefe de hogar.</p>
+<p>Luego generamos la variable tamaño solo para el jefe de hogar en base la cantidad de miembros que viven con él, utilizando la función <code>case_when</code>. Así, por ejemplo, cuando la observación corresponda al jefe y la cantidad de miembros sea igual a 3, en ese caso tamaño valdrá 3. Por último armamos nuestra tabla resultado filtrando a los jefes de hogar, agrupando por tamaño y sumando la cantidad de hogares (porque tenemos una sola observación por hogar) y la frecuencia relativa en cada caso.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co">#indico con qué base de hogares voy a trabajar</span></span>
+<span id="cb32-2"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb32-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> mex06 </span>
+<span id="cb32-3"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-4"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co">#ordeno por id y jefe (decreciente) e identifico al jefe de hogar</span></span>
+<span id="cb32-5"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb32-5" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(id, <span class="fu">desc</span>(jefe)) <span class="sc">%&gt;%</span></span>
+<span id="cb32-6"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb32-6" aria-hidden="true" tabindex="-1"></a>          <span class="fu">mutate</span>(<span class="at">hh=</span><span class="fu">duplicated</span>(id))      <span class="co">#alterantiva para egen hh=tag() en stata</span></span>
+<span id="cb32-7"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb32-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-8"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="co">#genero tamaño sólo para los jefes de hogar</span></span>
+<span id="cb32-9"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb32-9" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(tamaño<span class="ot">=</span><span class="fu">case_when</span>(miembros<span class="sc">==</span><span class="dv">1</span> <span class="sc">&amp;</span> hh<span class="sc">==</span><span class="cn">FALSE</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb32-10"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb32-10" aria-hidden="true" tabindex="-1"></a>                                     miembros<span class="sc">==</span><span class="dv">2</span> <span class="sc">&amp;</span> hh<span class="sc">==</span><span class="cn">FALSE</span> <span class="sc">~</span> <span class="dv">2</span>,</span>
+<span id="cb32-11"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb32-11" aria-hidden="true" tabindex="-1"></a>                                     miembros<span class="sc">==</span><span class="dv">3</span> <span class="sc">&amp;</span> hh<span class="sc">==</span><span class="cn">FALSE</span> <span class="sc">~</span> <span class="dv">3</span>,</span>
+<span id="cb32-12"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb32-12" aria-hidden="true" tabindex="-1"></a>                                     miembros<span class="sc">==</span><span class="dv">4</span> <span class="sc">&amp;</span> hh<span class="sc">==</span><span class="cn">FALSE</span> <span class="sc">~</span> <span class="dv">4</span>,</span>
+<span id="cb32-13"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb32-13" aria-hidden="true" tabindex="-1"></a>                                     miembros<span class="sc">==</span><span class="dv">5</span> <span class="sc">&amp;</span> hh<span class="sc">==</span><span class="cn">FALSE</span> <span class="sc">~</span> <span class="dv">5</span>,</span>
+<span id="cb32-14"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb32-14" aria-hidden="true" tabindex="-1"></a>                                     miembros<span class="sc">&gt;=</span><span class="dv">6</span> <span class="sc">&amp;</span> hh<span class="sc">==</span><span class="cn">FALSE</span> <span class="sc">~</span> <span class="dv">6</span>))</span>
+<span id="cb32-15"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb32-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-16"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb32-16" aria-hidden="true" tabindex="-1"></a><span class="co">#tabla con resultados</span></span>
+<span id="cb32-17"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb32-17" aria-hidden="true" tabindex="-1"></a>table <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(hh<span class="sc">==</span><span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(tamaño) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">N =</span> <span class="fu">sum</span>(pondera)) <span class="sc">%&gt;%</span> </span>
+<span id="cb32-18"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb32-18" aria-hidden="true" tabindex="-1"></a>                                                           <span class="fu">mutate</span>(<span class="at">freq =</span> <span class="dv">100</span><span class="sc">*</span>N<span class="sc">/</span><span class="fu">sum</span>(N))</span>
+<span id="cb32-19"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb32-19" aria-hidden="true" tabindex="-1"></a>table</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 3
+##   tamaño       N  freq
+##    &lt;dbl&gt;   &lt;int&gt; &lt;dbl&gt;
+## 1      1 2070859  8.15
+## 2      2 3717891 14.6 
+## 3      3 4815417 18.9 
+## 4      4 5875572 23.1 
+## 5      5 4422391 17.4 
+## 6      6 4516967 17.8</code></pre>
+<p>El objeto table almacena los resultados que se visualizan en la consola. A veces al imprimir los resultados estos no se visualizan con un formato muy amigable. A modo de extensión presentamos dos alternativas para refinar este aspecto. El paquete <code>formattable</code> nos permite, entre otros cosas, especificar el tipo de datos y el formato para distintas variables al generar el dataframe. Por su parte <code>print.data.frame</code> nos da una visualización más limpia. Incorporando este aspecto el código para nuestra tabla sería:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;formattable&quot;)</span></span>
+<span id="cb34-2"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(formattable)</span>
+<span id="cb34-3"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-4"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb34-4" aria-hidden="true" tabindex="-1"></a>table <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(hh<span class="sc">==</span><span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(tamaño) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">N =</span> <span class="fu">accounting</span>(<span class="fu">sum</span>(pondera), <span class="at">digits =</span> <span class="dv">0</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb34-5"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb34-5" aria-hidden="true" tabindex="-1"></a>                                                              <span class="fu">mutate</span>(<span class="at">freq =</span> <span class="fu">percent</span>(N<span class="sc">/</span><span class="fu">sum</span>(N)))</span>
+<span id="cb34-6"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print.data.frame</span>(table)</span></code></pre></div>
+<pre><code>##   tamaño         N   freq
+## 1      1 2,070,859  8.15%
+## 2      2 3,717,891 14.63%
+## 3      3 4,815,417 18.94%
+## 4      4 5,875,572 23.11%
+## 5      5 4,422,391 17.40%
+## 6      6 4,516,967 17.77%</code></pre>
+<p>Además de agregarle esta customización, para los usuarios que utilizan “Rmarkdown” habitualmente, es posible mostrar los resultados con una visualización amigable de forma sencilla.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb36-1" aria-hidden="true" tabindex="-1"></a>rmarkdown<span class="sc">::</span><span class="fu">paged_table</span>(table)</span></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["tamaño"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["N"],"name":[2],"type":["formttbl"],"align":["right"]},{"label":["freq"],"name":[3],"type":["formttbl"],"align":["right"]}],"data":[{"1":"1","2":"2,070,859","3":"8.15%"},{"1":"2","2":"3,717,891","3":"14.63%"},{"1":"3","2":"4,815,417","3":"18.94%"},{"1":"4","2":"5,875,572","3":"23.11%"},{"1":"5","2":"4,422,391","3":"17.40%"},{"1":"6","2":"4,516,967","3":"17.77%"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>
+ 
+</p>
+</div>
+<div id="la-distribución-intrahogar" class="section level2" number="2.7">
+<h2><span class="header-section-number">2.7</span> La distribución intrahogar</h2>
+<p>###- (pág. 157)</p>
+<p>El fragmento de código siguiente puede utilizarse para generar resultados similares a los presentados en el cuadro 3.7 del texto, que muestra cómo se modifica la desigualdad calculada a través del cociente de deciles extremos cuando cambia la distribución del ingreso hacia el interior del hogar. Cabe recordar que la distribución del ingreso intrahogar se modifica mediante un impuesto proporcional al ingreso per cápita familiar combinado con un subsidio que solo recibe el jefe de hogar. En la implementación, utilizamos quintiles en lugar de deciles ingreso.</p>
+<p>En la primer línea cargamos la base, en este caso trabajaremos con la base de Venezuela del año 2006, limpiamos y ordenamos los hogares. Mas abajo creamos el objeto “ty” que toma el valor de la tasa del impuesto aplicada sobre el ipcf, el cual calculamos en línea siguiente generando en el dataframe una nueva columna “impuesto.” Posteriormente calculamos el valor del subsidio a otorgar que surge de sumar el valor de los impuestos para los integrantes de un mismo hogar. En la line siguiente modificamos la variable subsidio, haciendo que valga 0 para todo miembro distinto al jefe, de esta forma redistribuimos ingreso al interior del hogar: a todos se le hemos quitado una porción “ty” que ahora la recibe solamente el jefe de hogar.</p>
+<p>En la anteúltima línea creamos una variable para el nuevo valor de ingreso per cápita familiar, restando el impuesto y sumando el subsidio. Por último hacemos uso de nuestra función del ratio de quintiles para computar el cociente del ingreso promedio de los quintiles 5 y 1 como indicador de desigualdad, a partir del ingreso modificado.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb37-1" aria-hidden="true" tabindex="-1"></a>ven06 <span class="ot">&lt;-</span> <span class="fu">read.dta</span>(data_dir <span class="sc">%+%</span> <span class="st">&quot;Ven/2006/bases/ven06_cedlas.dta&quot;</span>)  </span>
+<span id="cb37-2"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="co">#elimino observaciones incoherentes o con ingreso missing y ordeno</span></span>
+<span id="cb37-4"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb37-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> ven06 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(cohh<span class="sc">==</span><span class="dv">1</span>, <span class="sc">!</span><span class="fu">is.na</span>(ipcf)) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(id)</span>
+<span id="cb37-5"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb37-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-6"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="co">#tasa del impuesto</span></span>
+<span id="cb37-7"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb37-7" aria-hidden="true" tabindex="-1"></a>ty<span class="ot">=</span><span class="fl">0.1</span></span>
+<span id="cb37-8"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb37-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-9"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb37-9" aria-hidden="true" tabindex="-1"></a><span class="co">#impuesto al ipcf</span></span>
+<span id="cb37-10"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb37-10" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>impuesto <span class="ot">=</span> df<span class="sc">$</span>ipcf<span class="sc">*</span>ty    <span class="co">#alternativa a escribir: df &lt;- df %&gt;% mutate(impuesto = ipcf*ty)</span></span>
+<span id="cb37-11"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb37-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-12"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb37-12" aria-hidden="true" tabindex="-1"></a><span class="co">#recaudación impuesto total por hogar</span></span>
+<span id="cb37-13"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb37-13" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(id) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">subsidio =</span> <span class="fu">sum</span>(impuesto))</span>
+<span id="cb37-14"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb37-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-15"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb37-15" aria-hidden="true" tabindex="-1"></a><span class="co">#subsidio solo lo recibe el jefe de hogar </span></span>
+<span id="cb37-16"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb37-16" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>subsidio <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(df<span class="sc">$</span>jefe<span class="sc">!=</span><span class="dv">1</span>, <span class="dv">0</span>, df<span class="sc">$</span>subsidio)  </span>
+<span id="cb37-17"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb37-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-18"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb37-18" aria-hidden="true" tabindex="-1"></a><span class="co">#nuevo ipcf</span></span>
+<span id="cb37-19"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb37-19" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>ipcf_star <span class="ot">=</span> df<span class="sc">$</span>ipcf <span class="sc">-</span> df<span class="sc">$</span>impuesto <span class="sc">+</span> df<span class="sc">$</span>subsidio </span>
+<span id="cb37-20"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb37-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-21"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb37-21" aria-hidden="true" tabindex="-1"></a><span class="fu">ratq51</span>(df, ipcf_star, pondera, <span class="st">&quot;ipcf&gt;0&quot;</span>)  </span></code></pre></div>
+<pre><code>## [1] &quot;media quintil 5 ipcf_star =  842520.38&quot;
+## [1] &quot;media quintil 1 ipcf_star =  79335.26&quot;
+## [1] &quot;ratio =  10.62&quot;</code></pre>
+<p>A modo de comentario, un usuario mas familiarizado con el lenguaje podrá notar que las lineas que computan y asignan el subsidio puden resumirse en una sola, escribiendo.</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb39-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(id) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">subsidio=</span><span class="fu">ifelse</span>(jefe<span class="sc">!=</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="fu">sum</span>(impuesto)))</span></code></pre></div>
+<p>
+ 
+</p>
+</div>
+<div id="empleo-de-ponderadores" class="section level2" number="2.8">
+<h2><span class="header-section-number">2.8</span> Empleo de ponderadores</h2>
+<p>###- (pág. 157)</p>
+<p>El bloque de código que sigue puede utilizarse para construir un cuadro como el 3.9 del texto, que muestra la relación entre el ingreso per cápita familiar y el valor de la variable de ponderación.</p>
+<p>La línea 7 genera la variable shrobs, que contiene el porcentaje acumulado de observaciones, a diferencia de shrpop que contiene el acumulado de población usando el ponderador. Aquí la expresión <em><code>1:n()</code></em> enumera secuencialmente las observaciones en orden de aparición mientras que <em>`n()``</em> computa el total.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co">#indico con que base de hogares voy a trabajar</span></span>
+<span id="cb40-2"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb40-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> mex06</span>
+<span id="cb40-3"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-4"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="co">#ordenar por ipcf y computo porcentaje acumulado de observaciones</span></span>
+<span id="cb40-5"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb40-5" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(ipcf) <span class="sc">%&gt;%</span>  <span class="fu">mutate</span>(<span class="at">shrobs =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>()<span class="sc">/</span><span class="fu">n</span>()) </span>
+<span id="cb40-6"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb40-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-7"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb40-7" aria-hidden="true" tabindex="-1"></a><span class="co">#identificar quintiles de ipcf</span></span>
+<span id="cb40-8"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb40-8" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>quintil <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb40-9"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb40-9" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>quintil <span class="ot">=</span> <span class="fu">ifelse</span>(df<span class="sc">$</span>shrobs<span class="sc">&lt;=</span> <span class="fl">0.2</span>, <span class="dv">1</span>, df<span class="sc">$</span>quintil)</span>
+<span id="cb40-10"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb40-10" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>quintil <span class="ot">=</span> <span class="fu">ifelse</span>(df<span class="sc">$</span>shrobs<span class="sc">&gt;</span><span class="fl">0.2</span> <span class="sc">&amp;</span> df<span class="sc">$</span>shrobs<span class="sc">&lt;=</span> <span class="fl">0.4</span>, <span class="dv">2</span>, df<span class="sc">$</span>quintil)</span>
+<span id="cb40-11"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb40-11" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>quintil <span class="ot">=</span> <span class="fu">ifelse</span>(df<span class="sc">$</span>shrobs<span class="sc">&gt;</span><span class="fl">0.4</span> <span class="sc">&amp;</span> df<span class="sc">$</span>shrobs<span class="sc">&lt;=</span> <span class="fl">0.6</span>, <span class="dv">3</span>, df<span class="sc">$</span>quintil)</span>
+<span id="cb40-12"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb40-12" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>quintil <span class="ot">=</span> <span class="fu">ifelse</span>(df<span class="sc">$</span>shrobs<span class="sc">&gt;</span><span class="fl">0.6</span> <span class="sc">&amp;</span> df<span class="sc">$</span>shrobs<span class="sc">&lt;=</span> <span class="fl">0.8</span>, <span class="dv">4</span>, df<span class="sc">$</span>quintil)</span>
+<span id="cb40-13"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb40-13" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>quintil <span class="ot">=</span> <span class="fu">ifelse</span>(df<span class="sc">$</span>shrobs<span class="sc">&gt;</span><span class="fl">0.8</span> <span class="sc">&amp;</span> df<span class="sc">$</span>shrobs<span class="sc">&lt;=</span> <span class="dv">1</span>,   <span class="dv">5</span>, df<span class="sc">$</span>quintil)</span>
+<span id="cb40-14"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb40-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-15"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb40-15" aria-hidden="true" tabindex="-1"></a>show <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(quintil) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">accounting</span>(<span class="fu">mean</span>(ipcf), <span class="at">digits =</span> <span class="dv">0</span>),</span>
+<span id="cb40-16"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb40-16" aria-hidden="true" tabindex="-1"></a>                                               <span class="at">means_w =</span> <span class="fu">accounting</span>(<span class="fu">mean</span>(pondera), <span class="at">digits =</span> <span class="dv">0</span>))</span>
+<span id="cb40-17"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb40-17" aria-hidden="true" tabindex="-1"></a><span class="fu">print.data.frame</span>(show)</span></code></pre></div>
+<pre><code>##   quintil  mean means_w
+## 1       1   413   1,038
+## 2       2   926   1,269
+## 3       3 1,449   1,345
+## 4       4 2,302   1,344
+## 5       5 6,457   1,319</code></pre>
+<p>El bloque de código siguiente calcula las tasas de pobreza con y sin ponderadores para el total del país y para cada una de las regiones de México en 2006 correspondientes al cuadro 3.10 del texto. En la primer línea el objeto “lp” almacena el valor de la línea de pobreza, en base a la cual se genera la variable binaria “pobre,” vale 1 para los individuos pobres (es decir, <em>ipcf &lt; lp</em> ) y 0 para el resto. La suma de esta variable arroja el número total de personas pobres en la muestra, al multiplicarla por el ponderador obtenemos el número de personas pobres en la población y dividiendo por la población total del país nos devuelve la tasa de incidencia de la pobreza. En este caso el valor es de 13.57%</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="do">###linea de pobreza us$2.5 Mexico 2006</span></span>
+<span id="cb42-2"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb42-2" aria-hidden="true" tabindex="-1"></a>lp<span class="ot">=</span> <span class="fl">633.90918</span></span>
+<span id="cb42-3"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb42-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-4"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="co">#identificar individuos pobres</span></span>
+<span id="cb42-5"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb42-5" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>pobre <span class="ot">=</span> <span class="fu">ifelse</span>(df<span class="sc">$</span>ipcf<span class="sc">&lt;</span>lp, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb42-6"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb42-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-7"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb42-7" aria-hidden="true" tabindex="-1"></a><span class="co">#total pais</span></span>
+<span id="cb42-8"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb42-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(df<span class="sc">$</span>pobre<span class="sc">*</span>df<span class="sc">$</span>pondera)<span class="sc">*</span><span class="dv">100</span><span class="sc">/</span><span class="fu">sum</span>(df<span class="sc">$</span>pondera)</span></code></pre></div>
+<pre><code>## [1] 13.57454</code></pre>
+<p>Las siguientes líneas calculan el mismo valor de una manera alternativa, almacenándolo en un dataframe, a partir de contabilizar la frecuencia absoluta y relativa de personas pobres y no pobres.</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb44-1" aria-hidden="true" tabindex="-1"></a>pobreza <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(pobre) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">accounting</span>(<span class="fu">sum</span>(pondera), <span class="at">digits =</span> <span class="dv">0</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb44-2"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb44-2" aria-hidden="true" tabindex="-1"></a>                                   <span class="fu">mutate</span>(<span class="at">tasa_pobreza =</span> <span class="fu">percent</span>(n<span class="sc">/</span><span class="fu">sum</span>(n))) </span>
+<span id="cb44-3"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print.data.frame</span>(pobreza)</span></code></pre></div>
+<pre><code>##   pobre          n tasa_pobreza
+## 1     0 88,070,783       86.43%
+## 2     1 13,832,961       13.57%</code></pre>
+<p>Para replicar el mismo cálculo pero para las regiones del país, generamos un bucle que itera 8 veces, una vez por cada región. En cada vuelta del bucle se estima, de la misma forma que arriba, el valor de pobreza tanto ponderado como no ponderado. Para este segundo caso el único paso adicional consiste en fijar la variable “pondera” como igual a 1. Como vimos en la salida anterior de la tabla, en la 2da fila de la 3er columna se encuentra la tasa de incidencia de pobreza, con la expresión <em><code>pobreza_pondera[2,3]</code></em> llamamos a este valor para guardarlo en el objeto “share_p,” luego de redondearlo a dos dígitos con el comando <code>round</code>. Lo mismo hacemos para las estimaciones sin ponderar. Por último, imprimimos los resultados acompañados por una leyenda indicativa.</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co">#por region</span></span>
+<span id="cb46-2"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>){</span>
+<span id="cb46-3"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb46-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb46-4"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb46-4" aria-hidden="true" tabindex="-1"></a>  pobreza_pondera <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(region<span class="sc">==</span>i) <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(pobre) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">n=</span><span class="fu">sum</span>(pondera)) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-5"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb46-5" aria-hidden="true" tabindex="-1"></a>                                                                  <span class="fu">mutate</span>(<span class="at">tasa_pobreza=</span>n<span class="sc">/</span><span class="fu">sum</span>(n))</span>
+<span id="cb46-6"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb46-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb46-7"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb46-7" aria-hidden="true" tabindex="-1"></a>  pobreza_s_pondera <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(region<span class="sc">==</span>i) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">pondera=</span><span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(pobre) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">n=</span><span class="fu">sum</span>(pondera)) <span class="sc">%&gt;%</span></span>
+<span id="cb46-8"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb46-8" aria-hidden="true" tabindex="-1"></a>                                                                                      <span class="fu">mutate</span>(<span class="at">tasa_pobreza=</span>n<span class="sc">/</span><span class="fu">sum</span>(n))</span>
+<span id="cb46-9"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb46-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb46-10"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb46-10" aria-hidden="true" tabindex="-1"></a>  <span class="co">#recupero el valor llamando a la fila y columna y redondeo </span></span>
+<span id="cb46-11"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb46-11" aria-hidden="true" tabindex="-1"></a>  share_p <span class="ot">=</span> <span class="fu">round</span>(pobreza_pondera[<span class="dv">2</span>,<span class="dv">3</span>]<span class="sc">*</span><span class="dv">100</span>, <span class="at">digits =</span> <span class="dv">2</span>)</span>
+<span id="cb46-12"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb46-12" aria-hidden="true" tabindex="-1"></a>  share_sp <span class="ot">=</span> <span class="fu">round</span>(pobreza_s_pondera[<span class="dv">2</span>,<span class="dv">3</span>]<span class="sc">*</span><span class="dv">100</span>, <span class="at">digits =</span> <span class="dv">2</span>)</span>
+<span id="cb46-13"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb46-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb46-14"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb46-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;H_ponderado =&quot;</span>, share_p, <span class="st">&quot;/ H_sin_ponderar =&quot;</span>, share_sp))</span>
+<span id="cb46-15"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb46-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb46-16"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb46-16" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;H_ponderado = 7.73 / H_sin_ponderar = 8.21&quot;
+## [1] &quot;H_ponderado = 12.23 / H_sin_ponderar = 17.43&quot;
+## [1] &quot;H_ponderado = 4.73 / H_sin_ponderar = 10.03&quot;
+## [1] &quot;H_ponderado = 11.94 / H_sin_ponderar = 11.18&quot;
+## [1] &quot;H_ponderado = 9.55 / H_sin_ponderar = 13.4&quot;
+## [1] &quot;H_ponderado = 35.13 / H_sin_ponderar = 44.68&quot;
+## [1] &quot;H_ponderado = 20.64 / H_sin_ponderar = 21.14&quot;
+## [1] &quot;H_ponderado = 14.51 / H_sin_ponderar = 18.91&quot;</code></pre>
+<p>Este bloque de códigos imprime los resultados en la consola. Si quisiéramos generar un cuadro u objeto que los almacene (dataframe) para luego por ejemplo exportarlo en Excel u otro formato, solo debemos modificar ligeramente el código de arriba. Antes de correr el bucle generamos un dataframe que contiene todos valores 0, pero con 3 columnas (region, pondera, sin_pondera). Al final del bucle guardamos los datos de la región, de pobreza con ponderador y sin ponderador en la columna 1, 2 y 3 respectivamente, pero en cada iteración lo hacemos en una fila distinta, que corresponde a cada región. Por ejemplo en la tercera iteración el código filtra la región a la cual le corresponde el valor 3, y almacena las estimaciones de línea de pobreza en la tercera fila de la tabla “results.”</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co">#creo data frame solo con ceros, de 8 filas y 3 columnas</span></span>
+<span id="cb48-2"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb48-2" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">region=</span><span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">0</span>,<span class="dv">8</span>)),</span>
+<span id="cb48-3"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb48-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">pondera=</span><span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">0</span>,<span class="dv">8</span>)),</span>
+<span id="cb48-4"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb48-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">sin_pondera=</span><span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">0</span>,<span class="dv">8</span>)))</span>
+<span id="cb48-5"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb48-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-6"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb48-6" aria-hidden="true" tabindex="-1"></a><span class="co">#por region</span></span>
+<span id="cb48-7"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb48-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>){</span>
+<span id="cb48-8"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb48-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb48-9"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb48-9" aria-hidden="true" tabindex="-1"></a>  pobreza_pondera <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(region<span class="sc">==</span>i) <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(pobre) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">n=</span><span class="fu">sum</span>(pondera)) <span class="sc">%&gt;%</span> </span>
+<span id="cb48-10"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb48-10" aria-hidden="true" tabindex="-1"></a>                                                                  <span class="fu">mutate</span>(<span class="at">tasa_pobreza=</span>n<span class="sc">/</span><span class="fu">sum</span>(n))</span>
+<span id="cb48-11"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb48-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb48-12"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb48-12" aria-hidden="true" tabindex="-1"></a>  pobreza_s_pondera <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(region<span class="sc">==</span>i) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">pondera=</span><span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(pobre) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">n=</span><span class="fu">sum</span>(pondera)) <span class="sc">%&gt;%</span></span>
+<span id="cb48-13"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb48-13" aria-hidden="true" tabindex="-1"></a>                                                                                          <span class="fu">mutate</span>(<span class="at">tasa_pobreza=</span>n<span class="sc">/</span><span class="fu">sum</span>(n))</span>
+<span id="cb48-14"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb48-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb48-15"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb48-15" aria-hidden="true" tabindex="-1"></a>  <span class="co">#recupero el valor llamando a la fila y columna y redondeo </span></span>
+<span id="cb48-16"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb48-16" aria-hidden="true" tabindex="-1"></a>  results[i,<span class="dv">1</span>] <span class="ot">=</span> <span class="fu">paste</span>(<span class="st">&quot;region&quot;</span>, i)</span>
+<span id="cb48-17"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb48-17" aria-hidden="true" tabindex="-1"></a>  results[i,<span class="dv">2</span>] <span class="ot">=</span> <span class="fu">round</span>(pobreza_pondera[<span class="dv">2</span>,<span class="dv">3</span>]<span class="sc">*</span><span class="dv">100</span>, <span class="at">digits =</span> <span class="dv">2</span>)</span>
+<span id="cb48-18"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb48-18" aria-hidden="true" tabindex="-1"></a>  results[i,<span class="dv">3</span>] <span class="ot">=</span> <span class="fu">round</span>(pobreza_s_pondera[<span class="dv">2</span>,<span class="dv">3</span>]<span class="sc">*</span><span class="dv">100</span>, <span class="at">digits =</span> <span class="dv">2</span>)</span>
+<span id="cb48-19"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb48-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb48-20"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb48-20" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>De esta manera al finalizar el bucle queda armado un objeto de 3 columnas con 8 filas, una para cada región</p>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["region"],"name":[1],"type":["chr"],"align":["left"]},{"label":["pondera"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["sin_pondera"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"region 1","2":"7.73","3":"8.21"},{"1":"region 2","2":"12.23","3":"17.43"},{"1":"region 3","2":"4.73","3":"10.03"},{"1":"region 4","2":"11.94","3":"11.18"},{"1":"region 5","2":"9.55","3":"13.40"},{"1":"region 6","2":"35.13","3":"44.68"},{"1":"region 7","2":"20.64","3":"21.14"},{"1":"region 8","2":"14.51","3":"18.91"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>
+ 
+</p>
+</div>
+<div id="diseño-muestral" class="section level2" number="2.9">
+<h2><span class="header-section-number">2.9</span> Diseño muestraL</h2>
+<p>###- (pág. 160)</p>
+<p>En este material no se cubre con ejemplos este apartado pero para los usuarios interesados en adentrarse en el manejo de encuestas de hogares contemplando el diseño muestral, se recomienda explorar el uso del paquete “SURVEY,” similar al paquete “svy” en STATA.</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;survey&quot;)</span></span>
+<span id="cb49-2"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(survey)</span>
+<span id="cb49-3"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb49-3" aria-hidden="true" tabindex="-1"></a>?survey</span></code></pre></div>
+<p>
+ 
+</p>
+</div>
+<div id="fuentes-de-ingreso" class="section level2" number="2.10">
+<h2><span class="header-section-number">2.10</span> Fuentes de ingreso</h2>
+<p>###- (pág. 161)</p>
+<p>El bloque de código a continuación muestra cómo computar la importancia que tiene cada fuente de ingresos identificada en las encuestas de hogares (cuadro 3.13). Dento de las fuentes de ingreso consideramos: laboral (variable ila), jubilaciones (ijubi), capital (icap), transferencias (itran) y otros (ionl).</p>
+<p>Para comenzar declaramos la base y la limpiamos. Luego sumamos generamos la variable ingreso total (“itot”), como la suma de las columnas para cada ingreso. Hasta ahora todas las veces que aplicamos el comando <code>sum</code> lo hicimos sumando una misma columna, por ejemplo para obtener el total de población, sumamos la variable “pondera.” En este caso queremos sumar por fila distintas columnas, para eso debemos anteponer el comando <code>rowwise</code>.</p>
+<p>Como resultado final necesitamos mostrar la participación en el ingreso total de cada fuente de ingreso. Para ello debemos considerar cada fuente por separado y divirla por el ingreso total. La forma de hacerlo nuevamente es utilizando un bucle. Entonces el código a escribir debe lograr en cada iteración tomar todos los valores de cada una de las variables que corresponde a la fuente de ingresos, en otras palabras debemos iterar entre columnas distintas. La forma que proponemos aquí consiste en valernos de las listas. Las listas son un objeto que en cada elemento puede almacenar otro objeto de cualquier tipo. Una lista de n elementos puede contener n dataframes distinto en cada uno de ellos, o n columnas de un dataframe, o n vector. Aquí entonces nos valdremos de esta flexibilidad para almacenar en un mismo objeto (lista) múltiples objetos distintos (columnas)</p>
+<p>La cuarta línea de códigos declara a “ingresos” como una lista que como elementos contiene a las variables de ingreso de nuestra base de datos. En la línea siguiente creamos un simple vector con los nombres de cada una de estas. Con esto ya podemos generar nuestro bucle, haciéndolo iterar desde 1 hasta n, siendo n la cantidad de fuentes de ingresos distintas que consideramos. Para evitarnos contar manualmente cuantas son, directamente calculamos n con el comando <code>length</code> que nos devuelve la cantidad de elementos dentro de la lista “ingresos.” De esta forma si agregamos o quitamos una variable de ingreso no debemos preocuparnos por fijar este valor cada vez.</p>
+<p>En la primer línea del código definimos la variable “y” que, en cada iteración, será un elemento distinto del objeto ingreso, es decir una fuente de ingreso distinta, comenzando por “ila” y terminando en “ionl.” A esta variable la expandimos multiplicándola por el ponderador, de la misma manera que expandimos la variable de ingreso total, que ya calculamos mas arriba. Solo nos resta hacer el cociente entre la suma de los ingresos de todas las personas correspondiente a cada fuente, sobre el total de todos los ingresos. El objeto “value” almacena este cálculo, que luego redondeamos a dos dígitos. Nótese la importancia de la opción <em><code>na.rm=TRUE</code></em> que evita que un valor missing convierta en missing a toda la suma, es decir que indica ignorar los valores missings y preservar el cálculo sobre el resto de las observaciones no missings. Para terminar, “concepto” almacena el nombre de la fuente correspondiente a cada vuelta del bucle, para imprimirlo en la línea final junto con el valor calculado.</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb50-1" aria-hidden="true" tabindex="-1"></a>arg06 <span class="ot">&lt;-</span> <span class="fu">read.dta</span>(data_dir <span class="sc">%+%</span> <span class="st">&quot;Arg/2006/s2/bases/arg06_cedlas.dta&quot;</span>) </span>
+<span id="cb50-2"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb50-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-3"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb50-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> arg06 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(cohh<span class="sc">==</span><span class="dv">1</span>, <span class="sc">!</span><span class="fu">is.na</span>(ipcf)) </span>
+<span id="cb50-4"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb50-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-5"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="co">#sumo los ingresos por fila (rowwise)</span></span>
+<span id="cb50-6"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb50-6" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> rowwise <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">itot =</span> <span class="fu">sum</span>(ila, ijubi, icap, itran, ionl, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb50-7"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb50-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-8"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb50-8" aria-hidden="true" tabindex="-1"></a><span class="co">#creo una lista en la que cada elemento es un vector distinto de ingreso</span></span>
+<span id="cb50-9"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb50-9" aria-hidden="true" tabindex="-1"></a>ingresos <span class="ot">&lt;-</span> <span class="fu">list</span>(df<span class="sc">$</span>ila, df<span class="sc">$</span>ijubi, df<span class="sc">$</span>icap, df<span class="sc">$</span>itran, df<span class="sc">$</span>ionl)</span>
+<span id="cb50-10"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb50-10" aria-hidden="true" tabindex="-1"></a>names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;laboral&quot;</span>, <span class="st">&quot;jubilación&quot;</span>, <span class="st">&quot;capital&quot;</span>, <span class="st">&quot;transferencias&quot;</span>, <span class="st">&quot;otros&quot;</span>)</span>
+<span id="cb50-11"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb50-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-12"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb50-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-13"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb50-13" aria-hidden="true" tabindex="-1"></a><span class="co">#itero sobre cada uno de esos vectores </span></span>
+<span id="cb50-14"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb50-14" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(ingresos)){</span>
+<span id="cb50-15"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb50-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb50-16"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb50-16" aria-hidden="true" tabindex="-1"></a>  y <span class="ot">=</span> ingresos[[i]]</span>
+<span id="cb50-17"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb50-17" aria-hidden="true" tabindex="-1"></a>  y_expand <span class="ot">=</span> y <span class="sc">*</span> df<span class="sc">$</span>pondera</span>
+<span id="cb50-18"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb50-18" aria-hidden="true" tabindex="-1"></a>  itot_expand <span class="ot">=</span> df<span class="sc">$</span>itot <span class="sc">*</span> df<span class="sc">$</span>pondera</span>
+<span id="cb50-19"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb50-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb50-20"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb50-20" aria-hidden="true" tabindex="-1"></a>  value <span class="ot">&lt;-</span> <span class="fu">sum</span>(y_expand, <span class="at">na.rm=</span><span class="cn">TRUE</span>) <span class="sc">/</span> <span class="fu">sum</span>(itot_expand, <span class="at">na.rm=</span><span class="cn">TRUE</span>) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb50-21"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb50-21" aria-hidden="true" tabindex="-1"></a>  value <span class="ot">&lt;-</span> <span class="fu">round</span>(value, <span class="at">digits =</span> <span class="dv">2</span>)</span>
+<span id="cb50-22"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb50-22" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb50-23"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb50-23" aria-hidden="true" tabindex="-1"></a>  concepto <span class="ot">=</span> names[i]</span>
+<span id="cb50-24"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb50-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;shr %&quot;</span>, concepto, <span class="st">&quot;= &quot;</span>, value))</span>
+<span id="cb50-25"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb50-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-26"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb50-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-27"><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#cb50-27" aria-hidden="true" tabindex="-1"></a>  }</span></code></pre></div>
+<pre><code>## [1] &quot;shr % laboral =  80.4&quot;
+## [1] &quot;shr % jubilación =  12.24&quot;
+## [1] &quot;shr % capital =  1.5&quot;
+## [1] &quot;shr % transferencias =  4.77&quot;
+## [1] &quot;shr % otros =  1.09&quot;</code></pre>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Para los usuarios que no esten tan familiarizados con las nociones de <em>Environment</em> y <em>Non-Standard Evaluation</em> se recomienda revisar las siguientes referencias para un tratamiento mas detallado.</p>
+<p>*<a href="http://adv-r.had.co.nz/Environments.html#environments" class="uri">http://adv-r.had.co.nz/Environments.html#environments</a></p>
+<p>*<a href="http://adv-r.had.co.nz/Computing-on-the-language.html" class="uri">http://adv-r.had.co.nz/Computing-on-the-language.html</a></p>
+<p>*<a href="https://advanced-r-solutions-ed1.netlify.app/non-standard-evaluation.html#non-standard-evaluation-in-subse" class="uri">https://advanced-r-solutions-ed1.netlify.app/non-standard-evaluation.html#non-standard-evaluation-in-subse</a><a href="apéndices-del-libro-pobreza-y-desigualdad-en-r.html#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="apéndices-del-libro-pobreza-y-desigualdad-en-r-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/03-Cap3_html.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
