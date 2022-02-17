@@ -16,9 +16,6 @@ output:
 
 <p>&nbsp;</p>
 
-```{r setup, include=FALSE, message=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 ## Set Inicial
 

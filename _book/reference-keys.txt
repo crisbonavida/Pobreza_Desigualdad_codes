@@ -1,7 +1,11 @@
 bienvenidos
 apéndices-del-libro-pobreza-y-desigualdad-en-r
-capítulo-3
+capítulo-2
 set-inicial
+introducción-ejemplo-brasil
+apéndices-del-libro-pobreza-y-desigualdad-en-r-1
+capítulo-3
+set-inicial-1
 cociente-de-cuantiles
 replicar-programa-ratq51
 replicar-programa-gcuan
@@ -10,9 +14,9 @@ la-distribución-intrahogar
 empleo-de-ponderadores
 diseño-muestral
 fuentes-de-ingreso
-apéndices-del-libro-pobreza-y-desigualdad-en-r-1
+apéndices-del-libro-pobreza-y-desigualdad-en-r-2
 capítulo-4
-set-inicial-1
+set-inicial-2
 indicador-fgt
 computar-fgt
 pobreza-relativa
@@ -20,9 +24,9 @@ descompoisición-regional-de-la-pobreza
 pobreza-según-consumo-e-ingreso
 pobreza-por-edad
 significatividad-estadistica
-apéndices-del-libro-pobreza-y-desigualdad-en-r-2
+apéndices-del-libro-pobreza-y-desigualdad-en-r-3
 capítulo-5
-set-inicial-2
+set-inicial-3
 pobreza-multidimensional
 indice-bourguignon-y-chakravarty-bc---pobreza-multidimensional
 indice-alkire-y-foster-af---pobreza-multidimensional
