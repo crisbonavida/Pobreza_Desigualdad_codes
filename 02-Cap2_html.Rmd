@@ -1,0 +1,181 @@
+---
+output:
+  html_document:
+    highlight: tango
+---
+
+# "Apéndices del Libro Pobreza y Desigualdad en R"
+## - Capítulo 2
+<p>&nbsp;</p>
+
+#### Escrito por: Cristian Bonavida{-}
+#### Last Update: 02/7/2021 {-}
+<p>&nbsp;</p>
+
+*Códigos escritos en base a los apéndices del libro "Pobreza y Desigualdad en América Latina" de Gasparini, Cicowiez y Sosa Escudero. El objeto de este material es reproducir la rutina de códigos para STATA presentada en el libro al lenguaje R. Este material es solo de caracter complementario a las explicaciones y detalles conceptuales que se presentan en el libro de texto y los apéndices* 
+
+<p>&nbsp;</p>
+
+```{r setup, include=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Set Inicial
+
+Cargo las librerias, limpio environment, defino el path y atajo para función paste
+
+```{r, message=FALSE}
+
+library(dplyr)
+library(tidyverse) # Data wrangling
+library(tidygraph)
+library(readxl)
+library(ggplot2)
+library(foreign)
+library(Hmisc)
+
+rm(list=ls())    #empiezo limpiando todo 
+
+"%+%" <- function(x,y) paste(x,y,sep = "")      # defino un shorcut parar concat de texto
+data_dir <- "C:/Users/HP/Desktop/CEDLAS - UNLP/Apendices en R/Material libro/encuestas-cedlas/Encuestas/"  #seteo directorio 
+
+```
+
+<p>&nbsp;</p>
+
+
+
+## Introducción: ejemplo Brasil 
+
+###- (pág. 72)
+
+El siguiente código es introductorio y busca guiar al lectro en la sintaxís básica a utilizar, mostrando a modo de ejemplo cómo replicar los resultados correspondientes al cuadro 2.1 del texto. 
+
+Para ello como al inicio de cada capítulo el primer paso es obtener base de datos, en ese caso la versión procesada de la PNAD (Pesquisa Nacional por Amostra de Domicílios) de Brasil para el año 2007, accesible desde el link de descarga indicado en la sección anterior: datos y set up básico. (añadir sección y fererir allí)
+
+Una vez descargada la encuesta y guardada en el directorio que el lector indicó al definir el objeto data_dir se carga la encuesta que se encuntra en formato STATA utilizando, de la librería `foreing`, el comando `read.dta` que permite importar en R bases de datos que estan en formatos compatibles con otros programas o lenguajes. Las encuestas de hogares procesadas que se utilizan a lo largo del libro solo contienen observaciones que denominamos coherentes (ver capítulo 3), que en pocas palabras se trata de observaciones válidas que utilizamos en el cálculo de los ingresos familiares. Por ello siempre que se cargue una base luego se debe filtrarla a partir de la columna *cohh*, para quedarse solo con estas observaciones.
+
+Las encuestas de hogares, al igual que cualquier otra base de datos, se organizan en R como objetos tipo tabla que reciben el nombre de `dataframe`, donde las filas representan observaciones o registros y las columnas variables
+o campos. Con el comando `head` podemos explorar las primeras observaciones de la encuesta (`[,1:9]` indica incluir solo de la columna 1 a 9 para que el output no sea demasiado extenso)
+
+
+```{r, include=TRUE}
+#cargo base
+bra07 <- read.dta(data_dir %+% "Bra/2007/Bases/bra07_cedlas.dta") %>% 
+         filter(cohh==1)
+
+head(bra07[,1:9])
+
+```
+
+A su vez, por tratarse de una encuesta, cada observación representa a varios individuos, tantos como indica el factor de expansión o variable de ponderación. En nuestro caso, todas las encuestas que utilizaremos contienen una variable de nombre *"pondera"* que almacena el factor de expansión. Para más detalles sobre el uso de ponderadores, consultar mas adelante la sección 3.6 del capítulo 3.
+
+Para expandir las observaciones por su peso muestral debemos emplear alguna de las librerias disponibles creadas para tal fin, ya que "por default" los comandos base de R no estiman estadísticos ponderados, como es el caso por ejemplo del comando `summary`. Si se comparan los valores que arroja respecto a los valores de los mismos estadísticos pero ponderados, es evidente que existen diferencias (excepto obviamente para el mínimo y el máximo). Existen varias librerías que nos permiten obtener los mismos descriptivos ponderados, aquí se presentan los resultados con el uso de `Hmisc` pero también puede explorarse de forma similar las librerias  `TAM` y  `srvy`.   
+
+```{r, include=TRUE}
+
+#summary no arroja estadísticas descriptivas ponderadas
+summary(bra07$ipcf)
+
+```
+    
+```{r, include=TRUE}
+
+#replicar la información que nos da summary pero ponderandola - usando libreria Hmisc
+wtd.mean(bra07$ipcf, w=bra07$pondera)
+wtd.quantile(bra07$ipcf, probs =c(0.25, 0.50, 0.75) , w=bra07$pondera)
+min(bra07$ipcf, na.rm =T)
+max(bra07$ipcf, na.rm =T)
+
+```
+Mientras que la media no pondera es de 555.5 al ponderar el valor estimado es 569.6. Lo mismo ocurre para la mediana, el primer y el tercer cuartil de la distribución. 
+
+Una opción recomendada para usuarios mas familirizados con la sintaxis es definir una función que nos calcula e imprima los resultados para estos estadísticos ponderados. Las funciones son una especie de comando personalizado que nos permiten customizar los calculos y el output a nuestra necesidad o gusto. (Ver capitulo siguiente sobre uso de funciones)
+
+```{r, include=TRUE}
+
+my_weighted_stats <- function(argumento1, argumento2){
+  
+  print(paste("Mean: ", wtd.mean(argumento1, w=argumento2), sep=""))
+  print(paste("Sd: ", sqrt(wtd.var(argumento1, w=argumento2)), sep=""))
+  print(wtd.quantile(bra07$ipcf, probs =c(0.25, 0.50, 0.75) , w=bra07$pondera))
+  print(paste("Min: ", min(argumento1, na.rm=TRUE), sep=""))
+  print(paste("Max: ", max(argumento1, na.rm=TRUE), sep=""))
+  
+}
+
+```
+
+Una vez definida la función debemos llamarla por el nombre indicando sus argumentos. En este caso el primero hace referencia a la variable y el segundo al ponderador. La función replica exactamente la información que arrojaría el comando `summ` en stata ponderando las estimaciones.
+
+```{r, include=TRUE}
+
+my_weighted_stats(bra07$ipcf, bra07$pondera)
+
+```
+
+
+Una de las principales ventajas de las funciones es que nos permiten replicar los resultados para distintas encuestas o también para distintos subconjuntos de los datos. Por ejemplo, en el caso de la PNAD 2007 de Brasil, la variable *region* puede tomar los valores 1, 2, 3, 4 o 5 dependiendo de si la observación corresponde a la región Norte, Nordeste, Sudeste, Sur o Centro-Oeste, respectivamente. Así, las líneas siguientes pueden utilizarse para computar los estadísticos para dichas regiones, replicando aquí las columnas "Norte" y "Nordeste" del cuadro 2.1
+
+```{r, include=TRUE}
+my_weighted_stats(bra07$ipcf[bra07$region==1], bra07$pondera[bra07$region==1])
+my_weighted_stats(bra07$ipcf[bra07$region==2], bra07$pondera[bra07$region==2])
+```
+
+Ahora el argumento no son todas las filas de las columnas *ipcf* y *pondera* sino solo aquellas que cumplen con la condición de pertenecer a la región 1 y 2 en cada caso, lo que se instrumenta con el subscript `[bra07$region==x]`. 
+
+Siguiendo con el cuadro 2.1 del texto, si quisieramos replicar el coeficiente de variación, ahora que ya sabemos como obtener estadísticas ponderadas, se vuelve muy sencillo. Solo basta con definir un objeto que *cv* que contenga el cociente entre la media y el desvií estandar.
+
+```{r, include=TRUE}
+
+cv=sqrt(wtd.var(bra07$ipcf, w=bra07$pondera)) / wtd.mean(bra07$ipcf, w=bra07$pondera)
+cv
+```
+
+Y si quisieramos estimarlo para una región en particular solo deberiamos aplicar el subscript de la misma forma que lo hicimos antes en la función. 
+
+```{r, include=TRUE}
+
+cv= sqrt(wtd.var(bra07$ipcf[bra07$region==1], w=bra07$pondera[bra07$region==1])) / 
+         wtd.mean(bra07$ipcf[bra07$region==1], w=bra07$pondera[bra07$region==1]) 
+cv
+```
+
+La primera columna del cuadro 2.1 muestra además la población de referencia o número de observaciones expandidas. Para calcularlo basta con sumar la columna pondera, es decir sumar a cada persona aumentandola por su factor de expansión.De esta forma vemos que la población de referencia de la PNAD 2007 es 187 millones de personas aproximadamente. 
+
+```{r, include=TRUE}
+
+#número de observaciones expandidas
+sum(bra07$pondera)
+
+```
+
+El ejemplo del texto finaliza con el cómputo de la pobreza en Brasil para el año 2007, utilizando una línea de pobreza de 130 reales mensuales. Una forma sencilla de computar la proporción de individuos con ingresos mensuales menores a 130 reales es mediante el bloque de código siguiente, donde primero se genera una variable binaria *"pobre"* a partir del comando `ifelse`, que asignará el valor 1 en caso de que el individuo no supere el umbral monetario y 0 en caso contrario, y luego se computa simplemente su media e imprime el resultado redondeado a 2 decimales.
+
+```{r, include=TRUE}
+
+#identificar individuos pobres
+bra07 <- bra07 %>% mutate(pobre=ifelse(ipcf<129.883, 1, 0)) 
+
+#total país
+pobres_pais = wtd.mean(bra07$pobre, bra07$pondera)
+print(paste("shr pobres=", round(pobres_pais, d=2)))
+```
+
+El mismo resultado podría obtenerse como el cociente de la suma ponderada de personas pobres sobre el total de población.
+
+```{r, include=TRUE}
+
+#otra forma
+pobres_pais = sum(bra07$pondera[bra07$pobre==1], na.rm = TRUE)/sum(bra07$pondera)
+print(paste("shr pobres=", round(pobres_pais, d=2)))
+
+```
+
+Para calcular la tasa de pobreza para una región en vez de todo el país, basta simplemente con con filtrar las observaciones.
+
+```{r, include=TRUE}
+## Region Norte
+pobres_norte = wtd.mean(bra07$pobre[bra07$region==1], bra07$pondera[bra07$region==1])
+print(paste("shr pobres=", round(pobres_norte, d=2)))
+```
