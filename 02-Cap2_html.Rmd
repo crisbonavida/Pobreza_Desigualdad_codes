@@ -179,3 +179,245 @@ Para calcular la tasa de pobreza para una región en vez de todo el país, basta
 pobres_norte = wtd.mean(bra07$pobre[bra07$region==1], bra07$pondera[bra07$region==1])
 print(paste("shr pobres=", round(pobres_norte, d=2)))
 ```
+
+
+
+
+
+## Histogramas: 
+
+###- (pág. 76) 
+
+Siguiendo apédice del libro mostramos cómo puede graficarse un histograma de la distribución del ipcf en México para el año 2006 (figuras 2.2 a 2.8 del texto). Al igual que en el ejemplo de Brasil, el lector puede obtener la ENIGH (Encuesta Nacional de Ingresos y Gastos de los Hogares) mexicana de 2006 del sitio web del libro. La misma también cuenta con las
+variables ipcf y pondera que utilizaremos en lo que resta de este apéndice
+
+```{r, include=TRUE}
+
+#cargo base
+mex06 <- read.dta(data_dir %+% "Mex/2006/bases/mex06_cedlas.dta")  
+
+#elimino observaciones incoherentes o con ingreso missing
+mex06 <- mex06 %>% filter(cohh==1, !is.na(ipcf)) 
+
+```
+
+Para graficar optamos por la libreria mas extendida en uso en R, `ggplot2`, ya que tiene una enorme variedad de graficos y mantiene un sintaxis común. Para graficar existen basicamente 3 items o funciones comunes que todos los gráficos deben tener:
+
+* __`ggplot()`__: Es la función que da inicio al gráfico, indicando que un objeto grafico va a generarse. 
+  + data: como primer argumento debemos pasarle el *dataframe* donde se encuentran las variables a graficar
+  + aes: es el segundo argumento donde indicamos el o los ejes (x e y) y la diversificación de colores o formas según            los grupos en los que se dividen los datos (por ejemplo si fueramos a graficar lineas de tendencia y                    quisieramos obtener una linea de color diferente para cada región)
+* __`geom_...()`__: donde los puntos se completan con el tipo de grafico que queremos. Existe una función para cada                         grafico. En el caso de un grafico de lineas será por ejemplo "geom_line"
+* __customización__: existe multiples funciones y casi infinitas combinaciones para adaptar el grafico en sus escalas,                       colores, titulos, dimensiones, fuente de los ejes, leyendas, faceteado, etc. 
+
+A continuación, siguiendo estas líneas generales, graficamos un histograma para el ipcf, empleando la función `geom_histom`. Igual que antes, `[w=pondera]` indica que cada observación de la encuesta debe expandirse según la cantidad de individuos que representa. La opción bin(100) especifica que el histograma debe identificar 100 grupos (100 barras). Por último el termino `stat(count) / sum(count)` para estimar valores del eje y en proporciones y no en valores absolutos. Los demás son pequeñas customizaciones de titulos y colores que el lector podrá entender facilmente.
+
+```{r, include=TRUE, out.width = "80%"}
+
+## Figure 2.2 - histograma ipcf
+ggplot(data=mex06, 
+       aes(x=ipcf, weight=pondera)) + 
+  geom_histogram(bins = 100, aes(y = stat(count) / sum(count)),
+                 color="black", fill="grey") +
+    labs(y="proporción", x="ingreso per cápita familiar")
+```
+
+Con las lineas siguientes se filtra la base para invididuos con ipcf menor a 1500 para evitar la típica distorsión generada por los valores extremos.
+
+```{r, include=TRUE, out.width = "80%"}
+
+## Figure 2.3 - histograma ipcf sin outliers
+ggplot(data=mex06 %>% filter(ipcf < 15000), 
+       aes(x=ipcf, weight=pondera)) + 
+  geom_histogram(bins = 100, aes(y = stat(count) / sum(count)),
+                 color="black", fill="grey") +
+    labs(y="proporción", x="ingreso per cápita familiar")
+
+```
+
+Las figuras 2.4 y 2.5 del texto pueden replicarse utilizando el bloque de código siguiente. En la primera se grafica el el logaritmo de la variable ipcf, indicando la función `log` para el eje x. En la siguiente se incrementa sucesivamente el números de barras del histograma. Para ello podriamos repetir 4 veces el gráfico cambiando solamente la cantidad de bins. Aqui optamos por presentar un solución mas elegante en la que generamos los 4 gráficos a partir de un bucle que itera sobre el número de bins deseado. El lector no familiarizado con los bucles puede optar por la primera opción hasta que en los siguientes capitulos presentemos con mas detalle cómo se introducen iteraciones mediante bucles.
+
+```{r, include=TRUE, out.width = "80%"}
+
+## Figure 2.4 - histograma logaritmo ipcf
+ggplot(mex06, 
+       aes(x=log(ipcf), weight=pondera)) + 
+  geom_histogram(bins = 100, aes(y = stat(count) / sum(count)),
+                 color="black", fill="grey") +
+  labs(y="proporción", x="ingreso per cápita familiar")
+
+```
+
+
+
+```{r, include=TRUE, error=FALSE, out.width = "80%"}
+
+## Figure 2.5 - histogramas con diferente cantidad de intervalos
+
+n_bins = c(10,50,100,1000)
+my_graphs = list()
+
+i=1
+for (n in n_bins){
+  
+    my_graphs[[i]] <- ggplot(mex06, 
+                           aes(x=log(ipcf), weight=pondera)) + 
+                   geom_histogram(bins = n, aes(y = stat(count) / sum(count)),
+                               color="black", fill="grey") +
+                   labs(y="proporción", x="ingreso per cápita familiar") +
+                   ggtitle( n %+% " intervalos") +
+                   theme(plot.title = element_text(size = 12, hjust = 0.5))
+
+  i=i+1  
+}
+
+g1 <-  my_graphs[[1]]
+g2 <-  my_graphs[[2]]
+g3 <-  my_graphs[[3]]
+g4 <-  my_graphs[[4]]
+
+library(gridExtra)
+grid.arrange(g1, g2, g3, g4, ncol=2, nrow=2)
+
+```
+
+
+## Función de distribución 
+
+###- (pág. 78) 
+
+En este apartado se muestra cómo pueden graficarse las funciones de distribución presentadas en la sección 2.3.2 del cuerpo principal del capítulo. El primer paso para construir una función de distribución es ordenar (de menor a mayor) las observaciones de la encuestas, según la variable de ingreso elegida, ipcf en nuestro caso. Esto es lo que hacemos en la primera linea. En la línea siguiente se crea la variable *"shrpop"* para almacenar la proporción relativa acumulada de la variable pondera, es decir el porcentaje acumulado de la población que representa cada observación mas todas las anteriores. *"shrpop"*  tendrá entonces un valor de 100 para la ultima observación. Para obtener la suma acumulada expandida empleamos el comenado `cumsum()` y lo dividimos por el total de población expandido que se obtiene con `sum()`. La función de distribución presenta las variables shrpop e ipcf en los ejes vertical y horizontal, respectivamente, como se indica en `aes()`, y se se grafica simplemente con una linea, por lo que usamos el comando `geom_line()`, donde solo especificamos su tamaño o grosor.
+
+```{r,include=TRUE, error=FALSE, out.width = "80%"}
+
+#ordenar según ipcf
+mex06 <- mex06 %>% arrange(ipcf)
+
+#población acumulada ordenamiento ipcf
+mex06 <- mex06 %>% mutate(shrpop=cumsum(pondera)/sum(pondera))
+
+## Figure 2.9 - función de distribución acumulada
+ggplot(mex06, aes(x=ipcf, y=shrpop))+
+  geom_line(size=1.2) +
+    labs(y="proporción", x="ingreso per cápita familiar")
+
+```
+
+Se deja como ejercicio para el lector elaborar las otras funciones de distribución presentadas en la sección 2.3.2. Por su parte, la curva de Pen (ver figuras 2.12 y 2.13) se construye igual que la función de distribución pero se grafica
+invirtiendo los ejes.
+
+
+## Pareto 
+
+###- (pág. 79)
+
+
+En esta sección se muestra cómo replicar la figura 2.14 del texto, que muestra los diagramas de Pareto para las regiones Noroeste y Sur de México. El procedimiento es muy similar al caso de la función de distribución ya que en esencia representan lo mismo, de forma distinta. El gráfico de Pareto muestra para cada valor del ingreso x el porcentaje de la población que recibe ingresos superiores a ese valor x, en una escala doble logarítmica. El cambio de escala genera una suerte de zoom óptico sobre los estratos de mayores ingresos, permitiendo un examen más detallado de esa parte de la distribución.
+
+Para graficarlo seguimos los pasos anteriores, pero ahora ordenamos a la población por ingreso dentro de cada región y ya no considerando el total país. Para ello agrupamos las observaciones por región con `group_by()` previo a calcular el share acumulado, de forma tal que este calculo se haga solo entre individuos de una misma región. En la siguiente línea se genera la variable *"lpareto"* a partir de la variable *"shrpop"*, siguiendo la explicación de la sección 2.3.4 del texto. Finalmente se grafica filtrando la base para las regiones de interés e indicando con la opción *linetype* que queremos un tipo de línea diferente para distinguir por región. Dado que la variable región es númerico empleamos `factor()` para tratarla como una categórica, que identifica a las regiones. Por último, cómo empleamos la opción *linetype* con `scale_linetype()` customizamos las leyendas. Si por ejemplo hubieramos querido diferenciar las regiones por color, hubieramos utilizado *color* dentro de `aes()` y luego `scale_color()` para personalizarlo.
+
+```{r,include=TRUE, error=FALSE, out.width = "80%"}
+
+#población acumulada por región
+mex06 <- mex06 %>% group_by(region) %>% mutate(shrpop=cumsum(pondera)/sum(pondera)) 
+
+mex06 <- mex06 %>% mutate(lpareto=log(1-shrpop)) 
+
+## Figure 2.15 - Diagrama de Pareto
+ggplot(mex06 %>% filter(region==1 | region==6), 
+       aes(x=log(ipcf), y=lpareto, weight=pondera, linetype=factor(region))) + 
+  geom_line(size=1.2) +
+  scale_linetype(name="Region", labels=c("Noroeste", "Sur")) + 
+  labs(x="logaritmo del ingreso per cápita familiar")
+
+```
+
+Las líneas 1siguientes repiten el ejercicio pero dejando de lado al 1% más rico de las poblaciones regionales
+
+```{r,include=TRUE, error=FALSE, out.width = "80%"}
+
+cutoff=0.99
+
+ggplot(mex06 %>% filter((region==1 | region==6) & (shrpop<=cutoff)),
+       aes(x=log(ipcf), y=lpareto, weight=pondera, linetype=factor(region))) + 
+  geom_line(size=1.2) +
+  scale_linetype(name="Region", labels=c("Noroeste", "Sur")) + 
+  labs(x="logaritmo del ingreso per cápita familiar")
+
+```
+
+
+## Box-plot 
+
+###- (pág. 79)
+
+Aquí se muestra cómo elaborar diagramas de caja o box-plot como los presentados en la sección 2.3.5 del texto. En este caso hacemos una excepción y presentamos una alternativa mas directa a `ggplot` ya que el tratamiento de los outliers exige ajuste extras en los ejes. Con el comando `boxplot` base de R podemos obtener un boxpot de forma rapida y sencilla excluyendo valores extremos que distorsionan las escalas.
+
+```{r,include=TRUE, error=FALSE, out.width = "80%"}
+
+#Una opción mas directa fuera de ggplot
+boxplot(mex06$ipcf, outline = FALSE)
+boxplot(log(mex06$ipcf), outline = FALSE)
+
+```
+
+
+## Curva de Lorenz 
+
+###- (pág. 81) 
+
+En este apartado se muestra cómo pueden construirse las curvas de Lorenz introducidas en la sección 2.3.6 del capítulo. El primer paso consiste en ordenar a los individuos de menor a mayor según su ingreso, en nuestro caso contenido en la variable ipcf. Para ellos aplicamos la función `arrange()`. Notar que previo a esto se aplica la función `ungroup()`, lo cual es siempre recomendable cuando en la misma base previamente se habia realizado una agrupación, para de alguna forma resetear el agroupamiento. Las líneas siguientes generan la variable *"shrpop"* de la misma forma en la que fue generada más arriba, para construir el eje vertical de la función de distribución: contiene la proporción de la población que se acumula hasta cada observación de la encuesta. La diferencia es que ahora también generaremos una variable *"shrinc"* que contiene la proporción del ingreso que se acumula hasta cada observación de la encuesta y se estima expandiendo el ingreso por el factor de expansión, es decir multiplicando ambas columnas como puede verse en el código. 
+
+La curva de Lorenz nos muestra qué porcentaje de la población acumula un dado porcentaje del ingreso total. Para visualizarlo indicamos entonces los ejes respectivos para  *"shrpop"* y  *"shrinc"* y luego aplicamos un grafico de linea como `geom_line()`.
+
+```{r,include=TRUE, error=FALSE, out.width = "80%"}
+
+#ordenar según ipcf
+mex06 <- mex06 %>% ungroup() %>% arrange(ipcf)
+
+#población e ingreso acumulado
+mex06 <- mex06 %>% mutate(shrpop=cumsum(pondera)/sum(pondera),
+                          shrinc=cumsum(ipcf*pondera)/sum(ipcf*pondera)) 
+
+## figura 2.18 - curva de Lorenz 
+ggplot(mex06, aes(x=shrpop, y=shrinc)) +
+  geom_line()
+
+```
+
+En las líneas siguientes se comparan las curvas de Lorenz para dos regiones de Mexico. El código sigue los mismos pasos que antes pero ahora los cálculos de población e ingreso acumulado se realizan por región, agregando un `group_by()`. En el gráfico filtramos las regiones en cuestión y las diferenciamos con distintos tipos de lineas con la opción *linetype*, al igual que antes. Con `theme_bw()` modificamos un poco el aspecto visual del gráfico.
+
+```{r,include=TRUE, error=FALSE, out.width = "80%"}
+
+
+#ordenar según ipcf + región y acumular por región
+mex06 <- mex06 %>% arrange(region, ipcf) %>% 
+                   group_by(region) %>% 
+                   mutate(shrpop=cumsum(pondera)/sum(pondera),
+                          shrinc=cumsum(ipcf*pondera)/sum(ipcf*pondera)) 
+
+## figura 2.19 - curva de lorenz por regiones
+ggplot(mex06 %>% filter(region==1 | region==6),
+       aes(x=shrpop, y=shrinc, linetype=factor(region))) +
+  geom_line() +
+  scale_linetype(name="Region", labels=c("Noroeste", "Sur")) +
+  theme_bw()
+
+```
+
+
+```{r,include=TRUE, error=FALSE, out.width = "80%"}
+
+#ordenar según ipcf + región y acumular por región
+mex06 <- mex06 %>% arrange(region, ipcf) %>% 
+                   group_by(region) %>% 
+                   mutate(shrpop=cumsum(pondera)/sum(pondera),
+                          glorenz=cumsum(ipcf*pondera)/sum(pondera)) 
+
+## figura 2.20 - curva de Lorenz generalizada por regiones
+ggplot(mex06 %>% filter(region==1 | region==6),
+       aes(x=shrpop, y=glorenz, linetype=factor(region))) +
+  geom_line() +
+  scale_linetype(name="Region", labels=c("Noroeste", "Sur")) +
+  theme_minimal()
+
+```

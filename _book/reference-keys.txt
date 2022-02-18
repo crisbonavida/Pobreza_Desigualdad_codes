@@ -3,6 +3,11 @@ apéndices-del-libro-pobreza-y-desigualdad-en-r
 capítulo-2
 set-inicial
 introducción-ejemplo-brasil
+histogramas
+función-de-distribución
+pareto
+box-plot
+curva-de-lorenz
 apéndices-del-libro-pobreza-y-desigualdad-en-r-1
 capítulo-3
 set-inicial-1
