@@ -5,7 +5,7 @@ output:
 ---
 
 # "Apéndices del Libro Pobreza y Desigualdad en R"
-## - Capítulo 4
+## - Capítulo 4  {-}
 <p>&nbsp;</p>
 
 #### Escrito por: Cristian Bonavida {-}
@@ -17,7 +17,7 @@ output:
 <p>&nbsp;</p>
 
 
-## Set Inicial
+## Set Inicial  {-}
 
 Cargo las librerias, limpio environment, defino el path y atajo para función paste
 
