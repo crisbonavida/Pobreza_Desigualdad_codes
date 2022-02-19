@@ -1,17 +1,14 @@
 --- 
-title: "Presentación"
+title: "Apéndices del Libro Pobreza y Desigualdad en R"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
-# url: your book url like https://bookdown.org/yihui/bookdown
-# cover-image: path to the social sharing image like images/cover.jpg
 description: " Nos propusimos trasncribir al lenguaje R y Python los apéndices del libro Pobreza y Desigualdad en América Latina de Gasparini, Cicowiez y Sosa Escudero que originalmente fueron escritos para Stata."
 link-citations: yes
-github-repo: "crisbonavida/PyD_codes"
+github-repo: "crisbonavida/Pobreza_Desigualdad_codes"
 cover-image: "portada_libro_cover.png"
-always_allow_html: yes 
-
+always_allow_html: true
 ---
 
 # Bienvenidos

@@ -1,14 +1,8 @@
----
-output:
-  html_document:
-    highlight: tango
----
 
-# Capítulo 2: 
+# Capítulo 2 
 
-## "Apéndices del Libro Pobreza y Desigualdad en R" {-}
+## Apéndices del Libro Pobreza y Desigualdad en R {.unlisted .unnumbered}
 
-<p>&nbsp;</p>
 
 #### Escrito por: Cristian Bonavida{-}
 #### Last Update: 02/7/2021 {-}
@@ -55,7 +49,7 @@ El siguiente código es introductorio y busca guiar al lector en la sintaxis bá
 
 Para ello como al inicio de cada capítulo el primer paso es obtener base de datos, en ese caso la versión procesada de la PNAD (Pesquisa Nacional por Amostra de Domicílios) de Brasil para el año 2007, accesible desde el link de descarga indicado en la sección anterior: datos y set up básico. (Añadir sección y referir allí)
 
-Una vez descargada la encuesta y guardada en el directorio que el lector indicó al definir el objeto data_dir se carga la encuesta que se encuentra en formato STATA utilizando, de la librería `foreing`, el comando `read.dta` que permite importar en R bases de datos que están en formatos compatibles con otros programas o lenguajes. Las encuestas de hogares procesadas que se utilizan a lo largo del libro solo contienen observaciones que denominamos coherentes (ver capítulo 3), que en pocas palabras se trata de observaciones válidas que utilizamos en el cálculo de los ingresos familiares. Por ello siempre que se cargue una base luego se debe filtrarla a partir de la columna *cohh*, para quedarse solo con estas observaciones.
+Una vez descargada la encuesta y guardada en el directorio que el lector indicó al definir el objeto data_dir se carga la encuesta que se encuentra en formato STATA utilizando, de la librería `foreing`, el comando `read.dta` que permite importar en R bases de datos que están en formatos compatibles con otros programas o lenguajes. Las encuestas de hogares procesadas que se utilizan a lo largo del libro solo contienen observaciones que denominamos coherentes (ver capítulo 3), que en pocas palabras se trata de observaciones válidas que utilizamos en el cálculo de los ingresos familiares. Por ello siempre que se cargue una base luego se debe filtrarla a partir de la columna *cohh*, para quedarse solo con estas observaciones. De igual para asegurarnos eliminamos cualquier valor "missing" o cero de la variable ingreso.
 
 Las encuestas de hogares, al igual que cualquier otra base de datos, se organizan en R como objetos tipo tabla que reciben el nombre de `dataframe`, donde las filas representan observaciones o registros y las columnas variables o campos. Con el comando `head` podemos explorar las primeras observaciones de la encuesta (`[,1:9]` indica incluir solo de la columna 1 a 9 para que el output no sea demasiado extenso)
 
@@ -63,7 +57,7 @@ Las encuestas de hogares, al igual que cualquier otra base de datos, se organiza
 ```{r, include=TRUE}
 #cargo base
 bra07 <- read.dta(data_dir %+% "Bra/2007/Bases/bra07_cedlas.dta") %>% 
-         filter(cohh==1)
+         filter(cohh==1 & !is.na(ipcf) & ipcf!=0)
 
 head(bra07[,1:9])
 
@@ -197,8 +191,8 @@ Siguiendo al apéndice del libro mostramos cómo puede graficarse un histograma 
 #cargo base
 mex06 <- read.dta(data_dir %+% "Mex/2006/bases/mex06_cedlas.dta")  
 
-#elimino observaciones incoherentes o con ingreso missing
-mex06 <- mex06 %>% filter(cohh==1, !is.na(ipcf)) 
+#elimino observaciones incoherentes, con ingreso missing o cero
+mex06 <- mex06 %>% filter(cohh==1 & !is.na(ipcf) & ipcf!=0) 
 
 ```
 
@@ -212,26 +206,27 @@ Para graficar optamos por la librería más extendida en uso en R, `ggplot2`, ya
 
 A continuación, siguiendo estas líneas generales, graficamos un histograma para el ipcf, empleando la función `geom_histom`. Igual que antes, `[w=pondera]` indica que cada observación de la encuesta debe expandirse según la cantidad de individuos que representa. La opción bin(100) especifica que el histograma debe identificar 100 grupos (100 barras). Por último el termino `stat(count) / sum(count)` para estimar valores del eje y en proporciones y no en valores absolutos. Los demás son pequeñas customizaciones de títulos y colores que el lector podrá entender fácilmente.
 
-```{r, include=TRUE, out.width = "80%"}
+```{r, include=TRUE, warning=FALSE, out.width = "80%"}
 
-## Figure 2.2 - histograma ipcf
+## Figura 2.2 - histograma ipcf
 ggplot(data=mex06, 
        aes(x=ipcf, weight=pondera)) + 
   geom_histogram(bins = 100, aes(y = stat(count) / sum(count)),
                  color="black", fill="grey") +
-    labs(y="proporción", x="ingreso per cápita familiar")
+  labs(y="proporción", x="ingreso per cápita familiar")
+
 ```
 
 Con las líneas siguientes se filtra la base para individuos con ipcf menor a 1500 para evitar la típica distorsión generada por los valores extremos.
 
-```{r, include=TRUE, out.width = "80%"}
+```{r, include=TRUE, warning=FALSE, out.width = "80%"}
 
-## Figure 2.3 - histograma ipcf sin outliers
+## Figura 2.3 - histograma ipcf sin outliers
 ggplot(data=mex06 %>% filter(ipcf < 15000), 
        aes(x=ipcf, weight=pondera)) + 
   geom_histogram(bins = 100, aes(y = stat(count) / sum(count)),
                  color="black", fill="grey") +
-    labs(y="proporción", x="ingreso per cápita familiar")
+  labs(y="proporción", x="ingreso per cápita familiar")
 
 ```
 
@@ -239,9 +234,9 @@ ggplot(data=mex06 %>% filter(ipcf < 15000),
 Las figuras 2.4 y 2.5 del texto pueden replicarse utilizando el bloque de código siguiente. En la primera se grafica el logaritmo de la variable ipcf, indicando la función `log` para el eje x. En la siguiente se incrementa sucesivamente el número de barras del histograma. Para ello podríamos repetir 4 veces el gráfico cambiando solamente la cantidad de bins. Aquí optamos por presentar un solución más elegante en la que generamos los 4 gráficos a partir de un bucle que itera sobre el número de bins deseado. El lector no familiarizado con los bucles puede optar por la primera opción hasta que en los siguientes capítulos presentemos con más detalle cómo se introducen iteraciones mediante bucles.
 
 
-```{r, include=TRUE, out.width = "80%"}
+```{r, include=TRUE, warning=FALSE, out.width = "80%"}
 
-## Figure 2.4 - histograma logaritmo ipcf
+## Figura 2.4 - histograma logaritmo ipcf
 ggplot(mex06, 
        aes(x=log(ipcf), weight=pondera)) + 
   geom_histogram(bins = 100, aes(y = stat(count) / sum(count)),
@@ -252,9 +247,9 @@ ggplot(mex06,
 
 
 
-```{r, include=TRUE, error=FALSE, out.width = "80%"}
+```{r, include=TRUE, error=FALSE, message=FALSE, warning=FALSE, out.width = "90%"}
 
-## Figure 2.5 - histogramas con diferente cantidad de intervalos
+## Figura 2.5 - histogramas con diferente cantidad de intervalos
 
 n_bins = c(10,50,100,1000)
 my_graphs = list()
@@ -290,7 +285,7 @@ grid.arrange(g1, g2, g3, g4, ncol=2, nrow=2)
 
 En este apartado se muestra cómo pueden graficarse las funciones de distribución presentadas en la sección 2.3.2 del cuerpo principal del capítulo. El primer paso para construir una función de distribución es ordenar (de menor a mayor) las observaciones de la encuestas, según la variable de ingreso elegida, ipcf en nuestro caso. Esto es lo que hacemos en la primera línea. En la línea siguiente se crea la variable *"shrpop"* para almacenar la proporción relativa acumulada de la variable pondera, es decir el porcentaje acumulado de la población que representa cada observación más todas las anteriores. *"shrpop"*  tendrá entonces un valor de 100 para la última observación. Para obtener la suma acumulada expandida empleamos el comenado `cumsum()` y lo dividimos por el total de población expandido que se obtiene con `sum()`. La función de distribución presenta las variables shrpop e ipcf en los ejes vertical y horizontal, respectivamente, como se indica en `aes()`, y se se grafica simplemente con una línea, por lo que usamos el comando `geom_line()`, donde solo especificamos su tamaño o grosor.
 
-```{r,include=TRUE, error=FALSE, out.width = "80%"}
+```{r,include=TRUE, error=FALSE, warning=FALSE, out.width = "80%"}
 
 #ordenar según ipcf
 mex06 <- mex06 %>% arrange(ipcf)
@@ -298,10 +293,10 @@ mex06 <- mex06 %>% arrange(ipcf)
 #población acumulada ordenamiento ipcf
 mex06 <- mex06 %>% mutate(shrpop=cumsum(pondera)/sum(pondera))
 
-## Figure 2.9 - función de distribución acumulada
+## Figura 2.9 - función de distribución acumulada
 ggplot(mex06, aes(x=ipcf, y=shrpop))+
   geom_line(size=1.2) +
-    labs(y="proporción", x="ingreso per cápita familiar")
+  labs(y="proporción", x="ingreso per cápita familiar")
 
 ```
 
@@ -322,6 +317,7 @@ mex06 <- mex06 %>% group_by(region) %>% mutate(shrpop=cumsum(pondera)/sum(ponder
 
 mex06 <- mex06 %>% mutate(lpareto=log(1-shrpop)) 
 
+## Figura 2.14 - Diagrama de Pareto
 ggplot(mex06 %>% filter(region==1 | region==6), 
        aes(x=log(ipcf), y=lpareto, weight=pondera, linetype=factor(region))) + 
   geom_line(size=1.2) +
@@ -330,7 +326,7 @@ ggplot(mex06 %>% filter(region==1 | region==6),
 
 ```
 
-Las líneas siguientes repiten el ejercicio pero dejando de lado al 1% más rico de las poblaciones regionales
+Las líneas siguientes repiten el ejercicio pero dejando de lado al 1% más rico de la poblacion en cada región.
 
 ```{r,include=TRUE, error=FALSE, out.width = "80%"}
 
@@ -349,13 +345,26 @@ ggplot(mex06 %>% filter((region==1 | region==6) & (shrpop<=cutoff)),
 
 ###- (pág. 79)
 
-Aquí se muestra cómo elaborar diagramas de caja o box-plot como los presentados en la sección 2.3.5 del texto. En este caso hacemos una excepción y presentamos una alternativa más directa a `ggplot` ya que el tratamiento de los outliers exige ajuste extras en los ejes. Con el comando `boxplot` base de R podemos obtener un boxpot de forma rápida y sencilla excluyendo valores extremos que distorsionan las escalas.
+Aquí se muestra cómo elaborar diagramas de caja o box-plot como los presentados en la sección 2.3.5 del texto. En este caso haremos una excepción y presentamos primero una alternativa más directa a `ggplot` que permite manejar facilmente los outliers, a partir de la libreria base de R. El grafico 2.17 retoma la sintaxís habitual de ggplot para costruir un box-plot para cada región. El lecto podrá entender rapidamente el código en ambos casos, solo notar que aquí diferenciamos a las regiones por el color de relleno en cada box, especificando la opción `fill`. Al igual que en el caso anterior usamos `factor()` para tratar a la variable como categórica y, dado que en este caso irá en el eje x diferenciando a las regiones, le agregamos las labels correspondientes con la función `scale_x_discrete()`. La opción `alpha=` la utilizamos para darle transparencia al relleno y `legend.position=none` para omitir la leyenda de cada color.
 
 ```{r,include=TRUE, error=FALSE, out.width = "80%"}
 
 #Una opción mas directa fuera de ggplot
+
+## Figura 2.15 - Box Plot
 boxplot(mex06$ipcf, outline = FALSE)
+
+## Figura 2.16 - Box Plot en log
 boxplot(log(mex06$ipcf), outline = FALSE)
+
+# Figura 2.17  - Box Plot en log por regiones
+ggplot(mex06 %>% filter(region==1 | region==6), 
+       aes(x=factor(region), y=log(ipcf), weight=pondera, fill=factor(region))) + 
+  geom_boxplot(alpha=0.4) +
+  theme(legend.position="none") + 
+  scale_x_discrete(labels = c("Noroeste","Sur")) +
+  labs(x="Región", y ="log ipcf")
+
 
 ```
 
@@ -378,7 +387,7 @@ mex06 <- mex06 %>% ungroup() %>% arrange(ipcf)
 mex06 <- mex06 %>% mutate(shrpop=cumsum(pondera)/sum(pondera),
                           shrinc=cumsum(ipcf*pondera)/sum(ipcf*pondera)) 
 
-## figura 2.18 - curva de Lorenz 
+## Figura 2.18 - curva de Lorenz 
 ggplot(mex06, aes(x=shrpop, y=shrinc)) +
   geom_line()
 
@@ -395,7 +404,7 @@ mex06 <- mex06 %>% arrange(region, ipcf) %>%
                    mutate(shrpop=cumsum(pondera)/sum(pondera),
                           shrinc=cumsum(ipcf*pondera)/sum(ipcf*pondera)) 
 
-## figura 2.19 - curva de lorenz por regiones
+## Figura 2.19 - curva de lorenz por regiones
 ggplot(mex06 %>% filter(region==1 | region==6),
        aes(x=shrpop, y=shrinc, linetype=factor(region))) +
   geom_line() +
@@ -420,7 +429,7 @@ mex06 <- mex06 %>% arrange(region, ipcf) %>%
                    mutate(shrpop=cumsum(pondera)/sum(pondera),
                           glorenz=cumsum(ipcf*pondera)/sum(pondera)) 
 
-## figura 2.20 - curva de Lorenz generalizada por regiones
+## Figura 2.20 - curva de Lorenz generalizada por regiones
 ggplot(mex06 %>% filter(region==1 | region==6),
        aes(x=shrpop, y=glorenz, linetype=factor(region))) +
   geom_line() +
@@ -443,18 +452,16 @@ Para implementarlo se propone utilizar una lista (objeto tipo *list*), en la que
 
 Nuestro bucle irá iterando sobre *j*, que al igual que *i* cambiará de valor en cada vuelta. En la primera será 92 y en la segunda 06 y nos servirá para indicar con qué base trabajar. Así `read.dta()` tiene como argumento la función `paste()` que une el prefijo *"arg"* al año de la base correspondiente (*j*), generando, junto con el prefijo *"dta"*, un string igual al nombre de la base completa. De esta forma logramos cambiar el nombre en cada iteración para cargar bases de años diferentes. 
 
-Dado que estamos trabajando con años distintos debemos prever que necesitaremos ajustar los valores de ingresos por inflación. Por eso en caso de que la base sea la del 92, se multiplica el ipcf por el factor de ajuste (1.7865). Esto se debe hacer solo en el caso de la base de 1992 y la manera de instrumentarlo es diciéndole a R que ese cambio debe realizarse solo cuando j sea igual a 92 -`if (j=="92")`-.
+Dado que estamos trabajando con años distintos debemos prever que necesitaremos ajustar los valores de ingresos por inflación. Por eso en caso de que la base sea la del 92, se multiplica el ipcf por el factor de ajuste (2.099). Esto se debe hacer solo en el caso de la base de 1992 y la manera de instrumentarlo es diciéndole a R que ese cambio debe realizarse solo cuando j sea igual a 92 -`if (j=="92")`-.
 
 Una vez cargada la base, logrado el ajuste por inflación, aplicamos los mismos pasos que antes para ordenar por ipcf a la población y calcular el porcentaje acumulado. Con ese porcentaje acumulado generaremos los percentiles anidando un bucle a nuestro bucle inicial, que por cada base hará 100 repeticiones. En cada una de ellas asignará los percentiles en base a *shrpop* ayudándose de la variable *z* multiplicada por 0.01. Esto porque si queremos generar percentiles (n=100), necesitamos 100 cuantiles por lo que cada cuantil se asigna de a intervalos de población acumulada iguales a 0.01 (1/100). Así por ejemplo, cuando z sea igual a 20, `(z-1)*0.01` será igual a 0.19 y `z*0.01` a 0.20, por lo que caerán en este cuantil veinte, todos aquellos individuos que ordenados por ingreso, estén entre el 19 y el 20 por ciento de población acumulada. Dado que empleamos el comando `ifelse()`, para las obserservaciones restantes que caen fuera de este intervalo, se mantendrá el valor que ya traía la variable *"percentil"*. Es por esto que antes del bucle, la generamos como vacía, para luego ir rellenándola sucesivamente. *z* continuará incrementándose de a uno, hasta llegar a 100, donde asigne el último percentil a aquellas personas que quedaron ultimas en nuestra ordenación, ya que poseían los ingresos mas alto. Al considerar a este 1% de la población faltante, se habrá acumulado al 100%. Finalmente el último paso, consiste en reducir todo el dataframe a 100 observaciones correspondientes a los 100 cuantiles creados y calcular la media del ingreso de las personas que pertenezcan a cada percentil.
 
 
 ```{r,include=TRUE}
 
-
 bases_mod <- list() #lista vacia en la que se guardaran los cambios
 
 i <- 1              #contador para iterar sobre los elementos de la lista
-
 
 #j tomará valor 92 y 06
 for (j in c("92","06")){     
@@ -485,8 +492,8 @@ for (j in c("92","06")){
         
       }  
   
-  bases_mod[[i]] <- bases_mod[[i]] %>% group_by(percentile) %>% summarise(ipcf=mean(ipcf))
-  
+  bases_mod[[i]] <- bases_mod[[i]] %>% group_by(percentile) %>% 
+                                       summarise(ipcf=wtd.mean(ipcf, w=pondera, na.rm=TRUE))
   
   i=i+1  
   
@@ -495,13 +502,13 @@ for (j in c("92","06")){
 ```
 
 
-Cuando el bucle finaliza, podemos "recuperar" los elementos almacenados en nuestra lista *bases_mod*. El primero corresponde a los ingresos promedios de cada percentil construidos  con la base de 1992 y el segundo en base a los datos de 2006.
+Cuando el bucle finaliza, podemos "recuperar" como dataframes los elementos almacenados en nuestra lista *bases_mod*. El primero corresponde a los ingresos promedios de cada percentil construidos con la base de 1992 y el segundo en base a los datos de 2006.
 
 ```{r,include=TRUE}
 
 #recupero las bases de cada año como respectivos elementos de la lista
-arg92 <- bases_mod[[1]]
-arg06 <- bases_mod[[2]]
+arg92 <- data.frame(bases_mod[[1]])
+arg06 <- data.frame(bases_mod[[2]])
 
 head(arg92)
 ```
@@ -515,7 +522,7 @@ change <- merge(arg92, arg06, by="percentile", suffix=c("_92", "_06")) %>%
           mutate(change=( (ipcf_06/ipcf_92) -1)*100) 
 
 
-#grafico
+## Figura 2.21 - Curva de incidencia ipcf
 ggplot(change %>% filter(percentile>2),    #elimino los primeros dos porque son outliers debido a los ipcf=0
        aes(x=percentile, y=change))+
   geom_line(size=1.2, color="darkcyan") +

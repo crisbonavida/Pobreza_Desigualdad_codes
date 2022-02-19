@@ -1,12 +1,9 @@
----
-output:
-  html_document:
-    highlight: tango
----
 
-# "Apéndices del Libro Pobreza y Desigualdad en R"
-## - Capítulo 3 {-}
-<p>&nbsp;</p>
+
+# Capítulo 3 
+
+## Apéndices del Libro Pobreza y Desigualdad en R {.unlisted .unnumbered}
+
 
 #### Escrito por: Cristian Bonavida{-}
 #### Last Update: 02/7/2021{-}

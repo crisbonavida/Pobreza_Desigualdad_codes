@@ -1,15 +1,12 @@
----
-output:
-  html_document:
-    highlight: tango
----
 
-# "Apéndices del Libro Pobreza y Desigualdad en R"
-## - Capítulo 4  {-}
-<p>&nbsp;</p>
+# Capítulo 4 
+
+## Apéndices del Libro Pobreza y Desigualdad en R {.unlisted .unnumbered}
+
 
 #### Escrito por: Cristian Bonavida {-}
 #### Last Update: 28/8/2021 {-}
+
 <p>&nbsp;</p>
 
 *Códigos escritos en base a los apéndices del libro "Pobreza y Desigualdad en América Latina" de Gasparini, Cicowiez y Sosa Escudero. El objeto de este material es reproducir la rutina de códigos para STATA presentada en el libro al lenguaje R. Este material es solo de caracter complementario a las explicaciones y detalles conceptuales que se presentan en el libro de texto y los apéndices* 
