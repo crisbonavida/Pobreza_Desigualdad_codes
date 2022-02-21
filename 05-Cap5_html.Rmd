@@ -1,7 +1,7 @@
 
 # Capítulo 5
 
-## Apéndices del Libro Pobreza y Desigualdad en R {.unlisted .unnumbered}
+## Pobreza: extensiones {.unlisted .unnumbered}
 
 #### Escrito por: Cristian Bonavida {-}
 #### Last Update: 02/7/2021 {-}
@@ -54,8 +54,7 @@ df$pondera <- ifelse(is.na(df$pondera), 0, df$pondera)
 ```
 
 
-El bloque de código siguiente asigna a todos los miembros del hogar las variables que solo están definidas para el jefe de hogar. Como  se trata de variables relacionadas con las características de la vivienda, típicamente se encuentran
-en las bases de datos de hogares y no de personas.
+El bloque de código siguiente asigna a todos los miembros del hogar las variables que solo están definidas para el jefe de hogar. Como  se trata de variables relacionadas con las características de la vivienda, típicamente se encuentran en las bases de datos de hogares y no de personas.
 
 En STATA la solución se propone con un bucle. En este caso aplicamos la misma lógica pero nos valemos de la función `across` que nos permite realizar un mismo cálculo para un conjunto de columnas especificadas. Previamente debemos ordenar y agrupar las observaciones por id.
 

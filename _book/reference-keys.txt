@@ -1,4 +1,3 @@
-fig:unnamed-chunk-29
 bienvenidos
 capítulo-2
 introducción-ejemplo-brasil
@@ -8,14 +7,14 @@ pareto
 box-plot
 curva-de-lorenz
 curva-generalizada-de-lorenz
-curva-de-incidencia
+cap-2.8
 capítulo-3
 cociente-de-cuantiles
-replicar-programa-ratq51
+cap-3.2
 replicar-programa-gcuan
 tamaño-de-los-hogares
 la-distribución-intrahogar
-empleo-de-ponderadores
+cap-3.6
 diseño-muestral
 fuentes-de-ingreso
 capítulo-4

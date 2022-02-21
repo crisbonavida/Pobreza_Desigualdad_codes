@@ -1,7 +1,7 @@
 
 # Capítulo 4 
 
-## Apéndices del Libro Pobreza y Desigualdad en R {.unlisted .unnumbered}
+## Pobreza monetaria {.unlisted .unnumbered}
 
 
 #### Escrito por: Cristian Bonavida {-}
@@ -43,9 +43,10 @@ data_dir <- "C:/Users/HP/Desktop/CEDLAS - UNLP/Apendices en R/Material libro/enc
 ###- (PÁG. 249-250) 
 
 
-En este apartado se presenta cómo calcular la familia de indicadores FGT. En primer lugar, se muestra cómo puede computarse el indicador FGT de manera relativamente sencilla. Luego, al igual que con el ratio de quintiles y el cálculo de quintiles, se se introduce una función para el indicador FGT. Como ejemplo, computamos la pobreza de 2.5 dólares para Ecuador en 2006, utilizando microdatos que provienen de la Encuesta de Condiciones de Vida (ENCOVI).
+En este apartado se presenta cómo calcular la familia de indicadores FGT. En primer lugar, se muestra cómo puede computarse el indicador FGT de manera relativamente sencilla. Luego, al igual que con el ratio de quintiles y el cálculo de quintiles, se introduce una función para el indicador FGT. Como ejemplo, computamos la pobreza de 2.5 dólares para Ecuador en 2006, utilizando microdatos que provienen de la Encuesta de Condiciones de Vida (ENCOVI).
 
-Luego de cargar y limpiar las bases fijamos los valores de pobreza así como el parámtero *"alfa"* del indicador fgt de aversión a la desigualdad entre los pobres. Luego se computa, para cada individuo pobre, su brecha de pobreza elevada al valor de alfa, que se asigna a una nueva variable que llamamos "each". La distinción entre individuo pobre y no pobre se operativiza en el comando `ifelse`: en caso de cumplirse la condición de que el ingreso esté por debajo de la linea de pobreza, se computa la brecha, en caso de que sea falso se otorga un valor de cero. Por último se obtiene el valor de FGT como el promedio ponderado de la brecha en toda la muestra.
+Luego de cargar y limpiar las bases fijamos los valores de pobreza así como el parámetro *"alfa"* del indicador fgt de aversión a la desigualdad entre los pobres. Luego se computa, para cada individuo pobre, su brecha de pobreza elevada al valor de *"alfa"*, que se asigna a una nueva variable que llamamos *each*. La distinción entre individuo pobre y no pobre se operativiza en el comando `ifelse()`: en caso de cumplirse la condición de que el ingreso esté por debajo de la línea de pobreza, se computa la brecha, en caso de que sea falso se otorga un valor de cero. Por último se obtiene el valor de FGT como el promedio ponderado de la brecha en toda la muestra.
+
 
 
 ```{r, include=TRUE}
@@ -70,7 +71,7 @@ print("fgt = " %+% round(fgt, d=2))
 ```
 
 
-Otra opción posible es computar los valores directamente como un vector, sin alojarlo como una nueva columna del data frame. Esta opción, desde el punto de vista de la escritura de los códigos, es más eficiente ya que se evita agregar una nueva columna que solo se emplea para el cálculo del indicador. El detalle a considerar es que para poder calcularlo como medida ponderada la cantidad de elementos del vector "each" debe ser exactamente igual la cantidad de observaciones de la columna pondera del dataframe.
+Otra opción posible es computar los valores directamente como un vector, sin alojarlo como una nueva columna del data frame. Esta opción, desde el punto de vista del código, es más eficiente ya que se evita agregar una nueva columna que solo se emplea para el cálculo del indicador. El detalle a considerar es que para poder calcularlo como medida ponderada la cantidad de elementos del vector *"each"* debe ser exactamente igual la cantidad de observaciones de la columna *pondera* del dataframe.
 
 
 ```{r, include=TRUE}
@@ -88,7 +89,7 @@ print("fgt = " %+% round(fgt, d=2))
 
 ###- (pág 250-251)
 
-Como ya vimos en el capitulo 3, las funciones nos permiten replicar un indicador o un cálculo en cualquier base, sobre cualquier variable, imponiendo una condición especifica o ponderando por algún factor de expansión. En este caso además agregamos como argumentos los parámetros asociados al FGT, *"alfa"*, para la aversión a la desigualdad, y *"zeta"* para la linea de pobreza. De esta forma podremos replicar y comparar rapidamente el índice para distintos valores que podemos pasarle a estos argumentos. La estructura de la función replica lo visto en las funciones del capítulo 3 hasta la linea 39 donde se computa el FGT con las mismas lineas que empleamos arriba. Adicionalmente se añade la opción de correr la función sin de forma silenciosa, sin imprimir el resultado.
+Como ya vimos en el capítulo 3, las funciones nos permiten replicar un indicador o un cálculo en cualquier base, sobre cualquier variable, imponiendo una condición especifica o ponderando por algún factor de expansión. En este caso además agregamos como argumentos los parámetros asociados al FGT, *"alfa"*, para la aversión a la desigualdad, y *"zeta"* para la línea de pobreza. De esta forma podremos replicar y comparar rápidamente el índice para distintos valores que podemos pasarle a estos argumentos. La estructura de la función replica lo visto en las funciones del capítulo 3 hasta la línea 39 donde se computa el FGT con las mismas líneas que empleamos arriba. Adicionalmente se añade la opción de correr la función de forma silenciosa, sin imprimir el resultado.
 
 ```{r attr.source='.numberLines'}
 
@@ -148,6 +149,7 @@ FGT <- function(df, varname, var_pondera=NULL, condicion=NULL, alfa, zeta, quiet
 
 ```
 
+En las líneas siguientes se detallan algunos ejemplos de cómo replicar la función bajo distintas especificaciones.
 
 ```{r, include=TRUE, error=TRUE}
 
@@ -168,7 +170,7 @@ FGT(df=df, varname=ipcf, var_pondera=pondera, alfa=0, zeta=39.740, quiet=TRUE)
 
 ###- (pág. 251)
 
-La estimación de la pobreza relativa implica, como primer paso, el cálculo de una línea de pobreza relativa. A modo de ejemplo, se computa una línea de pobreza igual al 50% del ingreso mediano de Ecuador. El comando `weightedMedian` de la libreria `matrixStats` arroja el valor de la mediana. Luego, el cálculo de la pobreza se realiza empleando la función FGT.
+La estimación de la pobreza relativa implica, como primer paso, el cálculo de una línea de pobreza relativa. A modo de ejemplo, se computa una línea de pobreza igual al 50% del ingreso mediano de Ecuador. El comando `weightedMedian()` de la librería `matrixStats` arroja el valor de la mediana. Luego, el cálculo de la pobreza se realiza empleando la función FGT.
 
 ```{r, include=TRUE}
 
@@ -187,12 +189,11 @@ FGT(df=df, varname=ipcf, var_pondera=pondera, condicion="urbano==1", alfa=0, zet
 
 ###- (pág. 252-253)
 
-El código a continuación realiza una descomposición por regiones de la tasa de incidencia de la pobreza (cuadro 4.7 del libro de texto). Para este caso utilizamos la Encuesta Nacional de Ingresos y Gastos de los Hogares de México para el año
-2006 con la línea de pobreza de 2.5 dólares, equivalentes a 608.245 pesos mensuales.
-Luego de cargar, limpiar e indicar la base de datos con la que se trabajará, se fija la linea de pobreza y se genera, a partir de la función de FGT, la tasa de incidencia para el total del país que se almacena en el objeto "p0". En la linea siguiente, se toma una unica observación de cada una de las 8 regiones diferentes de México y se las ordena en orden creciente para almacernas como un vector en el objeto "list_rgn". Sobre este objeto haremos iterar un bucle, para que en cada vuelta los calculos indicados se hagan para cada una de estas regiones. 
+El código a continuación realiza una descomposición por regiones de la tasa de incidencia de la pobreza (cuadro 4.7 del libro de texto). Para este caso utilizamos la Encuesta Nacional de Ingresos y Gastos de los Hogares de México para el año 2006 con la línea de pobreza de 2.5 dólares, equivalentes a 608.245 pesos mensuales. 
 
-La primer sentencia dentro de ese bucle, calcula la participación de la región sobre la población y en la siguiente linea se estima su indicador FGT para un valor de alfa=0 y con la linea de pobreza de 2.5 dolares (notar como se instrumenta la condición en la función). Por último la contribución se calcula como el producto entre la participación de cada región en la población
-total y el cociente entre la tasa de pobreza regional y la tasa de pobreza nacional, se redondea y se indica que se imprima dicho valor.
+Luego de cargar, limpiar e indicar la base de datos con la que se trabajará, se fija la línea de pobreza y se genera, a partir de la función de FGT, la tasa de incidencia para el total del país que se almacena en el objeto *"p0"*. En la línea siguiente, se toma una única observación de cada una de las 8 regiones diferentes de México y se las ordena en orden creciente para almacenarlas como un vector en el objeto *"list_rgn"*. Sobre este objeto haremos iterar un bucle, para que en cada vuelta los cálculos indicados se hagan para cada una de estas regiones. 
+
+La primer sentencia dentro de ese bucle, calcula la participación de la región sobre la población y en la siguiente línea se estima su indicador FGT para un valor de alfa=0 y con la línea de pobreza de 2.5 dólares (notar como se instrumenta la condición en la función). Por último la contribución se calcula como el producto entre la participación de cada región en la población total y el cociente entre la tasa de pobreza regional y la tasa de pobreza nacional. Se redondea y se indica que se imprima dicho valor.
 
  
 ```{r, include=TRUE}
@@ -233,7 +234,7 @@ for (i in list_rgn){
 
 ###- (pág. 253-254)
 
-El código que sigue puede utilizarse para replicar los resultados sobre pobreza por consumo e ingreso presentados en el cuadro 4.9 del texto para el caso de Nicaragua en 2005. Luego de fijar la tasa de pobreza relevante, el bucle hace que el objeto i tome valores desde 0.5 hasta 1.5 a intervalos de 0.1. Estos valores expanden la linea de pobreza que se utilizaapra calcular el FGT sobre consumo (variable "cpcf") e ingreso (variable "ipcf")
+El código que sigue puede utilizarse para replicar los resultados sobre pobreza por consumo e ingreso presentados en el cuadro 4.9 del texto para el caso de Nicaragua en 2005. Luego de fijar la tasa de pobreza relevante, el bucle hace que el objeto *”i”* tome valores desde 0.5 hasta 1.5 a intervalos de 0.1. Estos valores expanden la línea de pobreza que se utiliza para calcular el FGT sobre consumo (variable *cpcf*) e ingreso (variable *ipcf*)
 
 ```{r, include=TRUE}
 
@@ -263,8 +264,7 @@ for (i in seq(0.5,1.5, by=0.1)) {
 
 ```
 
-En este caso el código imprime una larga lista de resultados en la consola. Con un cambio menor en el bucle, con las mismas sentencias, podemos generar directamente la tabla a replicar y almacenarla como un dataframe que luego es exportable facilmente a otros formatos para su presentación. Para ello generamos inicialmente 3 vectores vacíos para cada una de las columnas que tendrá la tabla. Utilizamos un contador auxiliar que irá incrementandose de a uno en cadad itereación del bucle, en las cuales iremos guardando los datos que antes se imprimian, ahora como elementos de estos objetos. Así, por ejemplo en la tercer iteración el calculo de FGT se guardará como el tercer elemento del vector consumo y el vector ingreso. Al finalizar creamos un dataframe de 3 columnas a partir de estos 3 vectores, y por ultimo agregamos la cuarta columna calculando la diferencia.
-
+En este caso el código imprime una larga lista de resultados en la consola. Con un cambio menor en el bucle, con las mismas sentencias, *podemos generar directamente la tabla a replicar y almacenarla como un dataframe que luego es exportable fácilmente a otros formatos para su presentación*. Para ello generamos inicialmente 3 vectores vacíos para cada una de las columnas que tendrá la tabla. Utilizamos un contador auxiliar que irá incrementándose de a uno en cada iteración del bucle, en las cuales iremos guardando los datos que antes se imprimían, ahora como elementos de estos objetos. Así, por ejemplo en la tercera iteración el cálculo de FGT se guardará como el tercer elemento del vector consumo y el vector ingreso. Al finalizar creamos un dataframe de 3 columnas a partir de estos 3 vectores, y por ultimo agregamos la cuarta columna calculando la diferencia.
 
 ```{r}
 
@@ -301,7 +301,6 @@ rmarkdown::paged_table(tabla)
 ```
 
 
-
 El código siguiente permite replicar la figura 4.13 del texto, que compara las funciones de distribución del ingreso y el consumo per cápita. Para ello se ordena de forma creciente por las variables de ingreso y luego de consumo, calculando en cada caso el share de población. El *"cutoff"* se utiliza para indicar qué porcentaje de las observaciones se mostrará en el gráfico.
 
 ```{r, include=TRUE}
@@ -330,7 +329,7 @@ ggplot(df %>% filter(shrpop_i < cutoff), aes(x=ipcf, y=shrpop_i, linetype="Ingre
 
 ###- (pág. 254-255)
 
-El bloque de código siguiente muestra cómo puede graficarse la relación entre pobreza y edad (ver figura 4.15 del texto). Para ello luego de cargar, limpiar la base y definir la linea de pobreza, generamos dos objetos "x" e "y" vacíos donde se almacenará los valores del eje x y el eje y. Estos valores se generaran de forma iterativa mediante un bucle que incremente secuencialmente la edad en 5 años, comenzando en 0 y terminando en 80 años. En cada vuelta estaremos generando el indicador FGT condicionando a las observaciones que caigan dentro de distintos intervalos de edad. Esto equivale a dividir a la población en grupos de edad y para cada uno de ellos calcular el indicador. Al igual que en el código anterior, el contador nos permite almacenar los valores de edad y FGT como elementos de los vectores creados incialmente.
+El bloque de código siguiente muestra cómo puede graficarse la relación entre pobreza y edad (ver figura 4.15 del texto). Para ello luego de cargar, limpiar la base y definir la línea de pobreza, generamos dos objetos *"x"* e *"y"* vacíos donde se almacenará los valores del eje x y el eje y. Estos valores se generaran de forma iterativa mediante un bucle que incremente secuencialmente la edad en 5 años, comenzando en 0 y terminando en 80 años. En cada vuelta estaremos generando el indicador FGT condicionando a las observaciones que caigan dentro de distintos intervalos de edad. Esto equivale a dividir a la población en grupos de edad y para cada uno de ellos calcular el indicador. Al igual que en el código anterior, el contador nos permite almacenar los valores de edad y FGT como elementos de los vectores creados inicialmente.
 
 
 ```{r, include=TRUE}
@@ -384,7 +383,7 @@ geom_smooth(method=lm, formula = y ~ x + I(x^2) , colour="red")
 
 ###- (pág. 255-256)
 
-En esta última sección recreamos la técnica del *boostrap* o reseampleo para obtener errores estándares e intervalos de confianza para las estimaciones del FGT. La versión más simple del bootstrap requiere (i) tomar una muestra de tamaño N (el tamaño muestral) de la muestra original con reemplazo, (ii) computar el índice de pobreza deseado y (iii) repetir el procedimiento B veces, con B grande. Esto es lo que haremos mediante un bucle, fijaremos una cantidad de repeticiones, en las que en cada una estaremos tomando un resampleo de la muestra original de igual tamaño. De esta forma la muestrá irá cambiando en su composición aleatoriamente y por tanto permitirá generar distintos valores del FGT en cada iteración, a partir de una misma base. El comando en R `sample_n` realiza esta tarea de resampleo, seteando el dataframe, el tamaño de la nueva muestra y la opción con reposición. La expresión `nrow(df)` indica que la nueva muestra tendrá el mismo tamaño que la base original. Cada valor del indicador se almacena en el objeto "store", sobre el que posteriormente se calcula el desvío, la media y el tamaño. Estos son inputs necesarios para la formula que estima los intervalos de confianza de nuestras estimaciones. En este caso estimamos un intervalo de confianza del 95%.
+En esta última sección recreamos la técnica del *boostrap* o reseampleo para obtener errores estándares e intervalos de confianza para las estimaciones del FGT. La versión más simple del bootstrap requiere (i) tomar una muestra de tamaño N (el tamaño muestral) de la muestra original con reemplazo, (ii) computar el índice de pobreza deseado y (iii) repetir el procedimiento B veces, con B grande. Esto es lo que haremos mediante un bucle, fijaremos una cantidad de repeticiones, en las que en cada una estaremos tomando un resampleo de la muestra original de igual tamaño. De esta forma la muestra irá cambiando en su composición aleatoriamente y por tanto permitirá generar distintos valores del FGT en cada iteración, a partir de una misma base. El comando en R `sample_n()` realiza esta tarea de resampleo, seteando el dataframe, el tamaño de la nueva muestra y la opción con reposición. La expresión `nrow(df)` indica que la nueva muestra tendrá el mismo tamaño que la base original. Cada valor del indicador se almacena en el objeto *"store"*, sobre el que posteriormente se calcula el desvío, la media y el tamaño. Estos son inputs necesarios para la fórmula que estima los intervalos de confianza de nuestras estimaciones. En este caso estimamos un intervalo de confianza del 95%.
 
 
 ```{r, include=TRUE}
@@ -427,7 +426,7 @@ right <- mean + error; right
 
 ```
 
-A modo de extensión es facil escribir una función que, tomando los resultados alojados en un vector y el intervalo de confianza deseado, nos devuelve directamente el cálculo del intervalo. 
+A modo de extensión es fácil escribir una función que, tomando los resultados alojados en un vector y el intervalo de confianza deseado, nos devuelve directamente el cálculo del intervalo.
 
 ```{r, include=TRUE}
 

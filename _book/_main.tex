@@ -6,7 +6,7 @@
 ]{book}
 \title{Apéndices del Libro Pobreza y Desigualdad en R}
 \author{}
-\date{\vspace{-2.5em}2022-02-19}
+\date{\vspace{-2.5em}2022-02-21}
 
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
@@ -132,7 +132,7 @@
 \section*{Sobre este Proyecto:}\label{sobre-este-proyecto}}
 \addcontentsline{toc}{section}{Sobre este Proyecto:}
 
-Nos propusimos trasncribir al lenguaje R y Python los apéndices del libro ``Pobreza y Desigualdad en América Latina'' de Gasparini, Cicowiez y Sosa Escudero que originalmente fueron escritos para Stata y que permitían replicar los datos e información presentados por los autores en el texto. Cada capítulo consta de un apéndice con códigos que permiten llevar a la práctica los conceptos desarrollados. Aquí los traducimos a nuevos lenguajes y los presentamos en un formato amigable para permitir que un público más amplio y de diversas disciplinas pueda aprovecharlos.
+Nos propusimos trasncribir al lenguaje R y Python los apéndices del libro ``Pobreza y Desigualdad en América Latina'' de Gasparini, Cicowiez y Sosa Escudero que originalmente fueron escritos para Stata y que permitían replicar los datos e información presentados por los autores en el texto. Cada capítulo consta de un apéndice con códigos que permiten llevar a la práctica los conceptos desarrollados. Aquí \textbf{los traducimos a nuevos lenguajes y los presentamos en un formato amigable para permitir que un público más amplio y de diversas disciplinas pueda aprovecharlos}.
 
 El objetivo de este mini-proyecto no es otro que poner a disposición de un público más amplio estas herramientas útiles y mantener actualizado un material único que permite adentrarse y trabajar sobre la temática de pobreza y desigualdad. Es por eso que este material es de carácter complementario a las explicaciones y detalles conceptuales que se presentan en el libro de texto y los apéndices.
 
@@ -144,13 +144,53 @@ Si esta es la primera vez que te encontrás con este libro, antes de empezar con
 
 El propósito del libro es ayudar al lector interesado en América Latina a que recorra el arduo camino entre los datos y el reporte de resultados rigurosos que puedan contribuir al debate sobre la pobreza y la desigualdad en America Latina. El volumen poner al alcance del lector un conjunto de instrumentos que lo motiven hacia la investigación empírica, y que le permitan producir resultados de la manera más rigurosa posible, para así contribuir a los objetivos últimos de explicar y cambiar la realidad social de la región. Las discusiones conceptuales y analíticas son ilustradas con ejemplos concretos construidos con datos de los países de la región.
 
-\begin{center}\includegraphics[width=0.8\linewidth]{portada_libro} \end{center}
+\begin{center}\includegraphics[width=0.6\linewidth]{portada_libro} \end{center}
+
+Una enorme ventaja de este trabajo es que se encuentra disponible para todos, ya que se lo puede descargar gratuitamente desde el la \href{https://www.cedlas.econo.unlp.edu.ar/wp/publicaciones/libros/pobreza-y-desigualdad-en-america-latina/}{página del libro}. Te invitamos a que puedas recorrerlo, leerlo y dedicarle varios minutos antes de adentrarte en estos códigos.
+
+\hypertarget{cuxf3mo-aprovechar-este-material}{%
+\section*{Cómo aprovechar este material}\label{cuxf3mo-aprovechar-este-material}}
+\addcontentsline{toc}{section}{Cómo aprovechar este material}
+
+Un punto importante es que estos códigos que te presentamos están atados a los contenidos y explicaciones que se desarrollan a lo largo de los capítulos del libro. Por eso notarás que los códigos no son autocontenidos al 100\%, es decir si bien refuerzan las ideas principales detrás de cada indicador, de cada gráfico o cada estimación, y están acompañados de instrucciones generales, no cubren en profundidad los conceptos teóricos e incluso prácticos detrás de su uso. Por es que decimos que \textbf{este material es de carácter complementario a las explicaciones y detalles conceptuales que se presentan en el libro de texto y los apéndices}. Para aprovecharlas al máximo te recomendamos tener abierta junto con la pestaña de R o Python, el pdf del libro de texto para ir siguiendo capitulo a capitulo los contenidos. De esta forma no solo será posible replicar las estimaciones sino también comprenderlas y saber entender qué nos dicen y que no nos dicen.
+
+\hypertarget{quuxe9-es-y-quuxe9-no-es}{%
+\section*{Qué es y qué no es}\label{quuxe9-es-y-quuxe9-no-es}}
+\addcontentsline{toc}{section}{Qué es y qué no es}
+
+Es importante setear las expectativas desde el principio. En estos códigos vas a encontrar mucha información y muchos temas a cubrir, mientras que otros nos quedarán para una próxima entrega. En este sentido, este material \textbf{no busca ser una guía exhaustiva a modo de tutorial para iniciarse en el lenguaje de programación}. El propósito será seguir los códigos presentados en los apéndices del libro con la misma estructura temática y con el objetivo de facilitar nuevas herramientas al usuario en base a los que ya fue escrito. Por lo que si bien el material es útil para entrenarse en este lenguaje, es más bien un proyecto que permite expandir sobre conocimientos y nociones previas. Es por eso que se recomienda que el lector ya esté algo familiarizado con la sintaxis y el programa. Si no este no es tu caso, no te preocupes!, te vamos a dejar a continuación varias referencias para que puedas entrar en calor y ponerte a punto antes de empezar.
+
+\begin{itemize}
+\item
+  Tutoriales para inciarse en R
+
+  \begin{itemize}
+  \item
+    \url{https://martinmontane.github.io/CienciaDeDatosBook/index.html}
+  \item
+    \url{https://diegokoz.github.io/Curso_R_EPH_clases/}
+  \end{itemize}
+\item
+  Para hacer el camino desde Stata
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \url{https://www.matthieugomez.com/statar/index.html}
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{quuxe9-necesitamos-antes-de-arrancar}{%
+\section*{Qué necesitamos antes de arrancar}\label{quuxe9-necesitamos-antes-de-arrancar}}
+\addcontentsline{toc}{section}{Qué necesitamos antes de arrancar}
+
+Para poder seguir los códigos que te presentamos vas a necesitar descargarte (o al menos tener acceso) a las bases de datos sobre las que iremos trabajando. Estas bases de datos son las encuestas que desarrolla cada país y que el CEDLAS sistematiza para ofrecerlas en un formato usable para los investigadores. En el siguiente \href{https://www.cedlas.econo.unlp.edu.ar/wp/publicaciones/libros/pobreza-y-desigualdad-en-america-latina/\#1505501369949-15c93bca-b4f8}{link} encontrarás el repositorio.
 
 \hypertarget{capuxedtulo-2}{%
 \chapter{Capítulo 2}\label{capuxedtulo-2}}
 
-\hypertarget{apuxe9ndices-del-libro-pobreza-y-desigualdad-en-r}{%
-\section*{Apéndices del Libro Pobreza y Desigualdad en R}\label{apuxe9ndices-del-libro-pobreza-y-desigualdad-en-r}}
+\hypertarget{herramientas-para-el-anuxe1lisis-distributivo}{%
+\section*{Herramientas para el análisis distributivo}\label{herramientas-para-el-anuxe1lisis-distributivo}}
 
 \hypertarget{escrito-por-cristian-bonavida}{%
 \subsubsection*{Escrito por: Cristian Bonavida}\label{escrito-por-cristian-bonavida}}
@@ -198,11 +238,11 @@ Cargo las librerias, limpio environment, defino el path y atajo para función pa
 
 El siguiente código es introductorio y busca guiar al lector en la sintaxis básica a utilizar, mostrando a modo de ejemplo cómo replicar los resultados correspondientes al cuadro 2.1 del texto.
 
-Para ello como al inicio de cada capítulo el primer paso es obtener base de datos, en ese caso la versión procesada de la PNAD (Pesquisa Nacional por Amostra de Domicílios) de Brasil para el año 2007, accesible desde el link de descarga indicado en la sección anterior: datos y set up básico. (Añadir sección y referir allí)
+Como será al inicio de cada capítulo, el primer paso es obtener base de datos, en ese caso la versión procesada de la PNAD (Pesquisa Nacional por Amostra de Domicílios) de Brasil para el año 2007, accesible desde el link de descarga indicado en la sección anterior: datos y set up básico. (Añadir sección y referir allí)
 
-Una vez descargada la encuesta y guardada en el directorio que el lector indicó al definir el objeto data\_dir se carga la encuesta que se encuentra en formato STATA utilizando, de la librería \texttt{foreing}, el comando \texttt{read.dta} que permite importar en R bases de datos que están en formatos compatibles con otros programas o lenguajes. Las encuestas de hogares procesadas que se utilizan a lo largo del libro solo contienen observaciones que denominamos coherentes (ver capítulo 3), que en pocas palabras se trata de observaciones válidas que utilizamos en el cálculo de los ingresos familiares. Por ello siempre que se cargue una base luego se debe filtrarla a partir de la columna \emph{cohh}, para quedarse solo con estas observaciones.
+Una vez descargada la encuesta y guardada en el directorio que el lector indicó al definir el objeto \emph{``data\_dir''} se carga la encuesta que se encuentra en formato STATA con la librería \texttt{foreing}. Dentro de ella el comando \texttt{read.dta()} permite importar en R bases de datos que están en formatos compatibles con otros programas o lenguajes. Las encuestas de hogares procesadas que se utilizan a lo largo del libro solo deben contener observaciones que denominamos coherentes, que en pocas palabras se trata de observaciones válidas que utilizamos en el cálculo de los ingresos familiares. Por ello siempre que se cargue una base luego se debe filtrarla a partir de la columna \emph{cohh}, para quedarse solo con estas observaciones.
 
-Las encuestas de hogares, al igual que cualquier otra base de datos, se organizan en R como objetos tipo tabla que reciben el nombre de \texttt{dataframe}, donde las filas representan observaciones o registros y las columnas variables o campos. Con el comando \texttt{head} podemos explorar las primeras observaciones de la encuesta (\texttt{{[},1:9{]}} indica incluir solo de la columna 1 a 9 para que el output no sea demasiado extenso)
+Las encuestas de hogares, al igual que cualquier otra base de datos, se organizan en R como objetos tipo tabla que reciben el nombre de \texttt{dataframe}, donde las filas representan observaciones o registros y las columnas variables o campos. Con el comando \texttt{head()} podemos explorar las primeras observaciones de la encuesta. La expresión \texttt{{[},1:9{]}} indica incluir solo de la columna 1 a 9 para que el output no sea demasiado extenso.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -224,9 +264,9 @@ Las encuestas de hogares, al igual que cualquier otra base de datos, se organiza
 ## 6   20        4    NA    NA     238  bra 2007 PNAD-2007 34
 \end{verbatim}
 
-A su vez, por tratarse de una encuesta, cada observación representa a varios individuos, tantos como indica el factor de expansión o variable de ponderación. En nuestro caso, todas las encuestas que utilizaremos contienen una variable de nombre \emph{``pondera''} que almacena el factor de expansión. Para más detalles sobre el uso de ponderadores, consultar más adelante la sección 3.6 del capítulo 3.
+A su vez, por tratarse de una encuesta, cada observación representa a varios individuos, tantos como indica el factor de expansión o variable de ponderación. En nuestro caso, todas las encuestas que utilizaremos contienen una variable de nombre \emph{pondera} que almacena el factor de expansión. Para más detalles sobre el uso de ponderadores, consultar más adelante la \protect\hyperlink{cap-3.6}{sección 3.6}
 
-Para expandir las observaciones por su peso muestral debemos emplear alguna de las librerías disponibles creadas para tal fin, ya que ``por default'' los comandos base de R no estiman estadísticos ponderados, como es el caso por ejemplo del comando \texttt{summary}. Si se comparan los valores que arroja respecto a los valores de los mismos estadísticos pero ponderados, es evidente que existen diferencias (excepto obviamente para el mínimo y el máximo). Existen varias librerías que nos permiten obtener los mismos descriptivos ponderados, aquí se presentan los resultados con el uso de \texttt{Hmisc} pero también puede explorarse de forma similar las librerías \texttt{TAM} y \texttt{srvy}.
+Para expandir las observaciones por su peso muestral debemos emplear alguna de las librerías disponibles creadas para tal fin, ya que ``por default'' los comandos base de R no estiman estadísticos ponderados, como es el caso por ejemplo del comando \texttt{summary()}. Si se comparan los valores que arroja respecto a los valores de los mismos estadísticos pero ponderados, es evidente que existen diferencias (excepto obviamente para el mínimo y el máximo). Existen varias librerías que nos permiten obtener descriptivos ponderados, aquí se presentan los resultados con el uso de \texttt{Hmisc}, pero también puede explorarse de forma similar las librerías \texttt{TAM} y \texttt{srvy}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -282,25 +322,26 @@ Para expandir las observaciones por su peso muestral debemos emplear alguna de l
 ## [1] 66000
 \end{verbatim}
 
-Mientras que la media no pondera es de 555.5 al ponderar el valor estimado es 569.6. Lo mismo ocurre para la mediana, el primer y el tercer cuartil de la distribución.
+Mientras que la media no pondera es de 559.1 al ponderar el valor estimado es 574.3
+Lo mismo ocurre para la mediana, el primer y el tercer cuartil de la distribución.
 
-Una opción recomendada para usuarios más familiarizados con la sintaxis es definir una función que nos calcula e imprima los resultados para estos estadísticos ponderados. Las funciones son una especie de comando personalizado que nos permiten customizar los cálculos y el output a nuestra necesidad o gusto. (Ver capitulo siguiente sobre uso de funciones)
+Una opción recomendada para usuarios más familiarizados con la sintaxis de R, es definir una función que nos calcule e imprima los resultados para estos estadísticos ponderados de una sola vez, replicando lo que hace \texttt{summary()}. Las funciones son una especie de comando personalizado que nos permiten customizar los cálculos y el output a nuestra necesidad o gusto. -ver \protect\hyperlink{cap-3.2}{capitulo siguiente} donde nos extendemos sobre el uso de funciones-. En este caso nos permite elegir qué estadisticos queremos calcular y cómo mostrarlos, con una salida que incluye un título junto al resultado númerico mediante la función \texttt{paste()}) y redondeando a un decimal (mediante la función \texttt{round(...,\ d=1)})
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{my\_weighted\_stats }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(argumento1, argumento2)\{}
   
-  \FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"Mean: "}\NormalTok{, }\FunctionTok{wtd.mean}\NormalTok{(argumento1, }\AttributeTok{w=}\NormalTok{argumento2), }\AttributeTok{sep=}\StringTok{""}\NormalTok{))}
-  \FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"Sd: "}\NormalTok{, }\FunctionTok{sqrt}\NormalTok{(}\FunctionTok{wtd.var}\NormalTok{(argumento1, }\AttributeTok{w=}\NormalTok{argumento2)), }\AttributeTok{sep=}\StringTok{""}\NormalTok{))}
-  \FunctionTok{print}\NormalTok{(}\FunctionTok{wtd.quantile}\NormalTok{(bra07}\SpecialCharTok{$}\NormalTok{ipcf, }\AttributeTok{probs =}\FunctionTok{c}\NormalTok{(}\FloatTok{0.25}\NormalTok{, }\FloatTok{0.50}\NormalTok{, }\FloatTok{0.75}\NormalTok{) , }\AttributeTok{w=}\NormalTok{bra07}\SpecialCharTok{$}\NormalTok{pondera))}
-  \FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"Min: "}\NormalTok{, }\FunctionTok{min}\NormalTok{(argumento1, }\AttributeTok{na.rm=}\ConstantTok{TRUE}\NormalTok{), }\AttributeTok{sep=}\StringTok{""}\NormalTok{))}
-  \FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"Max: "}\NormalTok{, }\FunctionTok{max}\NormalTok{(argumento1, }\AttributeTok{na.rm=}\ConstantTok{TRUE}\NormalTok{), }\AttributeTok{sep=}\StringTok{""}\NormalTok{))}
+  \FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"Mean:"}\NormalTok{, }\FunctionTok{round}\NormalTok{( }\FunctionTok{wtd.mean}\NormalTok{(argumento1, }\AttributeTok{w=}\NormalTok{argumento2), }\AttributeTok{d=}\DecValTok{1}\NormalTok{ )))}
+  \FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"Sd:"}\NormalTok{, }\FunctionTok{round}\NormalTok{( }\FunctionTok{sqrt}\NormalTok{(}\FunctionTok{wtd.var}\NormalTok{(argumento1, }\AttributeTok{w=}\NormalTok{argumento2)), }\AttributeTok{d=}\DecValTok{1}\NormalTok{ )))}
+  \FunctionTok{print}\NormalTok{(}\FunctionTok{round}\NormalTok{( }\FunctionTok{wtd.quantile}\NormalTok{(bra07}\SpecialCharTok{$}\NormalTok{ipcf, }\AttributeTok{probs =}\FunctionTok{c}\NormalTok{(}\FloatTok{0.25}\NormalTok{, }\FloatTok{0.50}\NormalTok{, }\FloatTok{0.75}\NormalTok{) , }\AttributeTok{w=}\NormalTok{bra07}\SpecialCharTok{$}\NormalTok{pondera), }\AttributeTok{d=}\DecValTok{1}\NormalTok{ ))}
+  \FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"Min:"}\NormalTok{, }\FunctionTok{round}\NormalTok{( }\FunctionTok{min}\NormalTok{(argumento1, }\AttributeTok{na.rm=}\ConstantTok{TRUE}\NormalTok{), }\AttributeTok{d=}\DecValTok{1}\NormalTok{ )))}
+  \FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"Max:"}\NormalTok{, }\FunctionTok{round}\NormalTok{( }\FunctionTok{max}\NormalTok{(argumento1, }\AttributeTok{na.rm=}\ConstantTok{TRUE}\NormalTok{), }\AttributeTok{d=}\DecValTok{1}\NormalTok{ )))}
   
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
-Una vez definida la función debemos llamarla por el nombre indicando sus argumentos. En este caso el primero hace referencia a la variable y el segundo al ponderador. La función replica exactamente la información que arrojaría el comando \texttt{summ} en stata ponderando las estimaciones.
+Una vez definida la función debemos llamarla por el nombre indicando sus argumentos. En este caso el primero hace referencia a la variable y el segundo al ponderador. La función devuelve la información que arrojaría el comando \texttt{summ} en STATA ponderando las estimaciones.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -309,8 +350,8 @@ Una vez definida la función debemos llamarla por el nombre indicando sus argume
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "Mean: 574.345522674979"
-## [1] "Sd: 970.243045338968"
+## [1] "Mean: 574.3"
+## [1] "Sd: 970.2"
 ##   25%   50%   75% 
 ## 165.0 330.0 621.5 
 ## [1] "Min: 0"
@@ -326,12 +367,12 @@ Una de las principales ventajas de las funciones es que nos permiten replicar lo
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "Mean: 391.006517522251"
-## [1] "Sd: 753.58106580221"
+## [1] "Mean: 391"
+## [1] "Sd: 753.6"
 ##   25%   50%   75% 
 ## 165.0 330.0 621.5 
 ## [1] "Min: 0"
-## [1] "Max: 49591.71875"
+## [1] "Max: 49591.7"
 \end{verbatim}
 
 \begin{Shaded}
@@ -341,17 +382,17 @@ Una de las principales ventajas de las funciones es que nos permiten replicar lo
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "Mean: 344.654903240737"
-## [1] "Sd: 655.945582968748"
+## [1] "Mean: 344.7"
+## [1] "Sd: 655.9"
 ##   25%   50%   75% 
 ## 165.0 330.0 621.5 
 ## [1] "Min: 0"
 ## [1] "Max: 30120"
 \end{verbatim}
 
-Ahora el argumento no son todas las filas de las columnas \emph{ipcf} y \emph{pondera} sino solo aquellas que cumplen con la condición de pertenecer a la región 1 y 2 en cada caso, lo que se instrumenta con el subscript \texttt{{[}bra07\$region==x{]}}.
+Ahora el argumento no son todas las filas de las columnas \emph{ipcf} y \emph{pondera} sino solo aquellas que cumplen con la condición de pertenecer a la región 1 y 2 en cada caso, lo que se instrumenta con el subscript \texttt{{[}bra07\$region==x{]}}. Esta expresión actúa como filtro, le indica a R considerar los valores de la variable ipcf y pondera que corresponden a observaciones que cumplen la condición sobre la región.
 
-Siguiendo con el cuadro 2.1 del texto, si quisiéramos replicar el coeficiente de variación, ahora que ya sabemos cómo obtener estadísticas ponderadas, se vuelve muy sencillo. Solo basta con definir un objeto que \emph{cv} que contenga el cociente entre la media y el desvío estándar.
+Siguiendo con el cuadro 2.1 del texto, si quisiéramos replicar el coeficiente de variación, ahora que ya sabemos cómo obtener estadísticas ponderadas, se vuelve muy sencillo. Solo basta con definir un objeto que se llame \emph{cv} y que contenga el cociente entre la media y el desvío estándar.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -364,7 +405,7 @@ Siguiendo con el cuadro 2.1 del texto, si quisiéramos replicar el coeficiente d
 ## [1] 1.689302
 \end{verbatim}
 
-Y si quisiéramos estimarlo para una región en particular solo deberíamos aplicar el subscript de la misma forma que lo hicimos antes en la función.
+Y si quisiéramos estimarlo para una región en particular solo deberíamos aplicar el subscript de la misma forma que lo hicimos antes.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -378,7 +419,7 @@ Y si quisiéramos estimarlo para una región en particular solo deberíamos apli
 ## [1] 1.927285
 \end{verbatim}
 
-La primera columna del cuadro 2.1 muestra además la población de referencia o número de observaciones expandidas. Para calcularlo basta con sumar la columna pondera, es decir sumar a cada persona aumentándola por su factor de expansión. De esta forma vemos que la población de referencia de la PNAD 2007 es 187 millones de personas aproximadamente.
+La primera columna del cuadro 2.1 del texto del libro mostraba además la población de referencia o número de observaciones expandidas. Para calcularlo basta con sumar la columna pondera, es decir sumar a cada persona aumentándola por su factor de expansión. De esta forma vemos que la población de referencia de la PNAD 2007 es 187 millones de personas aproximadamente.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -391,14 +432,14 @@ La primera columna del cuadro 2.1 muestra además la población de referencia o 
 ## [1] 187441902
 \end{verbatim}
 
-El ejemplo del texto finaliza con el cómputo de la pobreza en Brasil para el año 2007, utilizando una línea de pobreza de 130 reales mensuales. Una forma sencilla de computar la proporción de individuos con ingresos mensuales menores a 130 reales es mediante el bloque de código siguiente, donde primero se genera una variable binaria \emph{``pobre''} a partir del comando \texttt{ifelse}, que asignará el valor 1 en caso de que el individuo no supere el umbral monetario y 0 en caso contrario, y luego se computa simplemente su media e imprime el resultado redondeado a 2 decimales.
+El ejemplo del texto finaliza con el cómputo de la pobreza en Brasil para el año 2007, utilizando una línea de pobreza de 130 reales mensuales. Una forma sencilla de computar la proporción de individuos con ingresos mensuales menores a 130 reales es mediante el bloque de código siguiente, donde primero se genera una variable binaria \emph{pobre} a partir del comando \texttt{ifelse()}, Este comando asignará el valor 1 cuando el individuo no supere el umbral monetario y 0 en caso contrario. Luego se computa simplemente la media ponderada de esta variable binaria y se imprime el resultado redondeado a 2 decimales.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\#identificar individuos pobres}
 \NormalTok{bra07 }\OtherTok{\textless{}{-}}\NormalTok{ bra07 }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{pobre=}\FunctionTok{ifelse}\NormalTok{(ipcf}\SpecialCharTok{\textless{}}\FloatTok{129.883}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)) }
 
-\CommentTok{\#total país}
+\DocumentationTok{\#\# Total país}
 \NormalTok{pobres\_pais }\OtherTok{=} \FunctionTok{wtd.mean}\NormalTok{(bra07}\SpecialCharTok{$}\NormalTok{pobre, bra07}\SpecialCharTok{$}\NormalTok{pondera)}
 \FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"shr pobres="}\NormalTok{, }\FunctionTok{round}\NormalTok{(pobres\_pais, }\AttributeTok{d=}\DecValTok{2}\NormalTok{)))}
 \end{Highlighting}
@@ -441,39 +482,41 @@ Para calcular la tasa de pobreza para una región en vez de todo el país, basta
 
 \#\#\#- (pág 76)
 
-Siguiendo al apéndice del libro mostramos cómo puede graficarse un histograma de la distribución del ipcf en México para el año 2006 (figuras 2.2 a 2.8 del texto). Al igual que en el ejemplo de Brasil, el lector puede obtener la ENIGH (Encuesta Nacional de Ingresos y Gastos de los Hogares) mexicana de 2006 del sitio web del libro. La misma también cuenta con las variables ipcf y pondera que utilizaremos en lo que resta de este apéndice
+Siguiendo al apéndice del libro mostramos como generar una serie visualizaciones que nos ayudan a analizar la distribución de una variable.
+
+Iniciamos con las instrucciones para graficar un histograma de la distribución del ipcf en México para el año 2006 (figuras 2.2 a 2.8 del texto). Al igual que en el ejemplo de Brasil, el lector puede obtener la ENIGH (Encuesta Nacional de Ingresos y Gastos de los Hogares) mexicana de 2006 desde los links de descarga. La misma también cuenta con las variables \emph{ipcf} y \emph{pondera} que utilizaremos en lo que resta de este apéndice. Luego de cargar la base nos aseguramos de trabajar solo con las observaciones coherentes y de igual manera eliminamos cualquier valor ``missing'' o cero de la variable de ingresos.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\#cargo base}
 \NormalTok{mex06 }\OtherTok{\textless{}{-}} \FunctionTok{read.dta}\NormalTok{(data\_dir }\SpecialCharTok{\%+\%} \StringTok{"Mex/2006/bases/mex06\_cedlas.dta"}\NormalTok{)  }
 
-\CommentTok{\#elimino observaciones incoherentes o con ingreso missing}
-\NormalTok{mex06 }\OtherTok{\textless{}{-}}\NormalTok{ mex06 }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(cohh}\SpecialCharTok{==}\DecValTok{1}\NormalTok{, }\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(ipcf)) }
+\CommentTok{\#elimino observaciones incoherentes, con ingreso missing o cero}
+\NormalTok{mex06 }\OtherTok{\textless{}{-}}\NormalTok{ mex06 }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(cohh}\SpecialCharTok{==}\DecValTok{1} \SpecialCharTok{\&} \SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(ipcf) }\SpecialCharTok{\&}\NormalTok{ ipcf}\SpecialCharTok{!=}\DecValTok{0}\NormalTok{) }
 \end{Highlighting}
 \end{Shaded}
 
-Para graficar optamos por la librería más extendida en uso en R, \texttt{ggplot2}, ya que tiene una enorme variedad de gráficos y mantiene un sintaxis común. Para graficar existen básicamente 3 ítems o funciones comunes que todos los gráficos deben tener:
+Para graficar optamos por la librería más extendida en uso en R, \texttt{ggplot2}, ya que tiene una enorme variedad de gráficos y posibilidades de personalización, pero al mismo tiempo mantiene un sintaxis común. Para graficar existen básicamente 3 ítems o funciones comunes que todos los gráficos deben tener y que aquí introducimos brevemente:
 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{\texttt{ggplot()}}: Es la función que da inicio al gráfico, indicando que un objeto grafico va a generarse.
+  \textbf{\texttt{ggplot()}}: Es la función que da inicio al gráfico, indicando que un objeto grafico va a generarse y consta de dos argumentos que debemos especificar siempre:
 
   \begin{itemize}
   \tightlist
   \item
-    data: como primer argumento debemos pasarle el \emph{dataframe} donde se encuentran las variables a graficar
+    data: como primer argumento debemos pasarle el dataframe o base de datos donde se encuentran las variables a graficar
   \item
-    aes: es el segundo argumento donde indicamos el o los ejes (x e y) y la diversificación de colores o formas según los grupos en los que se dividen los datos (por ejemplo si fuéramos a graficar líneas de tendencia y quisiéramos obtener una línea de color diferente para cada región)
+    aes: es el segundo argumento donde indicamos el o los ejes (x e y) y la diversificación de colores, relleno o formas según los grupos en los que se dividen los datos (por ejemplo si fuéramos a graficar líneas de tendencia y quisiéramos obtener una línea de color diferente para cada región, deberíamos especificarlo aquí)
   \end{itemize}
 \item
-  \textbf{\texttt{geom\_...()}}: donde los puntos se completan con el tipo de grafico que queremos. Existe una función para cada gráfico. En el caso de un gráfico de líneas será por ejemplo ``geom\_line''
+  \textbf{\texttt{geom\_...()}}: donde los puntos se completan con el tipo de grafico que queremos. Existe una función para cada gráfico. En el caso de un gráfico de líneas será por ejemplo \texttt{geom\_line()} y en el caso de un histograma \texttt{geom\_histogram()}.
 \item
   \textbf{customización}: existe múltiples funciones y casi infinitas combinaciones para adaptar el grafico en sus escalas, colores, títulos, dimensiones, fuente de los ejes, leyendas, faceteado, etc.
 \end{itemize}
 
-A continuación, siguiendo estas líneas generales, graficamos un histograma para el ipcf, empleando la función \texttt{geom\_histom}. Igual que antes, \texttt{{[}w=pondera{]}} indica que cada observación de la encuesta debe expandirse según la cantidad de individuos que representa. La opción bin(100) especifica que el histograma debe identificar 100 grupos (100 barras). Por último el termino \texttt{stat(count)\ /\ sum(count)} para estimar valores del eje y en proporciones y no en valores absolutos. Los demás son pequeñas customizaciones de títulos y colores que el lector podrá entender fácilmente.
+A continuación, siguiendo estas líneas generales, graficamos un histograma para el ipcf, empleando la función \texttt{geom\_histogram()}. Igual que antes, \texttt{{[}w=pondera{]}} indica que cada observación de la encuesta debe expandirse según la cantidad de individuos que representa. La opción \texttt{bins\ =\ 100} especifica que el histograma debe identificar 100 grupos (100 barras). Por último el termino \texttt{stat(count)\ /\ sum(count)} irá dentro de \texttt{aes()} ya que define al eje y, indicando que queremos un histograma en proporciones y no en valores absolutos. Los demás son pequeñas customizaciones de títulos y colores que el lector podrá intuir fácilmente.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -482,7 +525,7 @@ A continuación, siguiendo estas líneas generales, graficamos un histograma par
        \FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{ipcf, }\AttributeTok{weight=}\NormalTok{pondera)) }\SpecialCharTok{+} 
   \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{bins =} \DecValTok{100}\NormalTok{, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =} \FunctionTok{stat}\NormalTok{(count) }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(count)),}
                  \AttributeTok{color=}\StringTok{"black"}\NormalTok{, }\AttributeTok{fill=}\StringTok{"grey"}\NormalTok{) }\SpecialCharTok{+}
-    \FunctionTok{labs}\NormalTok{(}\AttributeTok{y=}\StringTok{"proporción"}\NormalTok{, }\AttributeTok{x=}\StringTok{"ingreso per cápita familiar"}\NormalTok{)}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{y=}\StringTok{"proporción"}\NormalTok{, }\AttributeTok{x=}\StringTok{"ingreso per cápita familiar"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -497,13 +540,13 @@ Con las líneas siguientes se filtra la base para individuos con ipcf menor a 15
        \FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{ipcf, }\AttributeTok{weight=}\NormalTok{pondera)) }\SpecialCharTok{+} 
   \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{bins =} \DecValTok{100}\NormalTok{, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =} \FunctionTok{stat}\NormalTok{(count) }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(count)),}
                  \AttributeTok{color=}\StringTok{"black"}\NormalTok{, }\AttributeTok{fill=}\StringTok{"grey"}\NormalTok{) }\SpecialCharTok{+}
-    \FunctionTok{labs}\NormalTok{(}\AttributeTok{y=}\StringTok{"proporción"}\NormalTok{, }\AttributeTok{x=}\StringTok{"ingreso per cápita familiar"}\NormalTok{)}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{y=}\StringTok{"proporción"}\NormalTok{, }\AttributeTok{x=}\StringTok{"ingreso per cápita familiar"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-17-1}
 
-Las figuras 2.4 y 2.5 del texto pueden replicarse utilizando el bloque de código siguiente. En la primera se grafica el logaritmo de la variable ipcf, indicando la función \texttt{log} para el eje x. En la siguiente se incrementa sucesivamente el número de barras del histograma. Para ello podríamos repetir 4 veces el gráfico cambiando solamente la cantidad de bins. Aquí optamos por presentar un solución más elegante en la que generamos los 4 gráficos a partir de un bucle que itera sobre el número de bins deseado. El lector no familiarizado con los bucles puede optar por la primera opción hasta que en los siguientes capítulos presentemos con más detalle cómo se introducen iteraciones mediante bucles.
+Las figuras 2.4 y 2.5 del texto pueden replicarse utilizando el bloque de código siguiente. En la primera se grafica el logaritmo de la variable ipcf, agregando simplemente la función \texttt{log()} para el eje x. En la siguiente se incrementa sucesivamente el número de barras del histograma. Para ello podríamos repetir 4 veces el gráfico cambiando solamente la cantidad de bins. Aquí optamos por presentar un solución más elegante en la que generamos los 4 gráficos a partir de un bucle que itera sobre el número de bins deseado. El lector no familiarizado con los bucles puede optar por la primera opción hasta que en los siguientes capítulos presentemos con más detalle cómo se instrumentan iteraciones mediante bucles.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -512,20 +555,16 @@ Las figuras 2.4 y 2.5 del texto pueden replicarse utilizando el bloque de códig
        \FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\FunctionTok{log}\NormalTok{(ipcf), }\AttributeTok{weight=}\NormalTok{pondera)) }\SpecialCharTok{+} 
   \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{bins =} \DecValTok{100}\NormalTok{, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =} \FunctionTok{stat}\NormalTok{(count) }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(count)),}
                  \AttributeTok{color=}\StringTok{"black"}\NormalTok{, }\AttributeTok{fill=}\StringTok{"grey"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_x\_continuous}\NormalTok{(}\AttributeTok{breaks =} \FunctionTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{15}\NormalTok{,}\DecValTok{5}\NormalTok{))}\SpecialCharTok{+}
   \FunctionTok{labs}\NormalTok{(}\AttributeTok{y=}\StringTok{"proporción"}\NormalTok{, }\AttributeTok{x=}\StringTok{"ingreso per cápita familiar"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-## Warning: Removed 1305 rows containing non-finite values (stat_bin).
-\end{verbatim}
 
 \includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-18-1}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \DocumentationTok{\#\# Figura 2.5 {-} histogramas con diferente cantidad de intervalos}
-
 \NormalTok{n\_bins }\OtherTok{=} \FunctionTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{,}\DecValTok{50}\NormalTok{,}\DecValTok{100}\NormalTok{,}\DecValTok{1000}\NormalTok{)}
 \NormalTok{my\_graphs }\OtherTok{=} \FunctionTok{list}\NormalTok{()}
 
@@ -536,6 +575,7 @@ Las figuras 2.4 y 2.5 del texto pueden replicarse utilizando el bloque de códig
                            \FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\FunctionTok{log}\NormalTok{(ipcf), }\AttributeTok{weight=}\NormalTok{pondera)) }\SpecialCharTok{+} 
                    \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{bins =}\NormalTok{ n, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =} \FunctionTok{stat}\NormalTok{(count) }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(count)),}
                                \AttributeTok{color=}\StringTok{"black"}\NormalTok{, }\AttributeTok{fill=}\StringTok{"grey"}\NormalTok{) }\SpecialCharTok{+}
+                   \FunctionTok{scale\_x\_continuous}\NormalTok{(}\AttributeTok{breaks =} \FunctionTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{15}\NormalTok{,}\DecValTok{5}\NormalTok{))}\SpecialCharTok{+}
                    \FunctionTok{labs}\NormalTok{(}\AttributeTok{y=}\StringTok{"proporción"}\NormalTok{, }\AttributeTok{x=}\StringTok{"ingreso per cápita familiar"}\NormalTok{) }\SpecialCharTok{+}
                    \FunctionTok{ggtitle}\NormalTok{( n }\SpecialCharTok{\%+\%} \StringTok{" intervalos"}\NormalTok{) }\SpecialCharTok{+}
                    \FunctionTok{theme}\NormalTok{(}\AttributeTok{plot.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{12}\NormalTok{, }\AttributeTok{hjust =} \FloatTok{0.5}\NormalTok{))}
@@ -553,24 +593,52 @@ Las figuras 2.4 y 2.5 del texto pueden replicarse utilizando el bloque de códig
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
-## Warning: Removed 1305 rows containing non-finite values (stat_bin).
+\includegraphics[width=0.9\linewidth]{_main_files/figure-latex/unnamed-chunk-19-1}
 
-## Warning: Removed 1305 rows containing non-finite values (stat_bin).
+Las líneas que siguen grafican, superpuestos, los histogramas suavizados de las funciones de densidad del logaritmo del ipcf para las regiones Noroeste y Sur de México. Para este grafico, dentro de \texttt{aes()} debemos indicar no solo los ejes x e y junto con el ponderador, sino además debemos indicar que queremos que lo diferencia por grupos. Concretamente la opción \texttt{fill=factor(region)} le indica a R que el color de relleno de la curva (``fill'') estará dado por una variable de la base de datos, en este caso la variable ``región''. Dado que dicha variable en la base es del tipo numérico, empleamos \texttt{factor()} para tratarla como una categórica. Para graficar una curva de densidad el comando indicado es \texttt{geom\_density()}. Habiendo especificado estas opciones R mostrará una curva de densidad para cada región en el mismo gráfico, a partir de una misma variable (ipcf) ponderándola por el factor de expansión.
 
-## Warning: Removed 1305 rows containing non-finite values (stat_bin).
+Al código se agregan algunas customizaciones mas para la densidad: \texttt{color="black"} indica que queremos bordes negros, \texttt{alpha=0.4} indica el grado de transparencia en el relleno (para que al superponer las curvas continúen siendo visibles) y \texttt{size} indica el grosor del borde simplemente. Finalmente, dado que optamos por el color de relleno para diferenciar Noroeste y Sur, controlamos estas leyendas con la opción \texttt{scale\_fill\_discrete()}. Notar que en la primer línea definimos el objeto \emph{``lp''} que contiene el valor de la línea de pobreza internacional de USD 2.5 por día por persona para México (en log), que marcamos como una línea vertical en el grafico con \texttt{geom\_vline()}.
 
-## Warning: Removed 1305 rows containing non-finite values (stat_bin).
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# Figura 2.7 {-} histogramas superpuestos por regiones}
+\NormalTok{lp}\OtherTok{=}\FunctionTok{log}\NormalTok{(}\FloatTok{608.245}\NormalTok{)}
 
-\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-19-1}
+\FunctionTok{ggplot}\NormalTok{(mex06 }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(region}\SpecialCharTok{==}\DecValTok{1} \SpecialCharTok{|}\NormalTok{ region}\SpecialCharTok{==}\DecValTok{6}\NormalTok{), }
+       \FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\FunctionTok{log}\NormalTok{(ipcf), }\AttributeTok{weight=}\NormalTok{pondera, }\AttributeTok{fill=}\FunctionTok{factor}\NormalTok{(region))) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_density}\NormalTok{(}\AttributeTok{color=}\StringTok{"black"}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.4}\NormalTok{, }\AttributeTok{size=}\FloatTok{0.7}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_fill\_discrete}\NormalTok{(}\AttributeTok{name=}\StringTok{"Región"}\NormalTok{, }\AttributeTok{labels=}\FunctionTok{c}\NormalTok{(}\StringTok{"Noroeste"}\NormalTok{, }\StringTok{"Sur"}\NormalTok{)) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_vline}\NormalTok{(}\AttributeTok{xintercept=}\NormalTok{lp)  }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{y=}\StringTok{"densidad"}\NormalTok{, }\AttributeTok{x=}\StringTok{"logaritmo del ingreso per c?pita familiar"}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-20-1}
+
+Una de las ventajas de estos histogramas suavizados es facilitar las comparaciones. Como puede verse, las dos distribuciones son claramente diferentes. La distribución del Sur está desplazada a la izquierda, lo que sugiere que en general los individuos de esa región tienen menores ingresos que en el Noroeste y por lo tanto una densidad mayor caerá por debajo de la línea de pobreza fijada en esa región.
+
+Por último, siguiendo la figura 2.6 y 2.8, se presenta un histograma suavizado junto con una distribución normal, con la diferencia de que aquí el histograma representa la densidad y no la frecuencia relativa. En R esta opción demanda algún ajuste extra en los ejes, que aquí a los fines didácticos se omite, pero que el lector podrá replicar fácilmente siguiendo la nota al pie.\footnote{Para explorar una posible manera de plotear histogramas de frecuencia relativa o absoluta junto con un densidad suavizada el lector encontrará util la \href{https://stackoverflow.com/questions/27611438/density-curve-overlay-on-histogram-where-vertical-axis-is-frequency-aka-count}{siguiente entrada} de \emph{stackoverflow}.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# Figura 2.6/2.8 {-} histograma logaritmo ipcf suavizado}
+\FunctionTok{ggplot}\NormalTok{(mex06, }
+       \FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\FunctionTok{log}\NormalTok{(ipcf), }\AttributeTok{weight=}\NormalTok{pondera)) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{bins =} \DecValTok{100}\NormalTok{, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ ..density..), }
+                 \AttributeTok{color=}\StringTok{"black"}\NormalTok{, }\AttributeTok{fill=}\StringTok{"gray"}\NormalTok{)  }\SpecialCharTok{+}
+  \FunctionTok{geom\_density}\NormalTok{(}\AttributeTok{kernel=}\StringTok{"gaussian"}\NormalTok{, }\AttributeTok{color=}\StringTok{"blue3"}\NormalTok{, }\AttributeTok{size=}\FloatTok{0.7}\NormalTok{) }\SpecialCharTok{+}  
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{y=}\StringTok{"proporcion"}\NormalTok{, }\AttributeTok{x=}\StringTok{"logaritmo del ingreso per capita familiar"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-21-1}
 
 \hypertarget{funciuxf3n-de-distribuciuxf3n}{%
 \section{Función de distribución}\label{funciuxf3n-de-distribuciuxf3n}}
 
 \#\#\#- (pág. 78)
 
-En este apartado se muestra cómo pueden graficarse las funciones de distribución presentadas en la sección 2.3.2 del cuerpo principal del capítulo. El primer paso para construir una función de distribución es ordenar (de menor a mayor) las observaciones de la encuestas, según la variable de ingreso elegida, ipcf en nuestro caso. Esto es lo que hacemos en la primera línea. En la línea siguiente se crea la variable \emph{``shrpop''} para almacenar la proporción relativa acumulada de la variable pondera, es decir el porcentaje acumulado de la población que representa cada observación más todas las anteriores. \emph{``shrpop''} tendrá entonces un valor de 100 para la última observación. Para obtener la suma acumulada expandida empleamos el comenado \texttt{cumsum()} y lo dividimos por el total de población expandido que se obtiene con \texttt{sum()}. La función de distribución presenta las variables shrpop e ipcf en los ejes vertical y horizontal, respectivamente, como se indica en \texttt{aes()}, y se se grafica simplemente con una línea, por lo que usamos el comando \texttt{geom\_line()}, donde solo especificamos su tamaño o grosor.
+En este apartado se muestra cómo pueden graficarse las funciones de distribución presentadas en la sección 2.3.2 del cuerpo principal del capítulo. El primer paso para construir una función de distribución es ordenar (de menor a mayor) las observaciones de la encuestas, según la variable de ingreso elegida, \emph{ipcf} en nuestro caso. Esto es lo que hacemos en la primera línea. En la línea siguiente se crea la variable \emph{shrpop} para almacenar la proporción relativa acumulada de la variable \emph{pondera}, es decir el porcentaje acumulado de la población que representa cada observación junto con todas las anteriores. \emph{shrpop} tendrá entonces un valor de 100 para la última observación. Para obtener la suma acumulada expandida empleamos el comenado \texttt{cumsum()} y lo dividimos por el total de población expandido que se obtiene con \texttt{sum()}. La función de distribución presenta las variables \emph{shrpop} e \emph{ipcf} en los ejes vertical y horizontal, respectivamente, como se indica en \texttt{aes()}, y se se grafica simplemente con una línea, por lo que usamos el comando \texttt{geom\_line()}, donde solo especificamos su tamaño o grosor.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -580,14 +648,41 @@ En este apartado se muestra cómo pueden graficarse las funciones de distribuci�
 \CommentTok{\#población acumulada ordenamiento ipcf}
 \NormalTok{mex06 }\OtherTok{\textless{}{-}}\NormalTok{ mex06 }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{shrpop=}\FunctionTok{cumsum}\NormalTok{(pondera)}\SpecialCharTok{/}\FunctionTok{sum}\NormalTok{(pondera))}
 
-\DocumentationTok{\#\# Figure 2.9 {-} función de distribución acumulada}
+\DocumentationTok{\#\# Figura 2.9 {-} función de distribución acumulada}
 \FunctionTok{ggplot}\NormalTok{(mex06, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{ipcf, }\AttributeTok{y=}\NormalTok{shrpop))}\SpecialCharTok{+}
   \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{size=}\FloatTok{1.2}\NormalTok{) }\SpecialCharTok{+}
-    \FunctionTok{labs}\NormalTok{(}\AttributeTok{y=}\StringTok{"proporción"}\NormalTok{, }\AttributeTok{x=}\StringTok{"ingreso per cápita familiar"}\NormalTok{)}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{y=}\StringTok{"proporción"}\NormalTok{, }\AttributeTok{x=}\StringTok{"ingreso per cápita familiar"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-20-1}
+\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-22-1}
+
+Nuevamente, la cola superior larga de la distribución vuelve al gráfico poco útil. Para
+aliviar este problema las alternativas son o bien truncar los valores superiores del ingreso, o
+trabajar en logaritmos. La figura 2.10 muestra ambas alternativas. Para la primera, en vez de establacer una valor arbitrario a mano, calculamos el ingreso del percentil 95 y en base a este umbral filtramos las observaciones.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# Figura 2.10 función de distribución acumulada sin outliers}
+\NormalTok{p95 }\OtherTok{=} \FunctionTok{wtd.quantile}\NormalTok{(mex06}\SpecialCharTok{$}\NormalTok{ipcf, }\AttributeTok{probs=}\FloatTok{0.95}\NormalTok{, }\AttributeTok{w=}\NormalTok{mex06}\SpecialCharTok{$}\NormalTok{pondera)}
+\NormalTok{trunca  }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(mex06 }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(ipcf}\SpecialCharTok{\textless{}}\NormalTok{p95), }
+                \FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{ipcf, }\AttributeTok{y=}\NormalTok{shrpop))}\SpecialCharTok{+}
+           \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{size=}\FloatTok{1.2}\NormalTok{) }\SpecialCharTok{+}
+           \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Ignora 5\% mas rico"}\NormalTok{)}\SpecialCharTok{+}
+           \FunctionTok{labs}\NormalTok{(}\AttributeTok{y=}\StringTok{"proporción"}\NormalTok{, }\AttributeTok{x=}\StringTok{"ingreso per cápita familiar"}\NormalTok{) }
+
+\NormalTok{logipcf }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(mex06, }
+                  \FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\FunctionTok{log}\NormalTok{(ipcf), }\AttributeTok{y=}\NormalTok{shrpop))}\SpecialCharTok{+}
+           \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{size=}\FloatTok{1.2}\NormalTok{) }\SpecialCharTok{+}
+           \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Toda la población"}\NormalTok{) }\SpecialCharTok{+}
+           \FunctionTok{labs}\NormalTok{(}\AttributeTok{y=}\StringTok{"proporción"}\NormalTok{, }\AttributeTok{x=}\StringTok{"ingreso per cápita familiar"}\NormalTok{)  }
+
+
+\FunctionTok{grid.arrange}\NormalTok{(trunca, logipcf, }\AttributeTok{ncol=}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-23-1}
 
 Se deja como ejercicio para el lector elaborar las otras funciones de distribución presentadas en la sección 2.3.2. Por su parte, la curva de Pen (ver figuras 2.12 y 2.13) se construye igual que la función de distribución pero se grafica invirtiendo los ejes.
 
@@ -598,7 +693,7 @@ Se deja como ejercicio para el lector elaborar las otras funciones de distribuci
 
 En esta sección se muestra cómo replicar la figura 2.14 del texto, que muestra los diagramas de Pareto para las regiones Noroeste y Sur de México. El procedimiento es muy similar al caso de la función de distribución ya que en esencia representan lo mismo, de forma distinta. El gráfico de Pareto muestra para cada valor del ingreso x el porcentaje de la población que recibe ingresos superiores a ese valor x, en una escala doble logarítmica. El cambio de escala genera una suerte de zoom óptico sobre los estratos de mayores ingresos, permitiendo un examen más detallado de esa parte de la distribución.
 
-Para graficarlo seguimos los pasos anteriores, pero ahora ordenamos a la población por ingreso dentro de cada región y ya no considerando el total país. Para ello agrupamos las observaciones por región con \texttt{group\_by()} previo a calcular el share acumulado, de forma tal que este cálculo se haga solo entre individuos de una misma región. En la siguiente línea se genera la variable \emph{``lpareto''} a partir de la variable \emph{``shrpop''}, siguiendo la explicación de la sección 2.3.4 del texto. Finalmente se grafica filtrando la base para las regiones de interés e indicando con la opción \emph{linetype} que queremos un tipo de línea diferente para distinguir por región. Dado que la variable región es numérico empleamos \texttt{factor()} para tratarla como una categórica, que identifica a las regiones. Por último, cómo empleamos la opción \emph{linetype} con \texttt{scale\_linetype()} customizamos las leyendas. Si por ejemplo hubiéramos querido diferenciar las regiones por color, hubiéramos utilizado \emph{color} dentro de \texttt{aes()} y luego \texttt{scale\_color()} para personalizarlo.
+Para graficarlo seguimos los pasos anteriores, pero ahora ordenamos a la población por ingreso dentro de cada región y ya no considerando el total país. Para ello agrupamos las observaciones por región con \texttt{group\_by()} previo a calcular el share acumulado, de forma tal que este cálculo se haga solo entre individuos de una misma región. En la siguiente línea se genera la variable \emph{lpareto} a partir de la variable \emph{shrpop}, siguiendo la explicación de la sección 2.3.4 del texto. Finalmente se grafica filtrando la base para las regiones de interés y, siguiendo la misma lógica empleada en el grafico de densidad superpuesta, indicamos dentro de \texttt{aes()} la opción \texttt{linetype} para lograr un tipo de línea diferente que distinga a cada región. Notar que aquí también empleamos \texttt{factor()} para tratar esta variable categórica. Por último, con \texttt{scale\_linetype()} customizamos las leyendas.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -607,19 +702,18 @@ Para graficarlo seguimos los pasos anteriores, pero ahora ordenamos a la poblaci
 
 \NormalTok{mex06 }\OtherTok{\textless{}{-}}\NormalTok{ mex06 }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{lpareto=}\FunctionTok{log}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{shrpop)) }
 
-\DocumentationTok{\#\# Figure 2.14 {-} Diagrama de Pareto}
-
+\DocumentationTok{\#\# Figura 2.14 {-} Diagrama de Pareto}
 \FunctionTok{ggplot}\NormalTok{(mex06 }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(region}\SpecialCharTok{==}\DecValTok{1} \SpecialCharTok{|}\NormalTok{ region}\SpecialCharTok{==}\DecValTok{6}\NormalTok{), }
        \FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\FunctionTok{log}\NormalTok{(ipcf), }\AttributeTok{y=}\NormalTok{lpareto, }\AttributeTok{weight=}\NormalTok{pondera, }\AttributeTok{linetype=}\FunctionTok{factor}\NormalTok{(region))) }\SpecialCharTok{+} 
   \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{size=}\FloatTok{1.2}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{scale\_linetype}\NormalTok{(}\AttributeTok{name=}\StringTok{"Region"}\NormalTok{, }\AttributeTok{labels=}\FunctionTok{c}\NormalTok{(}\StringTok{"Noroeste"}\NormalTok{, }\StringTok{"Sur"}\NormalTok{)) }\SpecialCharTok{+} 
+  \FunctionTok{scale\_linetype}\NormalTok{(}\AttributeTok{name=}\StringTok{"Región"}\NormalTok{, }\AttributeTok{labels=}\FunctionTok{c}\NormalTok{(}\StringTok{"Noroeste"}\NormalTok{, }\StringTok{"Sur"}\NormalTok{)) }\SpecialCharTok{+} 
   \FunctionTok{labs}\NormalTok{(}\AttributeTok{x=}\StringTok{"logaritmo del ingreso per cápita familiar"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-21-1}
+\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-24-1}
 
-Las líneas siguientes repiten el ejercicio pero dejando de lado al 1\% más rico de las poblaciones regionales
+Las líneas siguientes repiten el ejercicio pero dejando de lado al 1\% más rico de la poblacion en cada región. Aquí en vez de filtrar en base al valor de ingresos, lo hacemos en base al porcentaje acumulado, como alternativa al caso anterior.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -628,48 +722,62 @@ Las líneas siguientes repiten el ejercicio pero dejando de lado al 1\% más ric
 \FunctionTok{ggplot}\NormalTok{(mex06 }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{((region}\SpecialCharTok{==}\DecValTok{1} \SpecialCharTok{|}\NormalTok{ region}\SpecialCharTok{==}\DecValTok{6}\NormalTok{) }\SpecialCharTok{\&}\NormalTok{ (shrpop}\SpecialCharTok{\textless{}=}\NormalTok{cutoff)),}
        \FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\FunctionTok{log}\NormalTok{(ipcf), }\AttributeTok{y=}\NormalTok{lpareto, }\AttributeTok{weight=}\NormalTok{pondera, }\AttributeTok{linetype=}\FunctionTok{factor}\NormalTok{(region))) }\SpecialCharTok{+} 
   \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{size=}\FloatTok{1.2}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{scale\_linetype}\NormalTok{(}\AttributeTok{name=}\StringTok{"Region"}\NormalTok{, }\AttributeTok{labels=}\FunctionTok{c}\NormalTok{(}\StringTok{"Noroeste"}\NormalTok{, }\StringTok{"Sur"}\NormalTok{)) }\SpecialCharTok{+} 
+  \FunctionTok{scale\_linetype}\NormalTok{(}\AttributeTok{name=}\StringTok{"Región"}\NormalTok{, }\AttributeTok{labels=}\FunctionTok{c}\NormalTok{(}\StringTok{"Noroeste"}\NormalTok{, }\StringTok{"Sur"}\NormalTok{)) }\SpecialCharTok{+} 
   \FunctionTok{labs}\NormalTok{(}\AttributeTok{x=}\StringTok{"logaritmo del ingreso per cápita familiar"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-22-1}
+\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-25-1}
 
 \hypertarget{box-plot}{%
 \section{Box-plot}\label{box-plot}}
 
 \#\#\#- (pág. 79)
 
-Aquí se muestra cómo elaborar diagramas de caja o box-plot como los presentados en la sección 2.3.5 del texto. En este caso hacemos una excepción y presentamos una alternativa más directa a \texttt{ggplot} ya que el tratamiento de los outliers exige ajuste extras en los ejes. Con el comando \texttt{boxplot} base de R podemos obtener un boxpot de forma rápida y sencilla excluyendo valores extremos que distorsionan las escalas.
+Aquí se muestra cómo elaborar diagramas de caja o box-plot como los presentados en la sección 2.3.5 del texto. En este caso haremos una excepción y presentamos primero una alternativa más directa a \texttt{ggplot} que permite manejar facilmente los outliers, a partir de la libreria base de R. El grafico 2.17 retoma la sintaxís habitual de ggplot para costruir un box-plot para cada región. El lector podrá entender rapidamente el código en ambos casos. En el gráfico conjunto, al igual que antes, diferenciamos a las regiones por el color de relleno en cada box, especificando la opción \texttt{fill} y empleamos \texttt{factor()} para tratar a la variable como categórica. Dado que en este caso la vaiable irá en el eje x diferenciando a las regiones, le agregamos las labels correspondientes con la función \texttt{scale\_x\_discrete()}. La opción \texttt{alpha=} la utilizamos para darle transparencia al relleno y \texttt{legend.position=none} para omitir la leyenda de cada color.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\#Una opción mas directa fuera de ggplot}
 
-\DocumentationTok{\#\# Figure 2.15 {-} Box Plot}
+\DocumentationTok{\#\# Figura 2.15 {-} Box Plot excluyendo outliers}
 \FunctionTok{boxplot}\NormalTok{(mex06}\SpecialCharTok{$}\NormalTok{ipcf, }\AttributeTok{outline =} \ConstantTok{FALSE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-23-1}
+\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-26-1}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\DocumentationTok{\#\# Figure 2.16 {-} Box Plot en log}
-\FunctionTok{boxplot}\NormalTok{(}\FunctionTok{log}\NormalTok{(mex06}\SpecialCharTok{$}\NormalTok{ipcf), }\AttributeTok{outline =} \ConstantTok{FALSE}\NormalTok{)}
+\DocumentationTok{\#\# Figura 2.16 {-} Box Plot en log con outliers}
+\FunctionTok{boxplot}\NormalTok{(}\FunctionTok{log}\NormalTok{(mex06}\SpecialCharTok{$}\NormalTok{ipcf), }\AttributeTok{outline =} \ConstantTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-23-2}
+\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-26-2}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# Figura 2.17  {-} Box Plot en log por regiones con outliers}
+\FunctionTok{ggplot}\NormalTok{(mex06 }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(region}\SpecialCharTok{==}\DecValTok{1} \SpecialCharTok{|}\NormalTok{ region}\SpecialCharTok{==}\DecValTok{6}\NormalTok{), }
+       \FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\FunctionTok{factor}\NormalTok{(region), }\AttributeTok{y=}\FunctionTok{log}\NormalTok{(ipcf), }\AttributeTok{weight=}\NormalTok{pondera, }\AttributeTok{fill=}\FunctionTok{factor}\NormalTok{(region))) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_boxplot}\NormalTok{(}\AttributeTok{alpha=}\FloatTok{0.4}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{legend.position=}\StringTok{"none"}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{scale\_x\_discrete}\NormalTok{(}\AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"Noroeste"}\NormalTok{,}\StringTok{"Sur"}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{x=}\StringTok{"Región"}\NormalTok{, }\AttributeTok{y =}\StringTok{"log ipcf"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-26-3}
 
 \hypertarget{curva-de-lorenz}{%
 \section{Curva de Lorenz}\label{curva-de-lorenz}}
 
 \#\#\#- (pág. 80)
 
-En este apartado se muestra cómo pueden construirse las curvas de Lorenz introducidas en la sección 2.3.6 del capítulo. El primer paso consiste en ordenar a los individuos de menor a mayor según su ingreso, en nuestro caso contenido en la variable ipcf. Para ellos aplicamos la función \texttt{arrange()}. Notar que previo a esto se aplica la función \texttt{ungroup()}, lo cual es siempre recomendable cuando en la misma base previamente se había realizado una agrupación, para de alguna forma resetear el agrupamiento. Las líneas siguientes generan la variable \emph{``shrpop''} de la misma forma en la que fue generada más arriba, para construir el eje vertical de la función de distribución: contiene la proporción de la población que se acumula hasta cada observación de la encuesta. La diferencia es que ahora también generaremos una variable \emph{``shrinc''} que contiene la proporción del ingreso que se acumula hasta cada observación de la encuesta y se estima expandiendo el ingreso por el factor de expansión, es decir multiplicando ambas columnas como puede verse en el código.
+En este apartado se muestra cómo pueden construirse las curvas de Lorenz introducidas en la sección 2.3.6 del capítulo. El primer paso consiste en ordenar a los individuos de menor a mayor según su ingreso, en nuestro caso contenido en la variable ipcf. Para ellos aplicamos la función \texttt{arrange()}. Notar que previo a esto se aplica la función \texttt{ungroup()}, lo cual es siempre recomendable cuando en la misma base ya se había realizado una agrupación, para de alguna forma ``resetear'' ese agrupamiento previo. Las líneas siguientes generan la variable \emph{shrpop} de la misma forma en la que fue generada más arriba, estimando la proporción de la población que se acumula hasta cada observación de la encuesta. La diferencia es que ahora también generaremos una variable \emph{shrinc} que contiene la proporción del ingreso que se acumula hasta cada observación y que se estima expandiendo el ingreso por el ponderador, es decir multiplicando ambas columnas, como puede verse en el código.
 
-La curva de Lorenz nos muestra qué porcentaje de la población acumula un dado porcentaje del ingreso total. Para visualizarlo indicamos entonces los ejes respectivos para \emph{``shrpop''} y \emph{``shrinc''} y luego aplicamos un gráfico de línea como \texttt{geom\_line()}.
+La curva de Lorenz nos muestra qué porcentaje de la población acumula un dado porcentaje del ingreso total. Para visualizarlo indicamos entonces los ejes respectivos para \emph{shrpop} y \emph{shrinc} y luego aplicamos un gráfico de línea con \texttt{geom\_line()}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -686,9 +794,9 @@ La curva de Lorenz nos muestra qué porcentaje de la población acumula un dado 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-24-1}
+\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-27-1}
 
-En las líneas siguientes se comparan las curvas de Lorenz para dos regiones de México. El código sigue los mismos pasos que antes pero ahora los cálculos de población e ingreso acumulado se realizan por región, agregando un \texttt{group\_by()}. En el gráfico filtramos las regiones en cuestión y las diferenciamos con distintos tipos de líneas con la opción \emph{linetype}, al igual que antes. Con \texttt{theme\_bw()} modificamos un poco el aspecto visual del gráfico.
+En las líneas siguientes se comparan las curvas de Lorenz para dos regiones de México. El código sigue los mismos pasos que antes pero ahora los cálculos de población e ingreso acumulado se realizan por región, agregando un \texttt{group\_by()}. En el gráfico filtramos las regiones en cuestión y las diferenciamos con distintos tipos de líneas con la opción \emph{linetype}, al igual que antes. Con \texttt{theme\_bw()}, elegimos una temática diferente para modificar un poco el aspecto visual del gráfico.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -707,14 +815,14 @@ En las líneas siguientes se comparan las curvas de Lorenz para dos regiones de 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-25-1}
+\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-28-1}
 
 \hypertarget{curva-generalizada-de-lorenz}{%
 \section{Curva Generalizada de Lorenz}\label{curva-generalizada-de-lorenz}}
 
 \#\#\#- (pág. 81)
 
-La curva generalizada de Lorenz se construye a partir de la curva de Lorenz pero multiplicando su eje vertical por el ingreso promedio (ver sección 2.3.6) en el cuerpo del capítulo. Las líneas no se modifican respecto de las utilizadas para estimar la curva de Lorenz, salvo en que ahora la variable \emph{shrpop} la generamos ahora la base de la variable \emph{pondera}. Para entender el álgebra detrás de esta forma de calcular la curva generalizada de Lorenz, el lector puede remitirse a los apéndices del libro (pagina 81-82) donde queda claramente explicitado.
+La curva generalizada de Lorenz se construye a partir de la curva de Lorenz pero multiplicando su eje vertical por el ingreso promedio (ver sección 2.3.6 en el cuerpo del capítulo). Las líneas de código no se modifican respecto de las utilizadas para estimar la curva de Lorenz, salvo en que ahora la variable \emph{shrpop} la generamos sobre la base de la variable \emph{pondera}. Para entender el álgebra detrás de esta forma de calcular la curva generalizada de Lorenz, el lector puede remitirse a los apéndices del libro (pagina 81-82) donde queda claramente explicitado. Recordar que la curva generalizada de Lorenz muestra el ingreso acumulado en el x\% más pobre de la población, sobre el número de personas. Como quedará mas claro en los capítulos 6 y 7, mientras que la curva de Lorenz se emplea para estudiar desigualdad, la generalizada de Lorenz es muy útil para analizar bienestar agregado.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -733,24 +841,24 @@ La curva generalizada de Lorenz se construye a partir de la curva de Lorenz pero
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-26-1}
+\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-29-1}
 
-\hypertarget{curva-de-incidencia}{%
-\section{Curva de Incidencia}\label{curva-de-incidencia}}
+\hypertarget{cap-2.8}{%
+\section{Curva de Incidencia}\label{cap-2.8}}
 
 \#\#\#- (pág. 83)
 
-En este apartado se muestra cómo pueden estimarse las curvas de incidencia del crecimiento que aparecen en la figura 2.21 del texto. A modo de ejemplo, se computa la curva de incidencia del crecimiento para Argentina, 1992-2006, utilizando percentiles del ingreso per cápita familiar. Para ello el lector deberá descargar dichas bases en su directorio de trabajo.
+En este apartado se muestra cómo pueden estimarse las curvas de incidencia del crecimiento que aparecen en la figura 2.21 del texto. A modo de ejemplo, se computa la curva de incidencia del crecimiento para Argentina entre 1992 y 2006, utilizando percentiles del ingreso per cápita familiar. Para ello el lector deberá descargar dichas bases en su directorio de trabajo.
 
-La idea básica será generar un bucle que en cada repetición cargue una base, ordene por ipcf, genere el porcentaje de población acumulado, en base a este identifique a qué percentil de ingreso corresponde y finalmente agrupando por percentiles estime la media del ingreso en cada uno. Dado que tenemos dos bases distintas, el bucle iterará dos veces.
+La idea básica será generar un bucle que en cada repetición cargue una base, la ordene por ipcf, genere el porcentaje de población acumulado, en base a este identifique el percentil de ingreso que corresponde y finalmente estime la media del ingreso en percentil. Dado que tenemos dos bases distintas, el bucle iterará dos veces.
 
 Para implementarlo se propone utilizar una lista (objeto tipo \emph{list}), en la que la EPH de cada año va a ser un elemento distinto. Así el primer elemento de esa lista corresponderá a toda la base de 1992 y el segundo, a toda la base del 2006. Para señalar el primer y segundo elemento nos valemos de un contador \emph{i} que en la primer iteración del bucle valdrá uno, y al que iremos sumando de uno en uno, por lo que en la segunda tomará valor dos. Por eso la expresión \texttt{bases\_mod{[}{[}i{]}{]}} será equivalente a decir ``elemento 1 de la lista \emph{bases\_mod}'' en la primera iteración y ``elemento 2 de la lista \emph{bases\_mod}'' en la segunda iteración. Con esto logramos que en vez de ordenar, generar y cambiar variables sobre un dataframe estático, lo hagamos sucesivamente sobre dataframes distintos contenidos en un lista ``madre'', que aquí llamamos \emph{bases\_mod}.
 
 Nuestro bucle irá iterando sobre \emph{j}, que al igual que \emph{i} cambiará de valor en cada vuelta. En la primera será 92 y en la segunda 06 y nos servirá para indicar con qué base trabajar. Así \texttt{read.dta()} tiene como argumento la función \texttt{paste()} que une el prefijo \emph{``arg''} al año de la base correspondiente (\emph{j}), generando, junto con el prefijo \emph{``dta''}, un string igual al nombre de la base completa. De esta forma logramos cambiar el nombre en cada iteración para cargar bases de años diferentes.
 
-Dado que estamos trabajando con años distintos debemos prever que necesitaremos ajustar los valores de ingresos por inflación. Por eso en caso de que la base sea la del 92, se multiplica el ipcf por el factor de ajuste (1.7865). Esto se debe hacer solo en el caso de la base de 1992 y la manera de instrumentarlo es diciéndole a R que ese cambio debe realizarse solo cuando j sea igual a 92 -\texttt{if\ (j=="92")}-.
+Dado que estamos trabajando con años distintos debemos prever que necesitaremos ajustar los valores de ingresos por inflación. Por eso en caso de que la base sea la del 92, se multiplica el ipcf por el factor de ajuste (2.099). Esto se debe hacer solo en el caso de la base de 1992 y la manera de instrumentarlo es diciéndole a R que ese cambio debe realizarse solo cuando j sea igual a 92 -\texttt{if\ (j=="92")}-.
 
-Una vez cargada la base, logrado el ajuste por inflación, aplicamos los mismos pasos que antes para ordenar por ipcf a la población y calcular el porcentaje acumulado. Con ese porcentaje acumulado generaremos los percentiles anidando un bucle a nuestro bucle inicial, que por cada base hará 100 repeticiones. En cada una de ellas asignará los percentiles en base a \emph{shrpop} ayudándose de la variable \emph{z} multiplicada por 0.01. Esto porque si queremos generar percentiles (n=100), necesitamos 100 cuantiles por lo que cada cuantil se asigna de a intervalos de población acumulada iguales a 0.01 (1/100). Así por ejemplo, cuando z sea igual a 20, \texttt{(z-1)*0.01} será igual a 0.19 y \texttt{z*0.01} a 0.20, por lo que caerán en este cuantil veinte, todos aquellos individuos que ordenados por ingreso, estén entre el 19 y el 20 por ciento de población acumulada. Dado que empleamos el comando \texttt{ifelse()}, para las obserservaciones restantes que caen fuera de este intervalo, se mantendrá el valor que ya traía la variable \emph{``percentil''}. Es por esto que antes del bucle, la generamos como vacía, para luego ir rellenándola sucesivamente. \emph{z} continuará incrementándose de a uno, hasta llegar a 100, donde asigne el último percentil a aquellas personas que quedaron ultimas en nuestra ordenación, ya que poseían los ingresos mas alto. Al considerar a este 1\% de la población faltante, se habrá acumulado al 100\%. Finalmente el último paso, consiste en reducir todo el dataframe a 100 observaciones correspondientes a los 100 cuantiles creados y calcular la media del ingreso de las personas que pertenezcan a cada percentil.
+Una vez cargada la base, logrado el ajuste por inflación, aplicamos los mismos pasos que antes para ordenar por ipcf a la población y calcular el porcentaje acumulado. Con ese porcentaje acumulado generaremos los percentiles anidando un bucle a nuestro bucle inicial, que hará 100 repeticiones en cada EPH. En cada una de ellas asignará los percentiles en base a \emph{shrpop} ayudándose de la variable \emph{z} multiplicada por 0.01. La razón es sencilla: si queremos generar percentiles (n=100), necesitamos 100 cuantiles por lo que cada cuantil se asigna de a intervalos de población acumulada iguales a 0.01 (1/100). Así por ejemplo, cuando z sea igual a 20, \texttt{(z-1)*0.01} será igual a 0.19 y \texttt{z*0.01} a 0.20, por lo que caerán en este cuantil veinte, todos aquellos individuos que ordenados por ingreso, estén entre el 19 y el 20 por ciento de población acumulada. Dado que empleamos el comando \texttt{ifelse()}, para las obserservaciones restantes que caen fuera de este intervalo, se mantendrá el valor que ya traía la variable \emph{``percentil''}. Es por esto que antes del bucle, la generamos como vacía, para luego ir rellenándola sucesivamente. \emph{z} continuará incrementándose de a uno, hasta llegar a 100, donde asigne el último percentil a aquellas personas que quedaron ultimas en nuestra ordenación, ya que poseían los ingresos mas alto. Al considerar a este 1\% de la población faltante, se habrá acumulado al 100\%. Finalmente el último paso, consiste en reducir todo el dataframe a 100 observaciones correspondientes a los 100 percentiles recién creados y calcular la media del ingreso de las personas que pertenezcan a cada percentil.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -763,12 +871,12 @@ Una vez cargada la base, logrado el ajuste por inflación, aplicamos los mismos 
   
   \CommentTok{\#cargo base}
 \NormalTok{  bases\_mod[[i]] }\OtherTok{\textless{}{-}} \FunctionTok{read.dta}\NormalTok{(data\_dir }\SpecialCharTok{\%+\%} \FunctionTok{paste}\NormalTok{(}\StringTok{"Arg/bases/arg"}\NormalTok{,j,}\StringTok{"\_cedlas.dta"}\NormalTok{, }\AttributeTok{sep =}\StringTok{""}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%} 
-                    \FunctionTok{filter}\NormalTok{(cohh}\SpecialCharTok{==}\DecValTok{1} \SpecialCharTok{\&} \SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(ipcf))}
+                    \FunctionTok{filter}\NormalTok{(cohh}\SpecialCharTok{==}\DecValTok{1} \SpecialCharTok{\&} \SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(ipcf) }\SpecialCharTok{\&}\NormalTok{ ipcf}\SpecialCharTok{!=}\DecValTok{0}\NormalTok{)}
   
   \CommentTok{\#ajuste por inflación para el año 92 solamente}
   \ControlFlowTok{if}\NormalTok{ (j}\SpecialCharTok{==}\StringTok{"92"}\NormalTok{)\{}
     
-\NormalTok{      bases\_mod[[i]] }\OtherTok{\textless{}{-}}\NormalTok{ bases\_mod[[i]] }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{ipcf=}\NormalTok{ipcf}\SpecialCharTok{*}\FloatTok{2.099}\NormalTok{)   }\CommentTok{\#ver comentarios para este coeficiente}
+\NormalTok{      bases\_mod[[i]] }\OtherTok{\textless{}{-}}\NormalTok{ bases\_mod[[i]] }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{ipcf=}\NormalTok{ipcf}\SpecialCharTok{*}\FloatTok{2.099}\NormalTok{)}
     
 \NormalTok{  \}}
   
@@ -781,13 +889,14 @@ Una vez cargada la base, logrado el ajuste por inflación, aplicamos los mismos 
   \CommentTok{\#identificar percentil de ipcf}
 \NormalTok{  bases\_mod[[i]] }\OtherTok{\textless{}{-}}\NormalTok{ bases\_mod[[i]] }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{percentile=}\DecValTok{0}\NormalTok{)  }\CommentTok{\#esto es equivalente a gen percentile=. en stata}
    
-      \ControlFlowTok{for}\NormalTok{ (z }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\DecValTok{100}\NormalTok{)\{}
+      \ControlFlowTok{for}\NormalTok{ (z }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\DecValTok{100}\NormalTok{)\{  }\CommentTok{\#bucle anidado: itera 100 veces para cada una de las bases }
     
-\NormalTok{        bases\_mod[[i]] }\OtherTok{\textless{}{-}}\NormalTok{ bases\_mod[[i]] }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{percentile=}\FunctionTok{ifelse}\NormalTok{((shrpop}\SpecialCharTok{\textgreater{}}\NormalTok{(z}\DecValTok{{-}1}\NormalTok{)}\SpecialCharTok{*}\FloatTok{0.01} \SpecialCharTok{\&}\NormalTok{ shrpop}\SpecialCharTok{\textless{}=}\NormalTok{z}\SpecialCharTok{*}\FloatTok{0.01}\NormalTok{), z,                                                                                percentile)) }
+\NormalTok{        bases\_mod[[i]] }\OtherTok{\textless{}{-}}\NormalTok{ bases\_mod[[i]] }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{percentile=}\FunctionTok{ifelse}\NormalTok{((shrpop}\SpecialCharTok{\textgreater{}}\NormalTok{(z}\DecValTok{{-}1}\NormalTok{)}\SpecialCharTok{*}\FloatTok{0.01} \SpecialCharTok{\&}\NormalTok{ shrpop}\SpecialCharTok{\textless{}=}\NormalTok{z}\SpecialCharTok{*}\FloatTok{0.01}\NormalTok{), z, percentile)) }
         
 \NormalTok{      \}  }
   
-\NormalTok{  bases\_mod[[i]] }\OtherTok{\textless{}{-}}\NormalTok{ bases\_mod[[i]] }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{group\_by}\NormalTok{(percentile) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{summarise}\NormalTok{(}\AttributeTok{ipcf=}\FunctionTok{mean}\NormalTok{(ipcf))}
+\NormalTok{  bases\_mod[[i]] }\OtherTok{\textless{}{-}}\NormalTok{ bases\_mod[[i]] }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{group\_by}\NormalTok{(percentile) }\SpecialCharTok{\%\textgreater{}\%} 
+                                       \FunctionTok{summarise}\NormalTok{(}\AttributeTok{ipcf=}\FunctionTok{wtd.mean}\NormalTok{(ipcf, }\AttributeTok{w=}\NormalTok{pondera, }\AttributeTok{na.rm=}\ConstantTok{TRUE}\NormalTok{))}
   
 \NormalTok{  i}\OtherTok{=}\NormalTok{i}\SpecialCharTok{+}\DecValTok{1}  
   
@@ -795,21 +904,27 @@ Una vez cargada la base, logrado el ajuste por inflación, aplicamos los mismos 
 \end{Highlighting}
 \end{Shaded}
 
-Cuando el bucle finaliza, podemos ``recuperar'' los elementos almacenados en nuestra lista \emph{bases\_mod}. El primero corresponde a los ingresos promedios de cada percentil construidos con la base de 1992 y el segundo en base a los datos de 2006.
+Cuando el bucle finaliza, podemos ``recuperar'' como dataframes los elementos almacenados en nuestra lista \emph{``bases\_mod''}. El primero corresponde a los ingresos promedios de cada percentil construidos con la base de 1992 y el segundo con la de 2006.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\#recupero las bases de cada año como respectivos elementos de la lista}
-\NormalTok{arg92 }\OtherTok{\textless{}{-}}\NormalTok{ bases\_mod[[}\DecValTok{1}\NormalTok{]]}
-\NormalTok{arg06 }\OtherTok{\textless{}{-}}\NormalTok{ bases\_mod[[}\DecValTok{2}\NormalTok{]]}
-\end{Highlighting}
-\end{Shaded}
+\NormalTok{arg92 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(bases\_mod[[}\DecValTok{1}\NormalTok{]])}
+\NormalTok{arg06 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(bases\_mod[[}\DecValTok{2}\NormalTok{]])}
 
-\begin{Shaded}
-\begin{Highlighting}[]
 \FunctionTok{head}\NormalTok{(arg92)}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{verbatim}
+##   percentile      ipcf
+## 1          1  40.71898
+## 2          2  69.34599
+## 3          3  84.42000
+## 4          4  99.58729
+## 5          5 112.42315
+## 6          6 122.64216
+\end{verbatim}
 
 Para finalizar la estimación, debemos calcular el cambio porcentual en el ingreso promedio de cada percentil entre estos años. Para ello necesitaremos juntar ambos dataframes en un solo, a partir de la variable percentil, que se encuentra en ambos. Con el comando \texttt{merge()} unificamos las bases y le asignamos un sufijo que nos permita identificar cada columna. Hecho esto ya podemos calcular el cambio porcentual en el ipcf promedio y graficarlo para cada percentil.
 
@@ -821,7 +936,7 @@ Para finalizar la estimación, debemos calcular el cambio porcentual en el ingre
 
 
 \DocumentationTok{\#\# Figura 2.21 {-} Curva de incidencia ipcf}
-\FunctionTok{ggplot}\NormalTok{(change }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(percentile}\SpecialCharTok{\textgreater{}}\DecValTok{2}\NormalTok{),    }\CommentTok{\#elimino los primeros dos porque son outliers debido a los ipcf=0}
+\FunctionTok{ggplot}\NormalTok{(change,}
        \FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{percentile, }\AttributeTok{y=}\NormalTok{change))}\SpecialCharTok{+}
   \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{size=}\FloatTok{1.2}\NormalTok{, }\AttributeTok{color=}\StringTok{"darkcyan"}\NormalTok{) }\SpecialCharTok{+}
   \FunctionTok{geom\_hline}\NormalTok{(}\AttributeTok{yintercept =} \DecValTok{0}\NormalTok{, }\AttributeTok{linetype=}\StringTok{"dashed"}\NormalTok{) }\SpecialCharTok{+}
@@ -829,15 +944,16 @@ Para finalizar la estimación, debemos calcular el cambio porcentual en el ingre
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}
-\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-31-1} \caption{Esta figura presenta resultados en magnitudes diferentes a los reportados orginalmente en el capitulo del libro.}\label{fig:unnamed-chunk-31}
-\end{figure}
+\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-32-1}
+
+En el caso particuar de esta figura, las magnitudes son diferentes a los reportados orginalmente en el capitulo del libro, pero las interpretaciones se mantienen. La tasa de crecimiento del ingreso
+real está completamente por debajo del eje horizontal, denotando una pérdida de ingresos reales, que dada la pendiente positiva de la curva implica caídas proporcionales del ingreso más grandes a medida que vamos descendiendo hacia estratos más pobres de la distribución. Es claro que la desigualdad de ingresos debe haber aumentado en Argentina en ese período.
 
 \hypertarget{capuxedtulo-3}{%
 \chapter{Capítulo 3}\label{capuxedtulo-3}}
 
-\hypertarget{apuxe9ndices-del-libro-pobreza-y-desigualdad-en-r-1}{%
-\section*{Apéndices del Libro Pobreza y Desigualdad en R}\label{apuxe9ndices-del-libro-pobreza-y-desigualdad-en-r-1}}
+\hypertarget{variables-y-fuentes-de-informaciuxf3n}{%
+\section*{Variables y fuentes de información}\label{variables-y-fuentes-de-informaciuxf3n}}
 
 \hypertarget{escrito-por-cristian-bonavida-1}{%
 \subsubsection*{Escrito por: Cristian Bonavida}\label{escrito-por-cristian-bonavida-1}}
@@ -883,7 +999,7 @@ Cargo las librerias, limpio environment, defino el path y atajo para función pa
 
 \#\#\#- (pág. 151-152)
 
-El siguiente bloque de código puede utilizarse para computar el cociente de quintiles extremos presentado en el cuadro 3.2 del texto del libro. Para iniciar importo la base desde el formato STATA utilizando de la librería \texttt{foreing} el comando \texttt{read.dta}. y hago una limpieza de la base. Luego ordeno las observaciones según la variable ``ipcf'', filtro ingresos nulos y por último computo el porcentaje acumulado por población.
+El siguiente bloque de código puede utilizarse para computar el cociente de quintiles extremos presentado en el cuadro 3.2 del texto del libro, el cual es un indicador de desigualdad extendido en la literatura, que denota la magnitud de las brechas entre los más ricos y más pobres. Para iniciar se importa la base desde el formato STATA utilizando de la librería \texttt{foreing}, el comando \texttt{read.dta()}. Luego hago una limpieza de la base, ordeno las observaciones según la variable ``ipcf'', filtro ingresos nulos y por último computo el porcentaje acumulado por población, como se vio en el capítulo anterior.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -899,8 +1015,7 @@ El siguiente bloque de código puede utilizarse para computar el cociente de qui
 \end{Highlighting}
 \end{Shaded}
 
-A partir de allí genero la variable quintil en el dataframe, que vale 1 para el 20\% más pobre de la población, 2 para el
-20\% siguiente, y así sucesivamente. El comando \texttt{ifelse} permite evaluar el porcentaje acumulado de población en cada observación y le otorga el valor del quintil correspondiente en caso afirmativo, o deja la variable inalterada en caso negativo.
+A partir de allí genero la variable quintil en el dataframe, que vale 1 para el 20\% más pobre de la población, 2 para el 20\% siguiente, y así sucesivamente. El comando \texttt{ifelse} permite evaluar el porcentaje acumulado de población en cada observación y le otorga el valor del quintil correspondiente en caso afirmativo, o deja la variable inalterada en caso negativo. La lógica detrás es idéntica a la vista para generar percentiles dentro del bucle en la estimación de las curvas de incidencia (\protect\hyperlink{cap-2.8}{sección 2.8}).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -913,7 +1028,7 @@ A partir de allí genero la variable quintil en el dataframe, que vale 1 para el
 \end{Highlighting}
 \end{Shaded}
 
-Para terminar computamos el ingreso promedio ponderado para las observaciones del quintil 1 y 5. Aquí la expresión \emph{\texttt{{[}df\$quintil==1{]}}} actúa como filtro. De esta manera el comando le pide a R considerar los valores de la variable ipcf y pondera que corresponden a observaciones que cumplen la condición, en este caso de pertenecer al quintil 1. Por último calculamos el ratio de estos dos valores e imprimimos el resultado. Para mayor claridad siempre se recomienda redondear los valores a imprimir, utilizando el comando \texttt{round}.
+Para terminar computamos el ingreso promedio ponderado para las observaciones del quintil 1 y 5. Aquí la expresión \emph{\texttt{{[}df\$quintil==1{]}}} actúa como filtro. De esta manera el comando le pide a R considerar los valores de la variable \emph{ipcf} y \emph{pondera} que corresponden a observaciones que cumplen la condición, en este caso de pertenecer al quintil 1. Por último calculamos el ratio de estos dos valores e imprimimos el resultado. Para mayor claridad siempre se recomienda redondear los valores a imprimir, utilizando el comando \texttt{round()}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -939,31 +1054,32 @@ Para terminar computamos el ingreso promedio ponderado para las observaciones de
 ## [1] "ratq51 =  13.43"
 \end{verbatim}
 
+El valor obtenido indica que el ingreso en el quintil 5 es 13.4 veces más alto que el del quintil 1, para el año 2006 en México considerando el total país.
+
 ~
 
-\hypertarget{replicar-programa-ratq51}{%
-\section{Replicar programa ratq51}\label{replicar-programa-ratq51}}
+\hypertarget{cap-3.2}{%
+\section{Replicar programa ratq51}\label{cap-3.2}}
 
 \#\#\#- (pág. 153-154)
 
 En la siguientes líneas de código proponemos escribir una función que permite computar el cociente de quintiles extremos muy fácilmente; simplemente se lo invoca indicando la base de datos, la variable de la que se quieren computar quintiles, y opcionalmente la variable de ponderación y la condición \texttt{if}. Una función en R es similar a lo que en STATA llamaríamos un programa, es decir un conjunto de instrucciones que se guardan en la memoria y que pueden ser fácilmente replicables en distintas bases de datos y para distintas variables.
 
-La función puede resultar un poco extensa por lo que aquí enumeraremos las lineas para mayor claridad.
-Para iniciar la función, en la primer línea debemos especificar sus argumentos, que en este caso son: un dataframe (objeto ``df''), una variable (objeto ``varname'') y opcionalmente una variable de ponderación y una condición (objetos ``var\_pondera'' y ``condicion''). Para llamar a esta función entonces siempre tendremos que, como mínimo, especificar los dos objetos iniciales.
+La función puede resultar un poco extensa por lo que aquí enumeraremos las líneas de código para mayor claridad. Para iniciar la función, en la primer línea debemos especificar sus argumentos, que en este caso son: un dataframe (objeto \emph{``df''}), una variable (objeto \emph{``varname''}) y opcionalmente una variable de ponderación y una condición (objetos \emph{``var\_pondera''} y \emph{``condicion''}). Para llamar a esta función entonces siempre tendremos que, como mínimo, especificar los dos objetos iniciales.
 
-La siguiente línea se asegura que la base de datos ``df'' que hemos especificado siempre sea almacenado como un objeto del tipo \emph{data frame} en un objeto llamado ``aux'' que creamos en el entorno de la función. La noción de entorno es importante para comprender el resto del código. A los fines de nuestro código diremos que un entorno es un espacio determinando en el que se almacenan distintas clases de objetos que R acepta y, en el cual estos tienen un significado, un valor o simplemente existen como objetos. En R pueden ``coexistir'' environmets distintos, a los cuales se le asigna un nivel o prioridad\footnote{Para los usuarios que no esten tan familiarizados con las nociones de \emph{Environment} y \emph{Non-Standard Evaluation} se recomienda revisar las siguientes referencias para un tratamiento mas detallado.
+La siguiente línea se asegura que la base de datos \emph{``df''} que hemos especificado siempre sea almacenado como un objeto del tipo \emph{data frame} en un objeto llamado \emph{``aux''} que creamos en el entorno de la función. La noción de entorno es importante para comprender el resto del código. A los fines de nuestro código diremos que un entorno es un espacio determinando en el que se almacenan distintas clases de objetos que R acepta y, en el cual estos tienen un significado, un valor o simplemente existen como objetos. En R pueden ``coexistir'' environmets distintos, a los cuales se le asigna un nivel o prioridad\footnote{Para los usuarios que no esten tan familiarizados con las nociones de \emph{Environment} y \emph{Non-Standard Evaluation} se recomienda revisar las siguientes referencias para un tratamiento mas detallado.
 
   *\url{http://adv-r.had.co.nz/Environments.html\#environments}
 
   *\url{http://adv-r.had.co.nz/Computing-on-the-language.html}
 
-  *\url{https://advanced-r-solutions-ed1.netlify.app/non-standard-evaluation.html\#non-standard-evaluation-in-subse}}. Volviendo a nuestro código, cuando a R le especificamos, por ejemplo, el objeto ``varname'', R buscará si este está definido en el \emph{entorno o environment} general del programa como prioridad, y no en el entorno o espacio de la función, que más acotado que el anterior. Por lo tanto aquí necesitamos evitar este comportamiento y lograr que R no busque evaluar al objeto por fuera del ambito de la función. El comando \texttt{substitute} le indica a R que considere al objeto con su nombre literal. Así cuando ``varname'' sea definida, por ejemplo, como la variable ``ipcf'', R no buscará a qué es equivalente el objeto ``ipcf'' en su memoria sino que tomará el nombre dado. Luego la función \texttt{eval} le indica a R que ese nombre debe evaluarlo, es decir buscarlo o identificarlo, dentro del dataframe ``aux'' que hemos definido en nuestra función. De esta forma nos aseguramos de que R considera correctamente las variables dentro de la base de datos que estamos especificando, y por lo tanto que nuestros argumentos sean válidos dentro del ámbito de la función. Es decir que no entren en conflicto con otros objetos similares o definidos previamente en el environment mas amplio del programa.
+  *\url{https://advanced-r-solutions-ed1.netlify.app/non-standard-evaluation.html\#non-standard-evaluation-in-subse}}. Volviendo a nuestro código, cuando a R le especificamos, por ejemplo, el objeto \emph{``varname''}, R buscará si este está definido en el \emph{entorno o environment} general del programa como prioridad, y no en el entorno o espacio de la función, que es más acotado que el anterior. Por lo tanto aquí necesitamos evitar este comportamiento y lograr que R no busque evaluar al objeto por fuera del ambito de la función. El comando \texttt{substitute()} le indica a R que considere al objeto con su nombre literal. Así cuando \emph{``varname''} sea definida, por ejemplo, como la variable ``ipcf'', R no buscará a qué es equivalente el objeto ``ipcf'' en su memoria sino que tomará el nombre dado como literal. Luego la función \texttt{eval()} le indica a R que ese nombre debe evaluarlo, es decir buscarlo o identificarlo, dentro del dataframe \emph{``aux''} que hemos definido en nuestra función. De esta forma nos aseguramos de que R considera correctamente las variables dentro de la base de datos que estamos especificando, y por lo tanto que nuestros argumentos sean válidos dentro del ámbito de la función. Es decir que no entren en conflicto con otros objetos similares o definidos previamente en el environment más amplio del programa.
 
-Utilizando estas dos funciones, en la línea 9 almacenamos todos los valores de ipcf a partir de los cuales luego ordenamos la base en la siguiente línea. Como la condición es un argumento opcional debemos evaluar si esta fue indicada, en términos de R si no es un objeto nulo (línea 15). Si no lo es, luego en la línea 17 verificamos que esté correctamente especificada, escribiendo una sentencia que será VERDADERA cuando al evaluar de forma silenciosa la condición, de como resultado un error \emph{(``try-error'')}. En ese caso entonces se imprime un mensaje que ayuda a identificar donde se encuentra el problema. En caso de que el resultado no sea del tipo error, filtramos el objeto ``aux'' de acuerdo a la especificación dada. Para ellos nos valemos de la función \texttt{parse} que convierte la condición que era del tipo \emph{``string''} al tipo \emph{``expression''}, lo que la vuelve compatible de ser evaluada como sentencia, nuevamente con la función \texttt{eval} dentro de \texttt{filter}.
+Utilizando estas dos funciones, en la línea 7 almacenamos todos los valores de ipcf a partir de los cuales luego ordenamos la base en la siguiente línea. Como la condición es un argumento opcional debemos evaluar si esta fue indicada, en términos de R si no es un objeto nulo (línea 12). Si no lo es, luego en la línea 14 verificamos que esté correctamente especificada, escribiendo una sentencia que será VERDADERA cuando al evaluar de forma silenciosa la condición, dé como resultado un error \emph{(``try-error'')}. En ese caso entonces se imprime un mensaje que ayuda al usuario a identificar donde se encuentra el problema. En caso de que el resultado no sea del tipo error, la condición será aceptada por lo que filtramos el objeto \emph{``aux''} de acuerdo a la especificación dada. Para ello nos valemos de la función \texttt{parse} que convierte la condición que era del tipo \emph{``string''} al tipo \emph{``expression''}, lo que la vuelve compatible de ser evaluada como sentencia, nuevamente con la función \texttt{eval()} dentro de \texttt{filter()}.
 
-De forma similar procedemos con el ponderador en la línea 28. Si no fue especificado (objeto nulo), entonces vale 1 para todas las observaciones, a partir de crear una variable que llamamos ``w'' que pasará a ser nuestra variable ponderador, pero que será inocua a los fines del cálculo. En el objeto ``var\_pondera\_store'' almacenamos esta secuencia de valores 1. En cambio, si el ponderador fue especificado entonces ese objeto almacena los valores correspondientes a la variable señalada, sin entrar en conflicto con un posible objeto del mismo nombre definido fuero del espacio de la función.
+De forma similar procedemos con el ponderador en la línea 24. Si no fue especificado (objeto nulo), entonces vale 1 para todas las observaciones, a partir de crear una variable que llamamos ``w'' que pasará a ser nuestra variable ponderador, pero que será inocua a los fines del cálculo. En el objeto \emph{``var\_pondera\_store''} almacenamos esta secuencia de valores 1. En cambio, si el ponderador fue especificado entonces ese objeto almacena los valores correspondientes a la variable señalada, sin entrar en conflicto con un posible objeto del mismo nombre definido fuero del espacio de la función.
 
-En la línea 43 actualizamos el objeto que almacena los valores de ipcf (en caso de que se hayan filtrado valores de acuerdo a la condición), y en la siguiente ordenamos el dataframe ``aux'', para calcular como antes el porcentaje acumulado de población. Por último definimos inicialmente a la variable ``quintil'' como valores 0. En la línea 50 replicamos la asignación del quintil que se realizó antes con el comando \texttt{ifelse} pero ahora de forma iterativa, cambiando en cada iteración los valores del quintil y de población acumulada.
+En la línea 38 actualizamos el objeto que almacena los valores de ipcf (en caso de que se hayan filtrado valores de acuerdo a la condición), y en la siguiente ordenamos el dataframe \emph{``aux''}, para calcular como antes el porcentaje acumulado de población. Por último definimos inicialmente a la variable ``quintil'' como valores 0. En la línea 45 replicamos la asignación del quintil que se realizó antes con el comando \texttt{ifelse} pero ahora de forma iterativa, cambiando en cada iteración los valores del quintil y de población acumulada.
 
 Por último al igual que antes calculamos el ratio entre quintiles extremos filtrando las observaciones del primer y quinto quintil. La única diferencia es que aquí nuevamente debemos asegurarnos de que los valores promedios y los ponderadores se evalúen para estas observaciones y sólo en el contexto o espacio de la función. Para finalizar imprimimos los resultados.
 
@@ -971,15 +1087,12 @@ Por último al igual que antes calculamos el ratio entre quintiles extremos filt
 \begin{Highlighting}[numbers=left,,]
 \NormalTok{ratq51 }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(df, varname, }\AttributeTok{var\_pondera=}\ConstantTok{NULL}\NormalTok{, }\AttributeTok{condicion=}\ConstantTok{NULL}\NormalTok{) \{}
     
-    
 \NormalTok{    aux }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(df) }
     
-    
     \CommentTok{\#substitute() toma literal el nombre sin asignarle ningun valor posible y }
-    \CommentTok{\#eval() evalua ese nombre en el contexto del data frame que es el 1er arguento definido}
+    \CommentTok{\#eval() evalua ese nombre en el contexto del data frame que es el primer arguento definido}
 \NormalTok{    varname\_store }\OtherTok{\textless{}{-}} \FunctionTok{eval}\NormalTok{(}\FunctionTok{substitute}\NormalTok{(varname), aux) }
 \NormalTok{    aux }\OtherTok{\textless{}{-}}\NormalTok{ aux }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{arrange}\NormalTok{(varname\_store)}
-    
     
     
     \CommentTok{\#la condición es un argumento opcional}
@@ -989,10 +1102,9 @@ Por último al igual que antes calculamos el ratio entre quintiles extremos filt
         
           \FunctionTok{stop}\NormalTok{(}\StringTok{"ERROR: la condicion debe especificarse como character (entre comillas)"}\NormalTok{)}
       
-\NormalTok{          aux }\OtherTok{\textless{}{-}}\NormalTok{ aux }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(}\FunctionTok{eval}\NormalTok{(}\FunctionTok{parse}\NormalTok{(}\AttributeTok{text=}\NormalTok{condicion)))   }\CommentTok{\#convierte la condicion de tipo string al tipo }
+\NormalTok{          aux }\OtherTok{\textless{}{-}}\NormalTok{ aux }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(}\FunctionTok{eval}\NormalTok{(}\FunctionTok{parse}\NormalTok{(}\AttributeTok{text=}\NormalTok{condicion)))  }\CommentTok{\#convierte la condicion de tipo string al tipo }
                                                             \CommentTok{\#expression y luego la evalua dentro del filter}
 \NormalTok{    \}}
-    
     
     
     \CommentTok{\#set pondera= 1 si no está especificado}
@@ -1009,7 +1121,6 @@ Por último al igual que antes calculamos el ratio entre quintiles extremos filt
 \NormalTok{    \}}
     
     
-    
     \CommentTok{\#ordeno y genero quintiles}
 \NormalTok{    varname\_store }\OtherTok{\textless{}{-}} \FunctionTok{eval}\NormalTok{(}\FunctionTok{substitute}\NormalTok{(varname), aux)}
 \NormalTok{    aux }\OtherTok{\textless{}{-}}\NormalTok{ aux }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{arrange}\NormalTok{(varname\_store) }\SpecialCharTok{\%\textgreater{}\%}
@@ -1021,7 +1132,6 @@ Por último al igual que antes calculamos el ratio entre quintiles extremos filt
 \NormalTok{     aux }\OtherTok{\textless{}{-}}\NormalTok{ aux }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{quintil=}\FunctionTok{ifelse}\NormalTok{((shrpop}\SpecialCharTok{\textgreater{}}\NormalTok{(i}\DecValTok{{-}1}\NormalTok{)}\SpecialCharTok{*}\FloatTok{0.2} \SpecialCharTok{\&}\NormalTok{ shrpop}\SpecialCharTok{\textless{}=}\NormalTok{i}\SpecialCharTok{*}\FloatTok{0.2}\NormalTok{), i, quintil)) }
       
 \NormalTok{    \}  }
-    
     
     
     \CommentTok{\#ingreso promedio quintil 1 }
@@ -1045,7 +1155,7 @@ Por último al igual que antes calculamos el ratio entre quintiles extremos filt
 \end{Highlighting}
 \end{Shaded}
 
-Al correr el código, R almacenará en la memoria esta función, a la cual podremos llamar simplemente indicando los argumentos relevantes. En las líneas siguientes se detallan algunos ejemplos de cómo replicar el programa bajo distintas especificaciones.
+Al correr el código, R almacenará en la memoria esta función, a la cual podremos llamar simplemente indicando los argumentos relevantes. En las líneas siguientes se detallan algunos ejemplos de cómo replicar la función bajo distintas especificaciones.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1112,7 +1222,7 @@ Al correr el código, R almacenará en la memoria esta función, a la cual podre
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\#Identifica los argumentos por explicitamente por nombre }
+\CommentTok{\#Identifica los argumentos explicitamente por nombre }
 \FunctionTok{ratq51}\NormalTok{(}\AttributeTok{df=}\NormalTok{mex06, }\AttributeTok{varname=}\NormalTok{ipcf, }\AttributeTok{var\_pondera=}\NormalTok{pondera, }\AttributeTok{condicion=}\StringTok{"region==4 \& urbano==1"}\NormalTok{) }
 \end{Highlighting}
 \end{Shaded}
@@ -1130,21 +1240,19 @@ Al correr el código, R almacenará en la memoria esta función, a la cual podre
 
 \#\#\#- (pág. 154-155)
 
-El bloque de código a continuación permite identificar cuantiles de cualquier variable. En términos del programa ``ratq51'', nos permite generar variables similares a quintil pero que pueden identificar quintiles, deciles, percentiles, etc.
+El bloque de código a continuación permite identificar cuantiles de cualquier variable. En términos del programa ``ratq51'', nos permite generar variables similares a quintil pero que pueden identificar quintiles, deciles, ventiles, percentiles, etc.
 
-Por esta razón, esta función tendrá más argumentos, aquí además de los anteriores debemos detallar la cantidad de cuantiles a generar (objeto ``num'') y la variable que los almacena (``newvar''). Luego el código y la secuencia son idénticos a la de la función anterior, salvo porque aquí definimos de una manera alternativa y más directa a los valores del poderador, pero en esencia replica lo visto antes hasta la línea 43. A partir de aquí el objeto ``num'' indica cuantos cuantiles deben generarse, hace iterar al bucle ``num'' cantidad de veces, y define los intervalos de población acumulada de forma equivalente. Por ejemplo, si queremos generar deciles (num=10), necesitamos 10 cuantiles y cada cuantil se asigna de a intervalos de población acumulada iguales a 0.10 (1/10).
+Por esta razón, esta función tendrá más argumentos, aquí además de los anteriores debemos detallar la cantidad de cuantiles a generar (objeto \emph{``num''}) y la variable que los almacena (\emph{``newvar''}). Luego el código y la secuencia son idénticos a la de la función anterior, salvo porque aquí definimos de una manera alternativa y más directa a los valores del poderador, pero en esencia replica lo visto antes hasta la línea 40. A partir de aquí el objeto \emph{``num''} indica cuantos cuantiles deben generarse, hace iterar al bucle \emph{``num''} cantidad de veces, y define los intervalos de población acumulada de forma equivalente. Por ejemplo, si queremos generar deciles (num=10), necesitamos 10 cuantiles y cada cuantil se asigna de a intervalos de población acumulada iguales a 0.10 (1/10).
 
-Posteriormente en la línea 54 generamos el reporte que imprimiremos como resultado. Este calcula la media ponderada, el desvió standard ponderado y la cantidad de observaciones en base la variable especificada en ``varname'' y ``var\_pondera''. Los objetos ``my\_var'' y ``my\_var2'' son variables auxiliares que generamos en el data frame solo con el objeto de faciliarnos el cálculo directo. Para terminar cambiamos el nombre de la variable que hasta ahora generamos como ``quintil'' por el nombre indicado en el argumento. El comando \texttt{names(aux)} trae todos los nombres de este dataframe y con la expresión \emph{\texttt{{[}names(aux)\ ==\ "quintil"{]}}} elegimos de esos nombres, solo el que coincide con la palabra ``quintil''. A esta columna específica le asignamos el nombre dado como argumento, tomando la expresión literal con \texttt{substitute} pasada al formato string mediante la función \texttt{paste}. En resumen la línea 63 sería el equivalente de escribir en la consola \emph{\texttt{aux\$quintil\ \textless{}-\ "nombre\_asignado"}}, con la dificultad de que debemos hacerlo dentro del espacio de la función, respetando los argumentos dados. La línea 64 por su parte elimina del output final la variable shrpop.
+Posteriormente en la línea 50 generamos el reporte (objeto \emph{``show''}) que imprimiremos como resultado. Este calcula la media ponderada, el desvió standard ponderado y la cantidad de observaciones en base la variable especificada en \emph{``varname''} y \emph{``var\_pondera''}. Los objetos \emph{``my\_var''} y \emph{``my\_var2''} son variables auxiliares que generamos en el data frame solo con el objeto de facilitarnos el cálculo directo. Para terminar cambiamos el nombre de la variable que hasta ahora generamos como ``quintil'' por el nombre indicado en el argumento. El comando \texttt{names(aux)} trae todos los nombres de este dataframe y con la expresión \emph{\texttt{{[}names(aux)\ ==\ "quintil"{]}}} elegimos de esos nombres, solo el que coincide con la palabra ``quintil''. A esta columna específica le asignamos el nombre dado como argumento, tomando la expresión literal con \texttt{substitute()} pasada al formato string mediante la función \texttt{paste()}. En resumen la línea 59 sería el equivalente de escribir en la consola \emph{\texttt{aux\$quintil\ \textless{}-\ "nombre\_asignado"}}, con la dificultad de que debemos hacerlo dentro del espacio de la función, respetando los argumentos dados. La línea 60 por su parte elimina del output final la variable shrpop.
 
-Para finalizar especificamos que esta función no solo debe imprimirnos los resultados sino que además debe devolver una base de datos nueva. El comando \texttt{return(aux)} le dice a R que el resultado será el objeto ``aux'' en sí mismo, es decir obtendremos la base original con una nueva columna llamada ``newvar'' que es la que esta función genera.
+Para finalizar especificamos que esta función no solo debe imprimirnos los resultados guardados en \emph{``show''}, sino que además debe devolver una base de datos nueva. El comando \texttt{return(aux)} le dice a R que el resultado será el objeto \emph{``aux''} en sí mismo, es decir obtendremos la base original con una nueva columna llamada \emph{``newvar''} que es la que esta función genera.
 
 \begin{Shaded}
 \begin{Highlighting}[numbers=left,,]
 \NormalTok{gcuan }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(df, varname, }\AttributeTok{var\_pondera=}\ConstantTok{NULL}\NormalTok{, }\AttributeTok{condicion=}\ConstantTok{NULL}\NormalTok{, num, newvar) \{}
   
-  
 \NormalTok{  aux }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(df) }
-  
   
 \NormalTok{  varname\_store }\OtherTok{\textless{}{-}} \FunctionTok{eval}\NormalTok{(}\FunctionTok{substitute}\NormalTok{(varname), aux) }
 \NormalTok{  aux }\OtherTok{\textless{}{-}}\NormalTok{ aux }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{arrange}\NormalTok{(varname\_store)}
@@ -1162,7 +1270,6 @@ Para finalizar especificamos que esta función no solo debe imprimirnos los resu
 \NormalTok{   \}}
   
   
-  
   \CommentTok{\#set pondera= 1 si no está especificado}
   \ControlFlowTok{if}\NormalTok{(}\FunctionTok{is.null}\NormalTok{(}\FunctionTok{substitute}\NormalTok{(var\_pondera))) \{                           }
     
@@ -1173,7 +1280,6 @@ Para finalizar especificamos que esta función no solo debe imprimirnos los resu
 \NormalTok{    var\_pondera\_store }\OtherTok{\textless{}{-}} \FunctionTok{eval}\NormalTok{(}\FunctionTok{substitute}\NormalTok{(var\_pondera), aux)}
     
 \NormalTok{  \}}
-  
   
   
   \CommentTok{\#ordeno y genero shrpop}
@@ -1204,7 +1310,6 @@ Para finalizar especificamos que esta función no solo debe imprimirnos los resu
   \FunctionTok{names}\NormalTok{(show)[}\FunctionTok{names}\NormalTok{(show) }\SpecialCharTok{==} \StringTok{"quintil"}\NormalTok{] }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(}\FunctionTok{substitute}\NormalTok{(newvar))}
   \FunctionTok{names}\NormalTok{(aux)[}\FunctionTok{names}\NormalTok{(aux) }\SpecialCharTok{==} \StringTok{"quintil"}\NormalTok{] }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(}\FunctionTok{substitute}\NormalTok{(newvar))}
 \NormalTok{  aux}\SpecialCharTok{$}\NormalTok{shrpop }\OtherTok{\textless{}{-}} \ConstantTok{NULL}
-  
   
   \CommentTok{\#outputs}
   \FunctionTok{print.data.frame}\NormalTok{(show)}
@@ -1299,9 +1404,9 @@ A diferencia entonces de la anterior, esta función devuelve no sólo un resulta
 
 \#\#\#- (pág. 156)
 
-El código siguiente puede utilizarse para computar las estadísticas sobre proporción de hogares unipersonales y multipersonales presentadas en el cuadro 3.4 del texto. Como ya es habitual, en la primera línea indicamos con qué base iremos a trabajar. Luego ordenamos los hogares de forma creciente en base a su identificador ``id'' y en forma decreciente respecto la variable ``jefe''. Dado que esta vale 1 solo para el jefe de hogar y 0 para todo el resto, la primera observación por ``id'' corresponderá siempre a la cabeza del hogar. La función \texttt{duplicated} genera una variable que será \emph{FALSE} para la primera observación dentro de cada id, indicando que esta no está duplicada por ser la primera, pero será \emph{TRUE} para todas las que siguen ya que se identificó antes una observación con el mismo id. De esta manera hacemos un ``tag'' del jefe de hogar y mantenemos todos los demás miembros. En el caso de que nos interesa mantener en nuestra base el resto de las observaciones, estos pasos se simplifican a un simple filtrado por jefe de hogar.
+El código siguiente puede utilizarse para computar las estadísticas sobre proporción de hogares unipersonales y multipersonales presentadas en el cuadro 3.4 del texto. Con este código podremos calcular qué proporción del total de hogares se compone de 1, 2, 3, 4,\ldots n miembros y combinado con los códigos anteriores, analizar cómo esta configuración cambia al agrupar por regiones, percentil de ingreso, condición de pobreza, etc. Como ya es habitual, en la primera línea indicamos con qué base iremos a trabajar. Luego ordenamos los hogares de forma creciente en base a su identificador \emph{``id''} y en forma decreciente respecto la variable \emph{``jefe''}. Dado que esta vale 1 solo para el jefe de hogar y 0 para todo el resto, la primera observación por \emph{``id''} corresponderá siempre a la cabeza del hogar. La función \texttt{duplicated()} genera una variable que será \emph{FALSE} para la primera observación dentro de cada id, indicando que esta no está duplicada por ser la primera, pero será \emph{TRUE} para todas las que siguen, ya que se identificó antes una observación con el mismo id. De esta manera hacemos un ``tag'' del jefe de hogar y mantenemos todos los demás miembros. En el caso de que no nos interesa mantener en nuestra base el resto de las observaciones, estos pasos se simplifican a un simple filtrado por jefe de hogar.
 
-Luego generamos la variable tamaño solo para el jefe de hogar en base la cantidad de miembros que viven con él, utilizando la función \texttt{case\_when}. Así, por ejemplo, cuando la observación corresponda al jefe y la cantidad de miembros sea igual a 3, en ese caso tamaño valdrá 3. Por último armamos nuestra tabla resultado filtrando a los jefes de hogar, agrupando por tamaño y sumando la cantidad de hogares (porque tenemos una sola observación por hogar) y la frecuencia relativa en cada caso.
+Luego generamos la variable tamaño solo para el jefe de hogar en base la cantidad de miembros que viven con él, utilizando la función \texttt{case\_when()}. Así, por ejemplo, cuando la observación corresponda al jefe y la cantidad de miembros sea igual a 3, en ese caso la variable \emph{``tamaño''} valdrá 3. Por último armamos nuestra tabla resultado filtrando a los jefes de hogar, agrupando por tamaño y sumando la cantidad de hogares (porque tenemos una sola observación por hogar) y la frecuencia relativa en cada caso.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1310,7 +1415,7 @@ Luego generamos la variable tamaño solo para el jefe de hogar en base la cantid
 
 \CommentTok{\#ordeno por id y jefe (decreciente) e identifico al jefe de hogar}
 \NormalTok{df }\OtherTok{\textless{}{-}}\NormalTok{ df }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{arrange}\NormalTok{(id, }\FunctionTok{desc}\NormalTok{(jefe)) }\SpecialCharTok{\%\textgreater{}\%}
-          \FunctionTok{mutate}\NormalTok{(}\AttributeTok{hh=}\FunctionTok{duplicated}\NormalTok{(id))      }\CommentTok{\#alterantiva para egen hh=tag() en stata}
+          \FunctionTok{mutate}\NormalTok{(}\AttributeTok{hh=}\FunctionTok{duplicated}\NormalTok{(id))      }\CommentTok{\#idéntico a: egen hh=tag() en stata}
 
 \CommentTok{\#genero tamaño sólo para los jefes de hogar}
 \NormalTok{df }\OtherTok{\textless{}{-}}\NormalTok{ df }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(tamaño}\OtherTok{=}\FunctionTok{case\_when}\NormalTok{(miembros}\SpecialCharTok{==}\DecValTok{1} \SpecialCharTok{\&}\NormalTok{ hh}\SpecialCharTok{==}\ConstantTok{FALSE} \SpecialCharTok{\textasciitilde{}} \DecValTok{1}\NormalTok{,}
@@ -1322,7 +1427,7 @@ Luego generamos la variable tamaño solo para el jefe de hogar en base la cantid
 
 \CommentTok{\#tabla con resultados}
 \NormalTok{table }\OtherTok{\textless{}{-}}\NormalTok{ df }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(hh}\SpecialCharTok{==}\ConstantTok{FALSE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{group\_by}\NormalTok{(tamaño) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{summarise}\NormalTok{(}\AttributeTok{N =} \FunctionTok{sum}\NormalTok{(pondera)) }\SpecialCharTok{\%\textgreater{}\%} 
-                                                           \FunctionTok{mutate}\NormalTok{(}\AttributeTok{freq =} \DecValTok{100}\SpecialCharTok{*}\NormalTok{N}\SpecialCharTok{/}\FunctionTok{sum}\NormalTok{(N))}
+                                                           \FunctionTok{mutate}\NormalTok{(}\AttributeTok{freq =}\NormalTok{ N}\SpecialCharTok{*}\DecValTok{100}\SpecialCharTok{/}\FunctionTok{sum}\NormalTok{(N))}
 \NormalTok{table}
 \end{Highlighting}
 \end{Shaded}
@@ -1339,7 +1444,7 @@ Luego generamos la variable tamaño solo para el jefe de hogar en base la cantid
 ## 6      6 4516967 17.8
 \end{verbatim}
 
-El objeto table almacena los resultados que se visualizan en la consola. A veces al imprimir los resultados estos no se visualizan con un formato muy amigable. A modo de extensión presentamos dos alternativas para refinar este aspecto. El paquete \texttt{formattable} nos permite, entre otros cosas, especificar el tipo de datos y el formato para distintas variables al generar el dataframe. Por su parte \texttt{print.data.frame} nos da una visualización más limpia. Incorporando este aspecto el código para nuestra tabla sería:
+El objeto table almacena los resultados que se visualizan en la consola. A veces al imprimir los resultados estos no se visualizan con un formato muy amigable. A modo de extensión presentamos dos alternativas para refinar este aspecto. El paquete \texttt{formattable} nos permite, entre otras cosas, especificar el tipo de datos y el formato para distintas variables al generar el dataframe. Por su parte \texttt{print.data.frame} nos da una visualización más limpia. Incorporando este aspecto el código para nuestra tabla sería:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1377,9 +1482,9 @@ Además de agregarle esta customización, para los usuarios que utilizan ``Rmark
 
 \#\#\#- (pág. 157)
 
-El fragmento de código siguiente puede utilizarse para generar resultados similares a los presentados en el cuadro 3.7 del texto, que muestra cómo se modifica la desigualdad calculada a través del cociente de deciles extremos cuando cambia la distribución del ingreso hacia el interior del hogar. Cabe recordar que la distribución del ingreso intrahogar se modifica mediante un impuesto proporcional al ingreso per cápita familiar combinado con un subsidio que solo recibe el jefe de hogar. En la implementación, utilizamos quintiles en lugar de deciles ingreso.
+El fragmento de código siguiente puede utilizarse para generar resultados similares a los presentados en el cuadro 3.7 del texto, que muestra cómo se modifica la desigualdad calculada a través del cociente de deciles extremos cuando cambia la distribución del ingreso hacia el interior del hogar. Cabe recordar que la distribución del ingreso intrahogar se modifica mediante un impuesto proporcional al ingreso per cápita familiar combinado, con un subsidio que solo recibe el jefe de hogar. En la implementación, utilizamos quintiles en lugar de deciles ingreso.
 
-En la primer línea cargamos la base, en este caso trabajaremos con la base de Venezuela del año 2006, limpiamos y ordenamos los hogares. Mas abajo creamos el objeto ``ty'' que toma el valor de la tasa del impuesto aplicada sobre el ipcf, el cual calculamos en línea siguiente generando en el dataframe una nueva columna ``impuesto''. Posteriormente calculamos el valor del subsidio a otorgar que surge de sumar el valor de los impuestos para los integrantes de un mismo hogar. En la line siguiente modificamos la variable subsidio, haciendo que valga 0 para todo miembro distinto al jefe, de esta forma redistribuimos ingreso al interior del hogar: a todos se le hemos quitado una porción ``ty'' que ahora la recibe solamente el jefe de hogar.
+En la primera línea cargamos la base, en este caso de Venezuela año 2006, limpiamos y ordenamos los hogares. Más abajo creamos el objeto \emph{``ty''} que toma el valor de la tasa del impuesto aplicada sobre el ipcf, el cual calculamos en la línea siguiente generando en el dataframe una nueva columna \emph{``impuesto''}. Posteriormente calculamos el valor del subsidio a otorgar, que surge de sumar el valor de los impuestos para los integrantes de un mismo hogar. En la línea siguiente modificamos la variable subsidio, haciendo que valga 0 para todo miembro distinto al jefe de hogar, de esta forma redistribuyendo el ingreso al interior del hogar. A todos se le hemos quitado una porción \emph{``ty''} que ahora la recibe solamente el jefe.
 
 En la anteúltima línea creamos una variable para el nuevo valor de ingreso per cápita familiar, restando el impuesto y sumando el subsidio. Por último hacemos uso de nuestra función del ratio de quintiles para computar el cociente del ingreso promedio de los quintiles 5 y 1 como indicador de desigualdad, a partir del ingreso modificado.
 
@@ -1425,14 +1530,14 @@ A modo de comentario, un usuario mas familiarizado con el lenguaje podrá notar 
 
 ~
 
-\hypertarget{empleo-de-ponderadores}{%
-\section{Empleo de ponderadores}\label{empleo-de-ponderadores}}
+\hypertarget{cap-3.6}{%
+\section{Empleo de ponderadores}\label{cap-3.6}}
 
 \#\#\#- (pág. 157)
 
 El bloque de código que sigue puede utilizarse para construir un cuadro como el 3.9 del texto, que muestra la relación entre el ingreso per cápita familiar y el valor de la variable de ponderación.
 
-La línea 7 genera la variable shrobs, que contiene el porcentaje acumulado de observaciones, a diferencia de shrpop que contiene el acumulado de población usando el ponderador. Aquí la expresión \emph{\texttt{1:n()}} enumera secuencialmente las observaciones en orden de aparición mientras que \emph{`n()``} computa el total.
+Dado que ya habíamos trabajado con la base de México, aquí no la volvemos a cargar. En la segunda línea genera la variable \emph{``shrobs''}, que contiene el porcentaje acumulado de observaciones, y que es distinta de \emph{``shrpop''} que contiene el acumulado de población usando el ponderador. Aquí la expresión \emph{\texttt{1:n()}} enumera secuencialmente las observaciones en orden de aparición mientras que \emph{\texttt{n()}} computa el total. El resto es habitual, generamos quintiles en base a los cuales luego agrupamos las observaciones para calcular la media de ingreso y el total de población en cada uno.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1465,7 +1570,7 @@ La línea 7 genera la variable shrobs, que contiene el porcentaje acumulado de o
 ## 5       5 6,457   1,319
 \end{verbatim}
 
-El bloque de código siguiente calcula las tasas de pobreza con y sin ponderadores para el total del país y para cada una de las regiones de México en 2006 correspondientes al cuadro 3.10 del texto. En la primer línea el objeto ``lp'' almacena el valor de la línea de pobreza, en base a la cual se genera la variable binaria ``pobre'', vale 1 para los individuos pobres (es decir, \emph{ipcf \textless{} lp} ) y 0 para el resto. La suma de esta variable arroja el número total de personas pobres en la muestra, al multiplicarla por el ponderador obtenemos el número de personas pobres en la población y dividiendo por la población total del país nos devuelve la tasa de incidencia de la pobreza. En este caso el valor es de 13.57\%
+Seguidamente se calculan las tasas de pobreza con y sin ponderadores para el total del país y para cada una de las regiones de México en 2006, correspondientes al cuadro 3.10 del texto. En la primer línea el objeto \emph{``lp''} almacena el valor de la línea de pobreza, en base a la cual se genera la variable binaria \emph{``pobre''}, que vale 1 para los individuos debajo de este umbral (es decir, si \emph{ipcf \textless{} lp}) y 0 para el resto. La suma de esta variable arroja el número total de personas pobres en la muestra. Al multiplicarla por el ponderador obtenemos el número de personas pobres en la población y dividiendo por la población total del país nos devuelve la tasa de incidencia de la pobreza. En este caso el valor es de 13.57\%.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1484,12 +1589,12 @@ El bloque de código siguiente calcula las tasas de pobreza con y sin ponderador
 ## [1] 13.57454
 \end{verbatim}
 
-Las siguientes líneas calculan el mismo valor de una manera alternativa, almacenándolo en un dataframe, a partir de contabilizar la frecuencia absoluta y relativa de personas pobres y no pobres.
+Las siguientes líneas calculan el mismo valor pero de una manera alternativa, almacenándolo en un dataframe, a partir de contabilizar la frecuencia absoluta y relativa de personas pobres y no pobres.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{pobreza }\OtherTok{\textless{}{-}}\NormalTok{ df }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{group\_by}\NormalTok{(pobre) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{summarise}\NormalTok{(}\AttributeTok{n =} \FunctionTok{accounting}\NormalTok{(}\FunctionTok{sum}\NormalTok{(pondera), }\AttributeTok{digits =} \DecValTok{0}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%} 
-                                   \FunctionTok{mutate}\NormalTok{(}\AttributeTok{tasa\_pobreza =} \FunctionTok{percent}\NormalTok{(n}\SpecialCharTok{/}\FunctionTok{sum}\NormalTok{(n))) }
+                                      \FunctionTok{mutate}\NormalTok{(}\AttributeTok{tasa\_pobreza =} \FunctionTok{percent}\NormalTok{(n}\SpecialCharTok{/}\FunctionTok{sum}\NormalTok{(n))) }
 \FunctionTok{print.data.frame}\NormalTok{(pobreza)}
 \end{Highlighting}
 \end{Shaded}
@@ -1500,18 +1605,21 @@ Las siguientes líneas calculan el mismo valor de una manera alternativa, almace
 ## 2     1 13,832,961       13.57%
 \end{verbatim}
 
-Para replicar el mismo cálculo pero para las regiones del país, generamos un bucle que itera 8 veces, una vez por cada región. En cada vuelta del bucle se estima, de la misma forma que arriba, el valor de pobreza tanto ponderado como no ponderado. Para este segundo caso el único paso adicional consiste en fijar la variable ``pondera'' como igual a 1. Como vimos en la salida anterior de la tabla, en la 2da fila de la 3er columna se encuentra la tasa de incidencia de pobreza, con la expresión \emph{\texttt{pobreza\_pondera{[}2,3{]}}} llamamos a este valor para guardarlo en el objeto ``share\_p'', luego de redondearlo a dos dígitos con el comando \texttt{round}. Lo mismo hacemos para las estimaciones sin ponderar. Por último, imprimimos los resultados acompañados por una leyenda indicativa.
+Para replicar el mismo cálculo pero para las regiones del país, generamos un bucle que itera 8 veces, una vez por cada región. En cada vuelta del bucle se estima, de la misma forma que arriba, el valor de pobreza tanto ponderado como no ponderado. Para este segundo caso, el único paso adicional consiste en fijar la variable \emph{pondera} como igual a 1. Como vimos en la salida anterior de la tabla, en la 2da fila de la 3er columna se encuentra la tasa de incidencia de pobreza. Con la expresión \emph{\texttt{pobreza\_pondera{[}2,3{]}}} llamamos a este valor para guardarlo en el objeto \emph{``share\_p''}, luego de redondearlo a dos dígitos con el comando \texttt{round()}. Lo mismo hacemos para las estimaciones sin ponderar. Por último, imprimimos los resultados acompañados por una leyenda indicativa.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\#por region}
 \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\DecValTok{8}\NormalTok{)\{}
   
-\NormalTok{  pobreza\_pondera }\OtherTok{\textless{}{-}}\NormalTok{ df }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(region}\SpecialCharTok{==}\NormalTok{i) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{group\_by}\NormalTok{(pobre) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{summarise}\NormalTok{(}\AttributeTok{n=}\FunctionTok{sum}\NormalTok{(pondera)) }\SpecialCharTok{\%\textgreater{}\%} 
-                                                                  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{tasa\_pobreza=}\NormalTok{n}\SpecialCharTok{/}\FunctionTok{sum}\NormalTok{(n))}
+\NormalTok{  pobreza\_pondera }\OtherTok{\textless{}{-}}\NormalTok{ df }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(region}\SpecialCharTok{==}\NormalTok{i) }\SpecialCharTok{\%\textgreater{}\%} 
+                            \FunctionTok{group\_by}\NormalTok{(pobre) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{summarise}\NormalTok{(}\AttributeTok{n=}\FunctionTok{sum}\NormalTok{(pondera)) }\SpecialCharTok{\%\textgreater{}\%} 
+                                                \FunctionTok{mutate}\NormalTok{(}\AttributeTok{tasa\_pobreza=}\NormalTok{n}\SpecialCharTok{/}\FunctionTok{sum}\NormalTok{(n))}
   
-\NormalTok{  pobreza\_s\_pondera }\OtherTok{\textless{}{-}}\NormalTok{ df }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(region}\SpecialCharTok{==}\NormalTok{i) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{pondera=}\DecValTok{1}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{group\_by}\NormalTok{(pobre) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{summarise}\NormalTok{(}\AttributeTok{n=}\FunctionTok{sum}\NormalTok{(pondera)) }\SpecialCharTok{\%\textgreater{}\%}
-                                                                                      \FunctionTok{mutate}\NormalTok{(}\AttributeTok{tasa\_pobreza=}\NormalTok{n}\SpecialCharTok{/}\FunctionTok{sum}\NormalTok{(n))}
+\NormalTok{  pobreza\_s\_pondera }\OtherTok{\textless{}{-}}\NormalTok{ df }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(region}\SpecialCharTok{==}\NormalTok{i) }\SpecialCharTok{\%\textgreater{}\%}
+                              \FunctionTok{mutate}\NormalTok{(}\AttributeTok{pondera=}\DecValTok{1}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+                              \FunctionTok{group\_by}\NormalTok{(pobre) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{summarise}\NormalTok{(}\AttributeTok{n=}\FunctionTok{sum}\NormalTok{(pondera)) }\SpecialCharTok{\%\textgreater{}\%}
+                                                  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{tasa\_pobreza=}\NormalTok{n}\SpecialCharTok{/}\FunctionTok{sum}\NormalTok{(n))}
   
   \CommentTok{\#recupero el valor llamando a la fila y columna y redondeo }
 \NormalTok{  share\_p }\OtherTok{=} \FunctionTok{round}\NormalTok{(pobreza\_pondera[}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{]}\SpecialCharTok{*}\DecValTok{100}\NormalTok{, }\AttributeTok{digits =} \DecValTok{2}\NormalTok{)}
@@ -1534,7 +1642,9 @@ Para replicar el mismo cálculo pero para las regiones del país, generamos un b
 ## [1] "H_ponderado = 14.51 / H_sin_ponderar = 18.91"
 \end{verbatim}
 
-Este bloque de códigos imprime los resultados en la consola. Si quisiéramos generar un cuadro u objeto que los almacene (dataframe) para luego por ejemplo exportarlo en Excel u otro formato, solo debemos modificar ligeramente el código de arriba. Antes de correr el bucle generamos un dataframe que contiene todos valores 0, pero con 3 columnas (region, pondera, sin\_pondera). Al final del bucle guardamos los datos de la región, de pobreza con ponderador y sin ponderador en la columna 1, 2 y 3 respectivamente, pero en cada iteración lo hacemos en una fila distinta, que corresponde a cada región. Por ejemplo en la tercera iteración el código filtra la región a la cual le corresponde el valor 3, y almacena las estimaciones de línea de pobreza en la tercera fila de la tabla ``results''.
+La salida que obtenemos muestra un punto importante sobre el diseño de encuestas que impacta en nuestras estimaciones: Las tasas de pobreza suelen ser menores cuando se incluyen los ponderadores, dado que los factores de expansión son en general superiores en los estratos de mayores ingresos, donde las tasas de no respuesta son más elevadas.
+
+El bloque de códigos anterior imprime los resultados en la consola. A modo de extensión, si quisiéramos generar un cuadro u objeto que los almacene (un \emph{dataframe}) para luego, por ejemplo, exportarlo en Excel u otro formato, solo debemos modificar ligeramente el código de arriba. Antes de correr el bucle generamos un dataframe que contiene todos valores iguales a 0, pero con 3 columnas (region, pondera, sin\_pondera). Al final del bucle guardamos los datos de la región, del valor de pobreza con ponderador y sin ponderador en la columna 1, 2 y 3 respectivamente. La clave es que en cada iteración lo hacemos en una fila distinta, que corresponde a cada región. Por ejemplo en la tercera iteración el código filtra la región a la cual le corresponde el valor 3, y almacena las estimaciones de línea de pobreza en la tercera fila de la tabla \emph{``results''}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1546,11 +1656,14 @@ Este bloque de códigos imprime los resultados en la consola. Si quisiéramos ge
 \CommentTok{\#por region}
 \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\DecValTok{8}\NormalTok{)\{}
   
-\NormalTok{  pobreza\_pondera }\OtherTok{\textless{}{-}}\NormalTok{ df }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(region}\SpecialCharTok{==}\NormalTok{i) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{group\_by}\NormalTok{(pobre) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{summarise}\NormalTok{(}\AttributeTok{n=}\FunctionTok{sum}\NormalTok{(pondera)) }\SpecialCharTok{\%\textgreater{}\%} 
-                                                                  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{tasa\_pobreza=}\NormalTok{n}\SpecialCharTok{/}\FunctionTok{sum}\NormalTok{(n))}
+\NormalTok{  pobreza\_pondera }\OtherTok{\textless{}{-}}\NormalTok{ df }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(region}\SpecialCharTok{==}\NormalTok{i) }\SpecialCharTok{\%\textgreater{}\%} 
+                            \FunctionTok{group\_by}\NormalTok{(pobre) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{summarise}\NormalTok{(}\AttributeTok{n=}\FunctionTok{sum}\NormalTok{(pondera)) }\SpecialCharTok{\%\textgreater{}\%} 
+                                                \FunctionTok{mutate}\NormalTok{(}\AttributeTok{tasa\_pobreza=}\NormalTok{n}\SpecialCharTok{/}\FunctionTok{sum}\NormalTok{(n))}
   
-\NormalTok{  pobreza\_s\_pondera }\OtherTok{\textless{}{-}}\NormalTok{ df }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(region}\SpecialCharTok{==}\NormalTok{i) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{pondera=}\DecValTok{1}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{group\_by}\NormalTok{(pobre) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{summarise}\NormalTok{(}\AttributeTok{n=}\FunctionTok{sum}\NormalTok{(pondera)) }\SpecialCharTok{\%\textgreater{}\%}
-                                                                                          \FunctionTok{mutate}\NormalTok{(}\AttributeTok{tasa\_pobreza=}\NormalTok{n}\SpecialCharTok{/}\FunctionTok{sum}\NormalTok{(n))}
+\NormalTok{  pobreza\_s\_pondera }\OtherTok{\textless{}{-}}\NormalTok{ df }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(region}\SpecialCharTok{==}\NormalTok{i) }\SpecialCharTok{\%\textgreater{}\%}
+                              \FunctionTok{mutate}\NormalTok{(}\AttributeTok{pondera=}\DecValTok{1}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+                              \FunctionTok{group\_by}\NormalTok{(pobre) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{summarise}\NormalTok{(}\AttributeTok{n=}\FunctionTok{sum}\NormalTok{(pondera)) }\SpecialCharTok{\%\textgreater{}\%}
+                                                  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{tasa\_pobreza=}\NormalTok{n}\SpecialCharTok{/}\FunctionTok{sum}\NormalTok{(n))}
   
   \CommentTok{\#recupero el valor llamando a la fila y columna y redondeo }
 \NormalTok{  results[i,}\DecValTok{1}\NormalTok{] }\OtherTok{=} \FunctionTok{paste}\NormalTok{(}\StringTok{"region"}\NormalTok{, i)}
@@ -1561,7 +1674,7 @@ Este bloque de códigos imprime los resultados en la consola. Si quisiéramos ge
 \end{Highlighting}
 \end{Shaded}
 
-De esta manera al finalizar el bucle queda armado un objeto de 3 columnas con 8 filas, una para cada región
+De esta manera al finalizar el bucle queda armado un objeto de 3 columnas con 8 filas, una para cada región.
 
 ~
 
@@ -1587,15 +1700,15 @@ En este material no se cubre con ejemplos este apartado pero para los usuarios i
 
 \#\#\#- (pág. 161)
 
-El bloque de código a continuación muestra cómo computar la importancia que tiene cada fuente de ingresos identificada en las encuestas de hogares (cuadro 3.13). Dento de las fuentes de ingreso consideramos: laboral (variable ila), jubilaciones (ijubi), capital (icap), transferencias (itran) y otros (ionl).
+El bloque de código a continuación muestra cómo computar la importancia que tiene cada fuente de ingresos identificada en las encuestas de hogares (cuadro 3.13). Dentro de las fuentes de ingreso consideramos: laboral (variable \emph{ila}), jubilaciones (\emph{ijubi}), capital (\emph{icap}), transferencias (\emph{itran}) y otros (\emph{ionl}).
 
-Para comenzar declaramos la base y la limpiamos. Luego sumamos generamos la variable ingreso total (``itot''), como la suma de las columnas para cada ingreso. Hasta ahora todas las veces que aplicamos el comando \texttt{sum} lo hicimos sumando una misma columna, por ejemplo para obtener el total de población, sumamos la variable ``pondera''. En este caso queremos sumar por fila distintas columnas, para eso debemos anteponer el comando \texttt{rowwise}.
+Para comenzar declaramos la base y la limpiamos. Luego generamos la variable ingreso total (\emph{itot}), como la suma de las columnas para cada ingreso. Hasta ahora todas las veces que aplicamos el comando \texttt{sum()} lo hicimos sumando una misma columna, por ejemplo para obtener el total de población, sumamos la variable \emph{pondera}. En este caso queremos sumar por fila, distintas columnas. Para eso debemos anteponer el comando \texttt{rowwise()}.
 
-Como resultado final necesitamos mostrar la participación en el ingreso total de cada fuente de ingreso. Para ello debemos considerar cada fuente por separado y divirla por el ingreso total. La forma de hacerlo nuevamente es utilizando un bucle. Entonces el código a escribir debe lograr en cada iteración tomar todos los valores de cada una de las variables que corresponde a la fuente de ingresos, en otras palabras debemos iterar entre columnas distintas. La forma que proponemos aquí consiste en valernos de las listas. Las listas son un objeto que en cada elemento puede almacenar otro objeto de cualquier tipo. Una lista de n elementos puede contener n dataframes distinto en cada uno de ellos, o n columnas de un dataframe, o n vector. Aquí entonces nos valdremos de esta flexibilidad para almacenar en un mismo objeto (lista) múltiples objetos distintos (columnas)
+Como resultado final necesitamos mostrar la participación en el ingreso total de cada fuente de ingreso. Para ello debemos considerar cada fuente por separado y divirla por el ingreso total. La forma de hacerlo nuevamente es utilizando un bucle. Entonces el código a escribir debe lograr en cada iteración tomar todos los valores de cada una de las variables que corresponde a la fuente de ingresos, en otras palabras debemos iterar entre columnas distintas. La forma que proponemos aquí consiste en valernos de las listas. Las listas, como ya vimos, son un objeto que en cada elemento puede almacenar otro objeto de cualquier tipo. Una lista de n elementos puede contener n dataframes distinto en cada uno de ellos, o n columnas de un dataframe, o n vectores. Aquí entonces nos valdremos de esta flexibilidad para almacenar en un mismo objeto (lista) múltiples objetos distintos (columnas)
 
-La cuarta línea de códigos declara a ``ingresos'' como una lista que como elementos contiene a las variables de ingreso de nuestra base de datos. En la línea siguiente creamos un simple vector con los nombres de cada una de estas. Con esto ya podemos generar nuestro bucle, haciéndolo iterar desde 1 hasta n, siendo n la cantidad de fuentes de ingresos distintas que consideramos. Para evitarnos contar manualmente cuantas son, directamente calculamos n con el comando \texttt{length} que nos devuelve la cantidad de elementos dentro de la lista ``ingresos''. De esta forma si agregamos o quitamos una variable de ingreso no debemos preocuparnos por fijar este valor cada vez.
+La cuarta línea de códigos declara a \emph{``ingresos''} como una lista que como elementos contiene a las variables de ingreso de nuestra base de datos. En la línea siguiente creamos un simple vector con los nombres de cada una de estas. Con esto ya podemos generar nuestro bucle, haciéndolo iterar desde 1 hasta n, siendo n la cantidad de fuentes de ingresos distintas que consideramos. Para evitarnos contar manualmente cuantas son, directamente calculamos n con el comando \texttt{length()} que nos devuelve la cantidad de elementos dentro de la lista ``ingresos''. De esta forma si agregamos o quitamos una variable de ingreso no debemos preocuparnos por fijar este valor cada vez.
 
-En la primer línea del código definimos la variable ``y'' que, en cada iteración, será un elemento distinto del objeto ingreso, es decir una fuente de ingreso distinta, comenzando por ``ila'' y terminando en ``ionl''. A esta variable la expandimos multiplicándola por el ponderador, de la misma manera que expandimos la variable de ingreso total, que ya calculamos mas arriba. Solo nos resta hacer el cociente entre la suma de los ingresos de todas las personas correspondiente a cada fuente, sobre el total de todos los ingresos. El objeto ``value'' almacena este cálculo, que luego redondeamos a dos dígitos. Nótese la importancia de la opción \emph{\texttt{na.rm=TRUE}} que evita que un valor missing convierta en missing a toda la suma, es decir que indica ignorar los valores missings y preservar el cálculo sobre el resto de las observaciones no missings. Para terminar, ``concepto'' almacena el nombre de la fuente correspondiente a cada vuelta del bucle, para imprimirlo en la línea final junto con el valor calculado.
+En la primer línea del código definimos la variable \emph{y} que, en cada iteración, será un elemento distinto del objeto ingreso, es decir una fuente de ingreso distinta, comenzando por \emph{ila} y terminando en \emph{ionl}. A esta variable la expandimos multiplicándola por el ponderador, de la misma manera que expandimos la variable de ingreso total, que ya calculamos más arriba. Solo nos resta hacer el cociente entre la suma de los ingresos de todas las personas correspondiente a cada fuente, sobre el total de todos los ingresos. El objeto \emph{``value''} almacena este cálculo, que luego redondeamos a dos dígitos. Nótese la importancia de la opción \emph{\texttt{na.rm=TRUE}} que evita que un valor missing convierta en missing a toda la suma, es decir que indica ignorar los valores missings y preservar el cálculo sobre el resto de las observaciones no missings. Para terminar, ``concepto'' almacena el nombre de la fuente correspondiente a cada vuelta del bucle, para imprimirlo en la línea final junto con el valor calculado.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1640,8 +1753,8 @@ En la primer línea del código definimos la variable ``y'' que, en cada iteraci
 \hypertarget{capuxedtulo-4}{%
 \chapter{Capítulo 4}\label{capuxedtulo-4}}
 
-\hypertarget{apuxe9ndices-del-libro-pobreza-y-desigualdad-en-r-2}{%
-\section*{Apéndices del Libro Pobreza y Desigualdad en R}\label{apuxe9ndices-del-libro-pobreza-y-desigualdad-en-r-2}}
+\hypertarget{pobreza-monetaria}{%
+\section*{Pobreza monetaria}\label{pobreza-monetaria}}
 
 \hypertarget{escrito-por-cristian-bonavida-2}{%
 \subsubsection*{Escrito por: Cristian Bonavida}\label{escrito-por-cristian-bonavida-2}}
@@ -1687,9 +1800,9 @@ Cargo las librerias, limpio environment, defino el path y atajo para función pa
 
 \#\#\#- (PÁG. 249-250)
 
-En este apartado se presenta cómo calcular la familia de indicadores FGT. En primer lugar, se muestra cómo puede computarse el indicador FGT de manera relativamente sencilla. Luego, al igual que con el ratio de quintiles y el cálculo de quintiles, se se introduce una función para el indicador FGT. Como ejemplo, computamos la pobreza de 2.5 dólares para Ecuador en 2006, utilizando microdatos que provienen de la Encuesta de Condiciones de Vida (ENCOVI).
+En este apartado se presenta cómo calcular la familia de indicadores FGT. En primer lugar, se muestra cómo puede computarse el indicador FGT de manera relativamente sencilla. Luego, al igual que con el ratio de quintiles y el cálculo de quintiles, se introduce una función para el indicador FGT. Como ejemplo, computamos la pobreza de 2.5 dólares para Ecuador en 2006, utilizando microdatos que provienen de la Encuesta de Condiciones de Vida (ENCOVI).
 
-Luego de cargar y limpiar las bases fijamos los valores de pobreza así como el parámtero \emph{``alfa''} del indicador fgt de aversión a la desigualdad entre los pobres. Luego se computa, para cada individuo pobre, su brecha de pobreza elevada al valor de alfa, que se asigna a una nueva variable que llamamos ``each''. La distinción entre individuo pobre y no pobre se operativiza en el comando \texttt{ifelse}: en caso de cumplirse la condición de que el ingreso esté por debajo de la linea de pobreza, se computa la brecha, en caso de que sea falso se otorga un valor de cero. Por último se obtiene el valor de FGT como el promedio ponderado de la brecha en toda la muestra.
+Luego de cargar y limpiar las bases fijamos los valores de pobreza así como el parámetro \emph{``alfa''} del indicador fgt de aversión a la desigualdad entre los pobres. Luego se computa, para cada individuo pobre, su brecha de pobreza elevada al valor de \emph{``alfa''}, que se asigna a una nueva variable que llamamos \emph{each}. La distinción entre individuo pobre y no pobre se operativiza en el comando \texttt{ifelse()}: en caso de cumplirse la condición de que el ingreso esté por debajo de la línea de pobreza, se computa la brecha, en caso de que sea falso se otorga un valor de cero. Por último se obtiene el valor de FGT como el promedio ponderado de la brecha en toda la muestra.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1716,7 +1829,7 @@ Luego de cargar y limpiar las bases fijamos los valores de pobreza así como el 
 ## [1] "fgt = 19.02"
 \end{verbatim}
 
-Otra opción posible es computar los valores directamente como un vector, sin alojarlo como una nueva columna del data frame. Esta opción, desde el punto de vista de la escritura de los códigos, es más eficiente ya que se evita agregar una nueva columna que solo se emplea para el cálculo del indicador. El detalle a considerar es que para poder calcularlo como medida ponderada la cantidad de elementos del vector ``each'' debe ser exactamente igual la cantidad de observaciones de la columna pondera del dataframe.
+Otra opción posible es computar los valores directamente como un vector, sin alojarlo como una nueva columna del data frame. Esta opción, desde el punto de vista del código, es más eficiente ya que se evita agregar una nueva columna que solo se emplea para el cálculo del indicador. El detalle a considerar es que para poder calcularlo como medida ponderada la cantidad de elementos del vector \emph{``each''} debe ser exactamente igual la cantidad de observaciones de la columna \emph{pondera} del dataframe.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1739,7 +1852,7 @@ Otra opción posible es computar los valores directamente como un vector, sin al
 
 \#\#\#- (pág 250-251)
 
-Como ya vimos en el capitulo 3, las funciones nos permiten replicar un indicador o un cálculo en cualquier base, sobre cualquier variable, imponiendo una condición especifica o ponderando por algún factor de expansión. En este caso además agregamos como argumentos los parámetros asociados al FGT, \emph{``alfa''}, para la aversión a la desigualdad, y \emph{``zeta''} para la linea de pobreza. De esta forma podremos replicar y comparar rapidamente el índice para distintos valores que podemos pasarle a estos argumentos. La estructura de la función replica lo visto en las funciones del capítulo 3 hasta la linea 39 donde se computa el FGT con las mismas lineas que empleamos arriba. Adicionalmente se añade la opción de correr la función sin de forma silenciosa, sin imprimir el resultado.
+Como ya vimos en el capítulo 3, las funciones nos permiten replicar un indicador o un cálculo en cualquier base, sobre cualquier variable, imponiendo una condición especifica o ponderando por algún factor de expansión. En este caso además agregamos como argumentos los parámetros asociados al FGT, \emph{``alfa''}, para la aversión a la desigualdad, y \emph{``zeta''} para la línea de pobreza. De esta forma podremos replicar y comparar rápidamente el índice para distintos valores que podemos pasarle a estos argumentos. La estructura de la función replica lo visto en las funciones del capítulo 3 hasta la línea 39 donde se computa el FGT con las mismas líneas que empleamos arriba. Adicionalmente se añade la opción de correr la función de forma silenciosa, sin imprimir el resultado.
 
 \begin{Shaded}
 \begin{Highlighting}[numbers=left,,]
@@ -1799,6 +1912,8 @@ Como ya vimos en el capitulo 3, las funciones nos permiten replicar un indicador
 \end{Highlighting}
 \end{Shaded}
 
+En las líneas siguientes se detallan algunos ejemplos de cómo replicar la función bajo distintas especificaciones.
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\#No especifica condicion}
@@ -1846,7 +1961,7 @@ Como ya vimos en el capitulo 3, las funciones nos permiten replicar un indicador
 
 \#\#\#- (pág. 251)
 
-La estimación de la pobreza relativa implica, como primer paso, el cálculo de una línea de pobreza relativa. A modo de ejemplo, se computa una línea de pobreza igual al 50\% del ingreso mediano de Ecuador. El comando \texttt{weightedMedian} de la libreria \texttt{matrixStats} arroja el valor de la mediana. Luego, el cálculo de la pobreza se realiza empleando la función FGT.
+La estimación de la pobreza relativa implica, como primer paso, el cálculo de una línea de pobreza relativa. A modo de ejemplo, se computa una línea de pobreza igual al 50\% del ingreso mediano de Ecuador. El comando \texttt{weightedMedian()} de la librería \texttt{matrixStats} arroja el valor de la mediana. Luego, el cálculo de la pobreza se realiza empleando la función FGT.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1867,12 +1982,11 @@ La estimación de la pobreza relativa implica, como primer paso, el cálculo de 
 
 \#\#\#- (pág. 252-253)
 
-El código a continuación realiza una descomposición por regiones de la tasa de incidencia de la pobreza (cuadro 4.7 del libro de texto). Para este caso utilizamos la Encuesta Nacional de Ingresos y Gastos de los Hogares de México para el año
-2006 con la línea de pobreza de 2.5 dólares, equivalentes a 608.245 pesos mensuales.
-Luego de cargar, limpiar e indicar la base de datos con la que se trabajará, se fija la linea de pobreza y se genera, a partir de la función de FGT, la tasa de incidencia para el total del país que se almacena en el objeto ``p0''. En la linea siguiente, se toma una unica observación de cada una de las 8 regiones diferentes de México y se las ordena en orden creciente para almacernas como un vector en el objeto ``list\_rgn''. Sobre este objeto haremos iterar un bucle, para que en cada vuelta los calculos indicados se hagan para cada una de estas regiones.
+El código a continuación realiza una descomposición por regiones de la tasa de incidencia de la pobreza (cuadro 4.7 del libro de texto). Para este caso utilizamos la Encuesta Nacional de Ingresos y Gastos de los Hogares de México para el año 2006 con la línea de pobreza de 2.5 dólares, equivalentes a 608.245 pesos mensuales.
 
-La primer sentencia dentro de ese bucle, calcula la participación de la región sobre la población y en la siguiente linea se estima su indicador FGT para un valor de alfa=0 y con la linea de pobreza de 2.5 dolares (notar como se instrumenta la condición en la función). Por último la contribución se calcula como el producto entre la participación de cada región en la población
-total y el cociente entre la tasa de pobreza regional y la tasa de pobreza nacional, se redondea y se indica que se imprima dicho valor.
+Luego de cargar, limpiar e indicar la base de datos con la que se trabajará, se fija la línea de pobreza y se genera, a partir de la función de FGT, la tasa de incidencia para el total del país que se almacena en el objeto \emph{``p0''}. En la línea siguiente, se toma una única observación de cada una de las 8 regiones diferentes de México y se las ordena en orden creciente para almacenarlas como un vector en el objeto \emph{``list\_rgn''}. Sobre este objeto haremos iterar un bucle, para que en cada vuelta los cálculos indicados se hagan para cada una de estas regiones.
+
+La primer sentencia dentro de ese bucle, calcula la participación de la región sobre la población y en la siguiente línea se estima su indicador FGT para un valor de alfa=0 y con la línea de pobreza de 2.5 dólares (notar como se instrumenta la condición en la función). Por último la contribución se calcula como el producto entre la participación de cada región en la población total y el cociente entre la tasa de pobreza regional y la tasa de pobreza nacional. Se redondea y se indica que se imprima dicho valor.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1922,7 +2036,7 @@ total y el cociente entre la tasa de pobreza regional y la tasa de pobreza nacio
 
 \#\#\#- (pág. 253-254)
 
-El código que sigue puede utilizarse para replicar los resultados sobre pobreza por consumo e ingreso presentados en el cuadro 4.9 del texto para el caso de Nicaragua en 2005. Luego de fijar la tasa de pobreza relevante, el bucle hace que el objeto i tome valores desde 0.5 hasta 1.5 a intervalos de 0.1. Estos valores expanden la linea de pobreza que se utilizaapra calcular el FGT sobre consumo (variable ``cpcf'') e ingreso (variable ``ipcf'')
+El código que sigue puede utilizarse para replicar los resultados sobre pobreza por consumo e ingreso presentados en el cuadro 4.9 del texto para el caso de Nicaragua en 2005. Luego de fijar la tasa de pobreza relevante, el bucle hace que el objeto \emph{''i''} tome valores desde 0.5 hasta 1.5 a intervalos de 0.1. Estos valores expanden la línea de pobreza que se utiliza para calcular el FGT sobre consumo (variable \emph{cpcf}) e ingreso (variable \emph{ipcf})
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1999,7 +2113,7 @@ El código que sigue puede utilizarse para replicar los resultados sobre pobreza
 ## [1] "FGT(alfa=0,Z=864.75) = 61.55"
 \end{verbatim}
 
-En este caso el código imprime una larga lista de resultados en la consola. Con un cambio menor en el bucle, con las mismas sentencias, podemos generar directamente la tabla a replicar y almacenarla como un dataframe que luego es exportable facilmente a otros formatos para su presentación. Para ello generamos inicialmente 3 vectores vacíos para cada una de las columnas que tendrá la tabla. Utilizamos un contador auxiliar que irá incrementandose de a uno en cadad itereación del bucle, en las cuales iremos guardando los datos que antes se imprimian, ahora como elementos de estos objetos. Así, por ejemplo en la tercer iteración el calculo de FGT se guardará como el tercer elemento del vector consumo y el vector ingreso. Al finalizar creamos un dataframe de 3 columnas a partir de estos 3 vectores, y por ultimo agregamos la cuarta columna calculando la diferencia.
+En este caso el código imprime una larga lista de resultados en la consola. Con un cambio menor en el bucle, con las mismas sentencias, \emph{podemos generar directamente la tabla a replicar y almacenarla como un dataframe que luego es exportable fácilmente a otros formatos para su presentación}. Para ello generamos inicialmente 3 vectores vacíos para cada una de las columnas que tendrá la tabla. Utilizamos un contador auxiliar que irá incrementándose de a uno en cada iteración del bucle, en las cuales iremos guardando los datos que antes se imprimían, ahora como elementos de estos objetos. Así, por ejemplo en la tercera iteración el cálculo de FGT se guardará como el tercer elemento del vector consumo y el vector ingreso. Al finalizar creamos un dataframe de 3 columnas a partir de estos 3 vectores, y por ultimo agregamos la cuarta columna calculando la diferencia.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2051,7 +2165,7 @@ El código siguiente permite replicar la figura 4.13 del texto, que compara las 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-63-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-64-1.pdf}
 
 ~
 
@@ -2060,7 +2174,7 @@ El código siguiente permite replicar la figura 4.13 del texto, que compara las 
 
 \#\#\#- (pág. 254-255)
 
-El bloque de código siguiente muestra cómo puede graficarse la relación entre pobreza y edad (ver figura 4.15 del texto). Para ello luego de cargar, limpiar la base y definir la linea de pobreza, generamos dos objetos ``x'' e ``y'' vacíos donde se almacenará los valores del eje x y el eje y. Estos valores se generaran de forma iterativa mediante un bucle que incremente secuencialmente la edad en 5 años, comenzando en 0 y terminando en 80 años. En cada vuelta estaremos generando el indicador FGT condicionando a las observaciones que caigan dentro de distintos intervalos de edad. Esto equivale a dividir a la población en grupos de edad y para cada uno de ellos calcular el indicador. Al igual que en el código anterior, el contador nos permite almacenar los valores de edad y FGT como elementos de los vectores creados incialmente.
+El bloque de código siguiente muestra cómo puede graficarse la relación entre pobreza y edad (ver figura 4.15 del texto). Para ello luego de cargar, limpiar la base y definir la línea de pobreza, generamos dos objetos \emph{``x''} e \emph{``y''} vacíos donde se almacenará los valores del eje x y el eje y. Estos valores se generaran de forma iterativa mediante un bucle que incremente secuencialmente la edad en 5 años, comenzando en 0 y terminando en 80 años. En cada vuelta estaremos generando el indicador FGT condicionando a las observaciones que caigan dentro de distintos intervalos de edad. Esto equivale a dividir a la población en grupos de edad y para cada uno de ellos calcular el indicador. Al igual que en el código anterior, el contador nos permite almacenar los valores de edad y FGT como elementos de los vectores creados inicialmente.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2126,7 +2240,7 @@ Las líneas finales grafican los resultados, superponiendo a las estimaciones de
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-65-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-66-1.pdf}
 
 ~
 
@@ -2135,7 +2249,7 @@ Las líneas finales grafican los resultados, superponiendo a las estimaciones de
 
 \#\#\#- (pág. 255-256)
 
-En esta última sección recreamos la técnica del \emph{boostrap} o reseampleo para obtener errores estándares e intervalos de confianza para las estimaciones del FGT. La versión más simple del bootstrap requiere (i) tomar una muestra de tamaño N (el tamaño muestral) de la muestra original con reemplazo, (ii) computar el índice de pobreza deseado y (iii) repetir el procedimiento B veces, con B grande. Esto es lo que haremos mediante un bucle, fijaremos una cantidad de repeticiones, en las que en cada una estaremos tomando un resampleo de la muestra original de igual tamaño. De esta forma la muestrá irá cambiando en su composición aleatoriamente y por tanto permitirá generar distintos valores del FGT en cada iteración, a partir de una misma base. El comando en R \texttt{sample\_n} realiza esta tarea de resampleo, seteando el dataframe, el tamaño de la nueva muestra y la opción con reposición. La expresión \texttt{nrow(df)} indica que la nueva muestra tendrá el mismo tamaño que la base original. Cada valor del indicador se almacena en el objeto ``store'', sobre el que posteriormente se calcula el desvío, la media y el tamaño. Estos son inputs necesarios para la formula que estima los intervalos de confianza de nuestras estimaciones. En este caso estimamos un intervalo de confianza del 95\%.
+En esta última sección recreamos la técnica del \emph{boostrap} o reseampleo para obtener errores estándares e intervalos de confianza para las estimaciones del FGT. La versión más simple del bootstrap requiere (i) tomar una muestra de tamaño N (el tamaño muestral) de la muestra original con reemplazo, (ii) computar el índice de pobreza deseado y (iii) repetir el procedimiento B veces, con B grande. Esto es lo que haremos mediante un bucle, fijaremos una cantidad de repeticiones, en las que en cada una estaremos tomando un resampleo de la muestra original de igual tamaño. De esta forma la muestra irá cambiando en su composición aleatoriamente y por tanto permitirá generar distintos valores del FGT en cada iteración, a partir de una misma base. El comando en R \texttt{sample\_n()} realiza esta tarea de resampleo, seteando el dataframe, el tamaño de la nueva muestra y la opción con reposición. La expresión \texttt{nrow(df)} indica que la nueva muestra tendrá el mismo tamaño que la base original. Cada valor del indicador se almacena en el objeto \emph{``store''}, sobre el que posteriormente se calcula el desvío, la media y el tamaño. Estos son inputs necesarios para la fórmula que estima los intervalos de confianza de nuestras estimaciones. En este caso estimamos un intervalo de confianza del 95\%.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2168,11 +2282,11 @@ En esta última sección recreamos la técnica del \emph{boostrap} o reseampleo 
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] 25.06 25.31 25.00 25.24 25.27 25.26 25.32 25.06 25.01 25.16 25.26 25.36
-## [13] 25.28 25.48 25.21 24.98 25.40 25.28 25.38 25.25 25.18 25.27 25.29 25.05
-## [25] 25.17 25.18 25.05 25.36 25.08 24.98 25.13 24.91 25.26 25.26 25.13 25.17
-## [37] 25.09 25.47 25.24 24.90 25.04 25.13 25.41 25.49 25.02 25.02 25.48 25.31
-## [49] 25.26 25.20
+##  [1] 25.19 25.25 25.23 25.04 25.35 25.42 25.36 25.01 25.37 25.44 25.24 25.17
+## [13] 25.40 25.23 25.25 25.49 25.18 25.10 25.22 24.87 24.90 25.09 25.40 25.03
+## [25] 25.02 25.31 25.16 25.31 25.34 25.32 25.08 25.62 25.28 25.48 25.08 25.23
+## [37] 25.35 25.47 25.31 25.25 25.28 25.27 25.58 25.14 25.31 25.42 25.41 25.24
+## [49] 25.32 24.73
 \end{verbatim}
 
 \begin{Shaded}
@@ -2188,7 +2302,7 @@ En esta última sección recreamos la técnica del \emph{boostrap} o reseampleo 
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 25.15862
+## [1] 25.20052
 \end{verbatim}
 
 \begin{Shaded}
@@ -2198,10 +2312,10 @@ En esta última sección recreamos la técnica del \emph{boostrap} o reseampleo 
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 25.24538
+## [1] 25.30108
 \end{verbatim}
 
-A modo de extensión es facil escribir una función que, tomando los resultados alojados en un vector y el intervalo de confianza deseado, nos devuelve directamente el cálculo del intervalo.
+A modo de extensión es fácil escribir una función que, tomando los resultados alojados en un vector y el intervalo de confianza deseado, nos devuelve directamente el cálculo del intervalo.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2227,7 +2341,7 @@ A modo de extensión es facil escribir una función que, tomando los resultados 
 
 \begin{verbatim}
 ##    lower    upper 
-## 25.16581 25.23819
+## 25.20885 25.29275
 \end{verbatim}
 
 \begin{Shaded}
@@ -2238,7 +2352,7 @@ A modo de extensión es facil escribir una función que, tomando los resultados 
 
 \begin{verbatim}
 ##    lower    upper 
-## 25.15862 25.24538
+## 25.20052 25.30108
 \end{verbatim}
 
 \begin{Shaded}
@@ -2249,14 +2363,14 @@ A modo de extensión es facil escribir una función que, tomando los resultados 
 
 \begin{verbatim}
 ##    lower    upper 
-## 25.14416 25.25984
+## 25.18375 25.31785
 \end{verbatim}
 
 \hypertarget{capuxedtulo-5}{%
 \chapter{Capítulo 5}\label{capuxedtulo-5}}
 
-\hypertarget{apuxe9ndices-del-libro-pobreza-y-desigualdad-en-r-3}{%
-\section*{Apéndices del Libro Pobreza y Desigualdad en R}\label{apuxe9ndices-del-libro-pobreza-y-desigualdad-en-r-3}}
+\hypertarget{pobreza-extensiones}{%
+\section*{Pobreza: extensiones}\label{pobreza-extensiones}}
 
 \hypertarget{escrito-por-cristian-bonavida-3}{%
 \subsubsection*{Escrito por: Cristian Bonavida}\label{escrito-por-cristian-bonavida-3}}
@@ -2320,8 +2434,7 @@ Nos asegurarnos de convertir los missings que puede contener la variable pondera
 \end{Highlighting}
 \end{Shaded}
 
-El bloque de código siguiente asigna a todos los miembros del hogar las variables que solo están definidas para el jefe de hogar. Como se trata de variables relacionadas con las características de la vivienda, típicamente se encuentran
-en las bases de datos de hogares y no de personas.
+El bloque de código siguiente asigna a todos los miembros del hogar las variables que solo están definidas para el jefe de hogar. Como se trata de variables relacionadas con las características de la vivienda, típicamente se encuentran en las bases de datos de hogares y no de personas.
 
 En STATA la solución se propone con un bucle. En este caso aplicamos la misma lógica pero nos valemos de la función \texttt{across} que nos permite realizar un mismo cálculo para un conjunto de columnas especificadas. Previamente debemos ordenar y agrupar las observaciones por id.
 
@@ -2797,7 +2910,7 @@ Esta información la guardamos en un objeto llamado ``store'', del cual nos inte
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-93-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-94-1.pdf}
 
 Una forma más directa de graficar los efectos marginales es a partir del comando \texttt{cplot} de la familia margins, que estima automaticamente estos mismos valores a partir de la estimación del modelo probit
 
