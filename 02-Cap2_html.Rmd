@@ -304,7 +304,7 @@ ggplot(mex06 %>% filter(region==1 | region==6),
 Una de las ventajas de estos histogramas suavizados es facilitar las comparaciones. Como puede verse, las dos distribuciones son claramente diferentes. La distribución del Sur está desplazada a la izquierda, lo que sugiere que en general los individuos de esa región tienen menores ingresos que en el Noroeste y por lo tanto una densidad mayor caerá por debajo de la línea de pobreza fijada en esa región.
 
 
-Por último, siguiendo la figura 2.6 y 2.8, se presenta un histograma suavizado junto con una distribución normal, con la diferencia de que aquí el histograma representa la densidad y no la frecuencia relativa. En R esta opción demanda algún ajuste extra en los ejes, que aquí a los fines didácticos se omite, pero que el lector podrá replicar fácilmente siguiendo la nota al pie.[^1]
+Por último, siguiendo la figura 2.6 y 2.8, se presenta un histograma suavizado junto con una distribución normal, con la diferencia de que aquí el histograma representa la densidad y no la frecuencia relativa. En R esta opción demanda algún ajuste extra en los ejes, que aquí a los fines didácticos se omite, pero que el lector podrá replicar fácilmente siguiendo la nota al pie.[^4]
 
 ```{r, include=TRUE, warning=FALSE, out.width = "80%"}
 
@@ -601,4 +601,4 @@ real está completamente por debajo del eje horizontal, denotando una pérdida d
 
 
 
-[^1]: Para explorar una posible manera de plotear histogramas de frecuencia relativa o absoluta junto con un densidad suavizada el lector encontrará util la [siguiente entrada](https://stackoverflow.com/questions/27611438/density-curve-overlay-on-histogram-where-vertical-axis-is-frequency-aka-count) de *stackoverflow*.
+[^4]: Para explorar una posible manera de plotear histogramas de frecuencia relativa o absoluta junto con un densidad suavizada el lector encontrará util la [siguiente entrada](https://stackoverflow.com/questions/27611438/density-curve-overlay-on-histogram-where-vertical-axis-is-frequency-aka-count) de *stackoverflow*.
