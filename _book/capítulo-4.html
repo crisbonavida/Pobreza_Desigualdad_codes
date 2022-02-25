@@ -21,9 +21,11 @@
   <meta name="twitter:description" content="Nos propusimos trasncribir al lenguaje R y Python los apéndices del libro Pobreza y Desigualdad en América Latina de Gasparini, Cicowiez y Sosa Escudero que originalmente fueron escritos para Stata." />
   <meta name="twitter:image" content="/portada_libro_cover.png" />
 
+<meta name="author" content="Bonavida, Cristian - CEDLAS" />
+<meta name="author" content="Laguinge, Luis - CEDLAS" />
+<meta name="author" content="Varvasino, Joaquín - CEDLAS" />
 
 
-<meta name="date" content="2022-02-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -612,11 +614,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb129-18"><a href="capítulo-4.html#cb129-18" aria-hidden="true" tabindex="-1"></a>   </span>
 <span id="cb129-19"><a href="capítulo-4.html#cb129-19" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="capítulo-4.html#cb130-1" aria-hidden="true" tabindex="-1"></a>store</span></code></pre></div>
-<pre><code>##  [1] 25.18 25.28 25.17 25.29 25.35 25.37 25.17 24.99 25.38 25.26 25.59 25.12
-## [13] 25.09 25.12 25.13 25.22 25.01 25.28 25.19 25.06 25.23 25.13 25.21 25.17
-## [25] 25.15 25.56 25.11 25.20 25.25 24.98 25.09 25.13 25.24 25.30 25.38 25.08
-## [37] 24.66 25.27 24.93 25.04 25.43 25.30 24.80 25.10 25.48 25.18 25.24 25.15
-## [49] 25.15 25.05</code></pre>
+<pre><code>##  [1] 25.30 25.08 25.40 24.95 25.30 25.08 25.15 25.44 24.89 24.99 25.32 25.30
+## [13] 25.15 25.23 25.05 25.08 25.01 25.23 25.22 25.22 25.11 25.30 25.51 25.20
+## [25] 25.24 25.11 25.02 25.44 25.28 25.26 25.26 24.90 25.26 25.11 25.34 25.19
+## [37] 25.20 25.12 25.43 24.90 25.22 25.45 25.12 25.31 25.09 25.43 25.33 25.16
+## [49] 25.16 25.11</code></pre>
 <div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="capítulo-4.html#cb132-1" aria-hidden="true" tabindex="-1"></a>sd<span class="ot">=</span><span class="fu">sd</span>(store)</span>
 <span id="cb132-2"><a href="capítulo-4.html#cb132-2" aria-hidden="true" tabindex="-1"></a>mean<span class="ot">=</span><span class="fu">mean</span>(store)</span>
 <span id="cb132-3"><a href="capítulo-4.html#cb132-3" aria-hidden="true" tabindex="-1"></a>n<span class="ot">=</span><span class="fu">length</span>(store)</span>
@@ -624,9 +626,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb132-5"><a href="capítulo-4.html#cb132-5" aria-hidden="true" tabindex="-1"></a><span class="co">#con intervalo de confianza del 95%</span></span>
 <span id="cb132-6"><a href="capítulo-4.html#cb132-6" aria-hidden="true" tabindex="-1"></a>error <span class="ot">&lt;-</span> <span class="fu">qt</span>(<span class="fl">0.975</span>,<span class="at">df=</span>n<span class="dv">-1</span>)<span class="sc">*</span>sd<span class="sc">/</span><span class="fu">sqrt</span>(n)</span>
 <span id="cb132-7"><a href="capítulo-4.html#cb132-7" aria-hidden="true" tabindex="-1"></a>left <span class="ot">&lt;-</span> mean <span class="sc">-</span> error; left</span></code></pre></div>
-<pre><code>## [1] 25.13693</code></pre>
+<pre><code>## [1] 25.1559</code></pre>
 <div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="capítulo-4.html#cb134-1" aria-hidden="true" tabindex="-1"></a>right <span class="ot">&lt;-</span> mean <span class="sc">+</span> error; right</span></code></pre></div>
-<pre><code>## [1] 25.23267</code></pre>
+<pre><code>## [1] 25.2421</code></pre>
 <p>A modo de extensión es fácil escribir una función que, tomando los resultados alojados en un vector y el intervalo de confianza deseado, nos devuelve directamente el cálculo del intervalo.</p>
 <div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="capítulo-4.html#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="co">#también es posible hacer un función para calcular los intervalos de confianza</span></span>
 <span id="cb136-2"><a href="capítulo-4.html#cb136-2" aria-hidden="true" tabindex="-1"></a>ci <span class="ot">&lt;-</span> <span class="cf">function</span>(vector, intervalo){</span>
@@ -641,13 +643,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb136-11"><a href="capítulo-4.html#cb136-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="capítulo-4.html#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ci</span>(store, <span class="fl">0.90</span>)</span></code></pre></div>
 <pre><code>##    lower    upper 
-## 25.14486 25.22474</code></pre>
+## 25.16304 25.23496</code></pre>
 <div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="capítulo-4.html#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ci</span>(store, <span class="fl">0.95</span>)</span></code></pre></div>
-<pre><code>##    lower    upper 
-## 25.13693 25.23267</code></pre>
+<pre><code>##   lower   upper 
+## 25.1559 25.2421</code></pre>
 <div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="capítulo-4.html#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ci</span>(store, <span class="fl">0.99</span>)</span></code></pre></div>
 <pre><code>##    lower    upper 
-## 25.12096 25.24864</code></pre>
+## 25.14153 25.25647</code></pre>
 
 </div>
 </div>

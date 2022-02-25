@@ -21,9 +21,11 @@
   <meta name="twitter:description" content="Nos propusimos trasncribir al lenguaje R y Python los apéndices del libro Pobreza y Desigualdad en América Latina de Gasparini, Cicowiez y Sosa Escudero que originalmente fueron escritos para Stata." />
   <meta name="twitter:image" content="/portada_libro_cover.png" />
 
+<meta name="author" content="Bonavida, Cristian - CEDLAS" />
+<meta name="author" content="Laguinge, Luis - CEDLAS" />
+<meta name="author" content="Varvasino, Joaquín - CEDLAS" />
 
 
-<meta name="date" content="2022-02-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -212,29 +214,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="header">
 <h1 class="title">Apéndices del Libro Pobreza y Desigualdad en R</h1>
-<p class="date"><em>2022-02-21</em></p>
+<p class="author"><em>Bonavida, Cristian - CEDLAS<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></em></p>
+<p class="author"><em>Laguinge, Luis - CEDLAS<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></em></p>
+<p class="author"><em>Varvasino, Joaquín - CEDLAS<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></em></p>
 </div>
 <div id="bienvenidos" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Bienvenidos</h1>
 <div id="sobre-este-proyecto" class="section level2 unnumbered">
 <h2>Sobre este Proyecto:</h2>
 <p>Nos propusimos trasncribir al lenguaje R y Python los apéndices del libro “Pobreza y Desigualdad en América Latina” de Gasparini, Cicowiez y Sosa Escudero que originalmente fueron escritos para Stata y que permitían replicar los datos e información presentados por los autores en el texto. Cada capítulo consta de un apéndice con códigos que permiten llevar a la práctica los conceptos desarrollados. Aquí <strong>los traducimos a nuevos lenguajes y los presentamos en un formato amigable para permitir que un público más amplio y de diversas disciplinas pueda aprovecharlos</strong>.</p>
-<p>El objetivo de este mini-proyecto no es otro que poner a disposición de un público más amplio estas herramientas útiles y mantener actualizado un material único que permite adentrarse y trabajar sobre la temática de pobreza y desigualdad. Es por eso que este material es de carácter complementario a las explicaciones y detalles conceptuales que se presentan en el libro de texto y los apéndices.</p>
+<p>El objetivo de este mini-proyecto no es otro que poner a disposición de un público más amplio estas herramientas útiles y mantener actualizado un material único, que ayuda a adentrarse y trabajar sobre la temática de pobreza y desigualdad. Es por eso que este material es de carácter complementario a las explicaciones y detalles conceptuales que se presentan en el libro de texto y los apéndices.</p>
 </div>
 <div id="el-libro" class="section level2 unnumbered">
 <h2>El Libro</h2>
 <p>Si esta es la primera vez que te encontrás con este libro, antes de empezar con los códigos, dejanos presentartelo.</p>
-<p>El propósito del libro es ayudar al lector interesado en América Latina a que recorra el arduo camino entre los datos y el reporte de resultados rigurosos que puedan contribuir al debate sobre la pobreza y la desigualdad en America Latina. El volumen poner al alcance del lector un conjunto de instrumentos que lo motiven hacia la investigación empírica, y que le permitan producir resultados de la manera más rigurosa posible, para así contribuir a los objetivos últimos de explicar y cambiar la realidad social de la región. Las discusiones conceptuales y analíticas son ilustradas con ejemplos concretos construidos con datos de los países de la región.</p>
+<p>El propósito del libro es ayudar al lector interesado en América Latina a que recorra el arduo camino entre los datos y el reporte de resultados rigurosos que puedan contribuir al debate sobre la pobreza y la desigualdad en la región. El volumen busca poner al alcance del lector un conjunto de instrumentos que lo motiven hacia la investigación empírica, y que le permitan producir resultados de la manera más rigurosa posible, para así contribuir a los objetivos últimos de explicar y cambiar la realidad social de la región. Las discusiones conceptuales y analíticas son ilustradas con ejemplos concretos construidos con datos de los países de la región.</p>
 <p><img src="portada_libro.png" width="60%" style="display: block; margin: auto;" /></p>
-<p>Una enorme ventaja de este trabajo es que se encuentra disponible para todos, ya que se lo puede descargar gratuitamente desde el la <a href="https://www.cedlas.econo.unlp.edu.ar/wp/publicaciones/libros/pobreza-y-desigualdad-en-america-latina/">página del libro</a>. Te invitamos a que puedas recorrerlo, leerlo y dedicarle varios minutos antes de adentrarte en estos códigos.</p>
+<p>Una enorme ventaja de este trabajo es que se encuentra disponible para todos, ya que se lo puede descargar gratuitamente desde el la <a href="https://www.cedlas.econo.unlp.edu.ar/wp/publicaciones/libros/pobreza-y-desigualdad-en-america-latina/">página del libro</a>. Te invitamos a que puedas recorrerlo, leerlo y dedicarle varios minutos antes de adentrarte en las próximas secciones.</p>
 </div>
 <div id="cómo-aprovechar-este-material" class="section level2 unnumbered">
 <h2>Cómo aprovechar este material</h2>
-<p>Un punto importante es que estos códigos que te presentamos están atados a los contenidos y explicaciones que se desarrollan a lo largo de los capítulos del libro. Por eso notarás que los códigos no son autocontenidos al 100%, es decir si bien refuerzan las ideas principales detrás de cada indicador, de cada gráfico o cada estimación, y están acompañados de instrucciones generales, no cubren en profundidad los conceptos teóricos e incluso prácticos detrás de su uso. Por es que decimos que <strong>este material es de carácter complementario a las explicaciones y detalles conceptuales que se presentan en el libro de texto y los apéndices</strong>. Para aprovecharlas al máximo te recomendamos tener abierta junto con la pestaña de R o Python, el pdf del libro de texto para ir siguiendo capitulo a capitulo los contenidos. De esta forma no solo será posible replicar las estimaciones sino también comprenderlas y saber entender qué nos dicen y que no nos dicen.</p>
+<p>Un punto importante es que estos códigos que te presentamos están atados a los contenidos y explicaciones que se desarrollan a lo largo de los capítulos del libro. Por eso notarás que los códigos no son autocontenidos al 100%, es decir si bien refuerzan las ideas principales detrás de cada indicador, de cada gráfico o cada estimación, y están acompañados de instrucciones generales, no cubren en profundidad los conceptos teóricos e incluso prácticos detrás de su uso. Por es que decimos que <strong>este material es de carácter complementario a las explicaciones y detalles conceptuales que se presentan en el libro de texto y los apéndices</strong>. Para aprovecharlas al máximo te recomendamos tener abierta junto con la pestaña de R o Python, el pdf del libro de texto para ir siguiendo capitulo a capitulo los contenidos. De esta forma no solo será posible replicar las estimaciones sino también comprenderlas y saber entender qué nos dicen y qué no nos dicen.</p>
 </div>
 <div id="qué-es-y-qué-no-es" class="section level2 unnumbered">
 <h2>Qué es y qué no es</h2>
-<p>Es importante setear las expectativas desde el principio. En estos códigos vas a encontrar mucha información y muchos temas a cubrir, mientras que otros nos quedarán para una próxima entrega. En este sentido, este material <strong>no busca ser una guía exhaustiva a modo de tutorial para iniciarse en el lenguaje de programación</strong>. El propósito será seguir los códigos presentados en los apéndices del libro con la misma estructura temática y con el objetivo de facilitar nuevas herramientas al usuario en base a los que ya fue escrito. Por lo que si bien el material es útil para entrenarse en este lenguaje, es más bien un proyecto que permite expandir sobre conocimientos y nociones previas. Es por eso que se recomienda que el lector ya esté algo familiarizado con la sintaxis y el programa. Si no este no es tu caso, no te preocupes!, te vamos a dejar a continuación varias referencias para que puedas entrar en calor y ponerte a punto antes de empezar.</p>
+<p>Es importante fijar las expectativas desde el principio. En estos códigos vas a encontrar mucha información y muchos temas a cubrir, mientras que otros nos quedarán para una próxima entrega. En este sentido, este material <strong>no busca ser una guía exhaustiva a modo de tutorial para iniciarse en el lenguaje de programación</strong>. El propósito será seguir los códigos presentados en los apéndices del libro con la misma estructura temática y con el objetivo de facilitar nuevas herramientas al usuario en base a los que ya fue escrito. Por lo que si bien el material es útil para entrenarse en este lenguaje, es más bien un proyecto que permite expandir sobre conocimientos y nociones previas. Es por eso que se recomienda que el lector ya esté algo familiarizado con la sintaxis y el programa. Si no este no es tu caso, no te preocupes!, te vamos a dejar a continuación varias referencias para que puedas entrar en calor y ponerte a punto antes de empezar.</p>
 <ul>
 <li><p>Tutoriales para inciarse en R</p>
 <ul>
@@ -250,8 +254,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="qué-necesitamos-antes-de-arrancar" class="section level2 unnumbered">
 <h2>Qué necesitamos antes de arrancar</h2>
 <p>Para poder seguir los códigos que te presentamos vas a necesitar descargarte (o al menos tener acceso) a las bases de datos sobre las que iremos trabajando. Estas bases de datos son las encuestas que desarrolla cada país y que el CEDLAS sistematiza para ofrecerlas en un formato usable para los investigadores. En el siguiente <a href="https://www.cedlas.econo.unlp.edu.ar/wp/publicaciones/libros/pobreza-y-desigualdad-en-america-latina/#1505501369949-15c93bca-b4f8">link</a> encontrarás el repositorio.</p>
+<p>
+ 
+</p>
 
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Para explorar una posible manera de plotear histogramas de frecuencia relativa o absoluta junto con un densidad suavizada el lector encontrará util la <a href="https://stackoverflow.com/questions/27611438/density-curve-overlay-on-histogram-where-vertical-axis-is-frequency-aka-count">siguiente entrada</a> de <em>stackoverflow</em>.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Para los usuarios que no esten tan familiarizados con las nociones de <em>Environment</em> y <em>Non-Standard Evaluation</em> se recomienda revisar las siguientes referencias para un tratamiento mas detallado.</p>
+<p>*<a href="http://adv-r.had.co.nz/Environments.html#environments" class="uri">http://adv-r.had.co.nz/Environments.html#environments</a></p>
+<p>*<a href="http://adv-r.had.co.nz/Computing-on-the-language.html" class="uri">http://adv-r.had.co.nz/Computing-on-the-language.html</a></p>
+<p>*<a href="https://advanced-r-solutions-ed1.netlify.app/non-standard-evaluation.html#non-standard-evaluation-in-subse" class="uri">https://advanced-r-solutions-ed1.netlify.app/non-standard-evaluation.html#non-standard-evaluation-in-subse</a><a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p><strong>Joaquín</strong> estudió la Licenciatura y la Maestría en Economía (UNLP). Actualmente trabaja como investigador en CEDLAS en temas de desigualdad y mercado laboral. Para entrar en contacto podes escribirle a <a href="mailto:joaquinvarvasino@hotmail.com" class="email">joaquinvarvasino@hotmail.com</a>. Para conocer más de Joaquín, sus proyectos y publicaciones podes visitar su perfil en <a href="https://twitter.com/mynameisjoaco">twitter</a> o <a href="https://www.linkedin.com/in/joaquin-varvasino-826819135/">linkedin</a><a href="#fnref3" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 

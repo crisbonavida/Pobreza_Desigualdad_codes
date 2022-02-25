@@ -1,0 +1,43 @@
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.7.2)  25 FEB 2022 14:27
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**_main.tex
+(./_main.tex
+LaTeX2e <2021-06-01> patch level 1
+L3 programming layer <2021-06-18> (c:/Users/HP/AppData/Roaming/TinyTeX/texmf-di
+st/tex/latex/base/book.cls
+Document Class: book 2021/02/12 v1.4n Standard LaTeX document class
+(c:/Users/HP/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/bk10.clo
+File: bk10.clo 2021/02/12 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count178
+\c@chapter=\count179
+\c@section=\count180
+\c@subsection=\count181
+\c@subsubsection=\count182
+\c@paragraph=\count183
+\c@subparagraph=\count184
+\c@figure=\count185
+\c@table=\count186
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen138
+)
+Runaway argument?
+{Bonavida, Cristian - CEDLAS\footnote {Para explorar una posible mane\ETC.
+! Paragraph ended before \author  was complete.
+<to be read again> 
+                   \par 
+l.9 
+     
+Here is how much of TeX's memory you used:
+ 248 strings out of 478451
+ 2951 string characters out of 5856875
+ 297925 words of memory out of 5000000
+ 20682 multiletter control sequences out of 15000+600000
+ 403438 words of font info for 28 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 33i,0n,41p,626b,40s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+No pages of output.

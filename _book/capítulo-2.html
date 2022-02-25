@@ -21,9 +21,11 @@
   <meta name="twitter:description" content="Nos propusimos trasncribir al lenguaje R y Python los apéndices del libro Pobreza y Desigualdad en América Latina de Gasparini, Cicowiez y Sosa Escudero que originalmente fueron escritos para Stata." />
   <meta name="twitter:image" content="/portada_libro_cover.png" />
 
+<meta name="author" content="Bonavida, Cristian - CEDLAS" />
+<meta name="author" content="Laguinge, Luis - CEDLAS" />
+<meta name="author" content="Varvasino, Joaquín - CEDLAS" />
 
 
-<meta name="date" content="2022-02-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -435,14 +437,14 @@ Lo mismo ocurre para la mediana, el primer y el tercer cuartil de la distribuci�
 <span id="cb38-9"><a href="capítulo-2.html#cb38-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">&quot;densidad&quot;</span>, <span class="at">x=</span><span class="st">&quot;logaritmo del ingreso per c?pita familiar&quot;</span>) </span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-20-1.png" width="80%" /></p>
 <p>Una de las ventajas de estos histogramas suavizados es facilitar las comparaciones. Como puede verse, las dos distribuciones son claramente diferentes. La distribución del Sur está desplazada a la izquierda, lo que sugiere que en general los individuos de esa región tienen menores ingresos que en el Noroeste y por lo tanto una densidad mayor caerá por debajo de la línea de pobreza fijada en esa región.</p>
-<p>Por último, siguiendo la figura 2.6 y 2.8, se presenta un histograma suavizado junto con una distribución normal, con la diferencia de que aquí el histograma representa la densidad y no la frecuencia relativa. En R esta opción demanda algún ajuste extra en los ejes, que aquí a los fines didácticos se omite, pero que el lector podrá replicar fácilmente siguiendo la nota al pie.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+<p>Por último, siguiendo la figura 2.6 y 2.8, se presenta un histograma suavizado junto con una distribución normal, con la diferencia de que aquí el histograma representa la densidad y no la frecuencia relativa. En R esta opción demanda algún ajuste extra en los ejes, que aquí a los fines didácticos se omite, pero que el lector podrá replicar fácilmente siguiendo la nota al pie.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></p>
 <div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="capítulo-2.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Figura 2.6/2.8 - histograma logaritmo ipcf suavizado</span></span>
 <span id="cb39-2"><a href="capítulo-2.html#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mex06, </span>
 <span id="cb39-3"><a href="capítulo-2.html#cb39-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">log</span>(ipcf), <span class="at">weight=</span>pondera)) <span class="sc">+</span> </span>
 <span id="cb39-4"><a href="capítulo-2.html#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">100</span>, <span class="fu">aes</span>(<span class="at">y =</span> ..density..), </span>
 <span id="cb39-5"><a href="capítulo-2.html#cb39-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">color=</span><span class="st">&quot;black&quot;</span>, <span class="at">fill=</span><span class="st">&quot;gray&quot;</span>)  <span class="sc">+</span></span>
 <span id="cb39-6"><a href="capítulo-2.html#cb39-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">kernel=</span><span class="st">&quot;gaussian&quot;</span>, <span class="at">color=</span><span class="st">&quot;blue3&quot;</span>, <span class="at">size=</span><span class="fl">0.7</span>) <span class="sc">+</span>  </span>
-<span id="cb39-7"><a href="capítulo-2.html#cb39-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">&quot;proporcion&quot;</span>, <span class="at">x=</span><span class="st">&quot;logaritmo del ingreso per capita familiar&quot;</span>)</span></code></pre></div>
+<span id="cb39-7"><a href="capítulo-2.html#cb39-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">&quot;densidad&quot;</span>, <span class="at">x=</span><span class="st">&quot;logaritmo del ingreso per capita familiar&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-21-1.png" width="80%" /></p>
 </div>
 <div id="función-de-distribución" class="section level2" number="2.3">
@@ -660,8 +662,8 @@ real está completamente por debajo del eje horizontal, denotando una pérdida d
 </div>
 <div class="footnotes">
 <hr />
-<ol start="1">
-<li id="fn1"><p>Para explorar una posible manera de plotear histogramas de frecuencia relativa o absoluta junto con un densidad suavizada el lector encontrará util la <a href="https://stackoverflow.com/questions/27611438/density-curve-overlay-on-histogram-where-vertical-axis-is-frequency-aka-count">siguiente entrada</a> de <em>stackoverflow</em>.<a href="capítulo-2.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<ol start="4">
+<li id="fn4"><p>Para explorar una posible manera de plotear histogramas de frecuencia relativa o absoluta junto con un densidad suavizada el lector encontrará util la <a href="https://stackoverflow.com/questions/27611438/density-curve-overlay-on-histogram-where-vertical-axis-is-frequency-aka-count">siguiente entrada</a> de <em>stackoverflow</em>.<a href="capítulo-2.html#fnref4" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

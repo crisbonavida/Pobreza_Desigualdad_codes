@@ -314,7 +314,7 @@ ggplot(mex06,
   geom_histogram(bins = 100, aes(y = ..density..), 
                  color="black", fill="gray")  +
   geom_density(kernel="gaussian", color="blue3", size=0.7) +  
-  labs(y="proporcion", x="logaritmo del ingreso per capita familiar")
+  labs(y="densidad", x="logaritmo del ingreso per capita familiar")
 
 
 ```
